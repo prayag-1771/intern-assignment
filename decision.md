@@ -92,12 +92,16 @@ Options are ranked by accuracy first, then whether the approach scales, then bui
 | 6 | Word overlap only (normalised text, shared-word runs, ROUGE-L) | Catches copies and light edits for free. Used by [Self-Instruct](https://arxiv.org/abs/2212.10560) and the [Prometric patent](https://patents.google.com/patent/US20220415203A1/en). | Misses paraphrases, which the prompt requires. Useful only as the first layer. |
 | 7 | Train our own classifier | Highest scores on the Quora benchmark come from trained models. | Needs hundreds of thousands of labelled pairs. We have ten questions and four days. |
 
-**Chosen:** option 2, with option 1's tag route added only if measurement shows the search stage missing duplicates.
+**Chosen:** option 1, the two-route design, built in two steps: the one-route detector first, then the concept-tag route.
 
-**Why:** option 2 is option 1 minus the tags, so nothing is thrown away if the tags are added later. On the given test data every true duplicate scores 0.97 or higher, so the tag route would add work without changing any result. Measuring first and adding complexity only when the numbers call for it keeps the build inside the time available.
+**Why:** it is the most complete design and the only one that covers duplicates worded very differently, which the prompt names ("effectively equivalent" questions). Building the one-route detector first means there is always a working, tested detector even if time runs short. The same tags can also feed the coverage summary for generation (D8), so the extra work is shared.
+
+**Revision note:** the first choice on 2026-10-11 was option 2, with the tag route added only if measurements showed the search missing duplicates. It was changed the same day for three reasons. That trigger depends on the test set containing hard cases, and the ten given questions contain none, so the weakness would have stayed hidden. The prompt asks for differently-worded equivalents by name. And the tagging cost is shared with the generation side.
 
 **Rules this decision sets for the build:**
 
+- The labelled test set must include hard pairs that the ten given questions lack: equivalent questions worded very differently, and similar-looking questions that test different things.
+- The search stage is reported with and without the tag route, so the value of the second route is measured and not assumed.
 - The search stage is measured on its own: how many known duplicates appear among the nearest few.
 - Cut-offs are calibrated on labelled pairs, not picked by eye, and a "needs review" band is kept.
 - The judge works from a written definition of "duplicate" with worked examples, and returns a label, a short reason and a confidence.
@@ -135,4 +139,4 @@ Options are ranked by accuracy first, then whether the approach scales, then bui
 
 - **D6.** Where the embeddings come from: a model run locally, or an online service.
 - **D7.** Which LLM generates the questions and which one judges.
-- **D8.** How the coverage summary is built: by grouping embeddings, or by LLM-written concept tags.
+- **D8.** How the coverage summary is built: by grouping embeddings, by the concept tags that D4 now provides, or both.

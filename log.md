@@ -117,7 +117,14 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - D4 also sets five build rules: measure the search stage on its own, calibrate cut-offs on labelled pairs, give the judge a written definition, fix the judge model, and report found-and-correct counts instead of one accuracy number.
 - Commit: `Record detection and generation decisions`.
 
+### Question 2: detection decision revised
+
+- **Decision (D4, revised):** the detector uses two search routes from the start: the embedding search plus a concept-tag search, then the LLM judge. It is built in two steps, the one-route detector first and the tag route second, and results are reported with and without the tag route.
+- Reason for the change: the earlier plan (add tags only if measurements showed misses) relied on the test set containing hard cases, and the ten given questions contain none. The prompt also names "effectively equivalent" questions, and the tags can be shared with the generation side.
+- Two build rules were added to D4: the labelled test set must include hard pairs, and the search stage is reported with and without the tag route.
+- Commit: `Revise detection decision to two search routes`.
+
 ### Open
 
-- Next decision (D6): where the embeddings come from (a model run locally, or an online service). Then D7 (which LLMs) and D8 (how the coverage summary is built).
+- Next decision (D6): where the embeddings come from (a model run locally, or an online service). Then D7 (which LLMs) and D8 (how the coverage summary is built, now that concept tags will exist).
 - No project code has been written yet, and nothing has been pushed.
