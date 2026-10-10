@@ -47,7 +47,71 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - From now on each new decision is added there in full, with a one-line note here.
 - Commit: `Add decision record`.
 
+### Question 2: research into available approaches
+
+- Searched research papers, patents, competition results and deployed systems for ways to (a) detect duplicate questions and (b) stop an LLM from generating them. The 36 sources relied on are listed below. No code was written.
+- Finding 1: every field with this problem (exam item banks, record matching, LLM answer caches, retrieval competitions) uses the same shape: a cheap wide search, then a careful judge on the few survivors. This supports decision D3.
+- Finding 2: the search stage can miss real duplicates before the judge sees them. A deployed exam system found 96.2% of known duplicate pairs on one exam and 47.3% on another with the same pipeline (Ma 2026). The search stage has to be measured separately, and a second way of finding candidates (concept tags) is the known fix.
+- Finding 3: one fixed similarity cut-off gives unpredictable error rates (vCache). Published pipelines use anything from 0.85 to 0.99. Cut-offs must be calibrated on labelled pairs, with a review band kept.
+- Finding 4: for the LLM judge, the written definition and examples matter more than the model. In Ma 2026 a model change cut recall from 0.75 to 0.54 and a prompt rewrite raised it to 0.82. Four human experts on the same pairs ranged from 0.70 to 0.91 recall, so "needs review" is a legitimate third answer.
+- Finding 5: when generating, filtering afterwards is not enough alone. Lingo and Chhajer 2026 report that deduplication and rebuilding the prompt from memory are "individually insufficient but jointly effective"; on exam questions their repeat rate fell from 34.0% to 0.0%.
+- Not obtained: the first-place write-up of Kaggle's Quora Question Pairs competition would not load, so it is not relied on.
+- Depth of reading: the full text was consulted for Ma 2026, Lingo and Chhajer 2026, Islam et al. 2026, Manem et al. 2025, Wang et al. 2023 (Self-Instruct), Kuhn et al. 2023 and Guo et al. (League of LLMs). The other papers were checked at abstract level, the patents on their Google Patents pages, and Becker and Kao 2022 only as cited in Ma 2026. Anything quoted in the final write-up from an abstract-level source should be re-checked against the full paper first.
+- Commit: `Log Question 2 research and sources`.
+
+#### Sources: duplicate detection in exam and question banks
+
+- Ye Ma. "From Validation to Resilience: Sustaining Measurement Quality in AI-Assisted Enemy Item Identification." Proceedings of the Artificial Intelligence in Measurement and Education Conference (AIME-Con), Volume 3: Coordinated Session Papers, pages 76–81, 2026. https://aclanthology.org/2026.aimecon-sessions.9.pdf
+- Kirk A. Becker and Shu-Chuan Kao. "Identifying enemy item pairs using natural language processing." Journal of Applied Testing Technology, 23:41–52, 2022. (not read; known only as cited and described in Ma 2026)
+- Jing Huang, Jihong Zhang, Hua-Hua Chang. "A Dual-Dimensional LLM Framework for Automated Item Incidental Content Similarity Analysis in Large-Scale Assessments." arXiv:2608.24825, 2026. https://arxiv.org/abs/2608.24825
+- Yubo Shu, Hansu Gu, Peng Zhang, Tun Lu, Ning Gu. "An Intent-based and Annotation-free Method for Duplicate Question Detection in CQA Forums." Findings of the Association for Computational Linguistics: EMNLP 2023, pages 8889–8899. https://aclanthology.org/2023.findings-emnlp.596/
+- Maksimjeet Chowdhary, Sanyam Goyal, Venktesh V, Mukesh Mohania, Vikram Goyal. "Unsupervised Question Duplicate and Related Questions Detection in e-learning platforms." WSDM 2023 demo paper; arXiv:2301.05150. https://arxiv.org/abs/2301.05150
+
+#### Sources: patents
+
+- US 10,741,093 B2. "Automated determination of degree of item similarity in the generation of digitized examinations." ACT; inventor Richard Meisner; granted 2020-08-11. https://patents.google.com/patent/US10741093B2/en
+- US 12,548,459 B1. "System and method for preparing practice tests using machine learning models." Quizlet Inc; inventors Tingting Lin and Derrick Bonafilia; granted 2026-02-10. https://patents.google.com/patent/US12548459B1/en
+- US 12,277,870 B2 (published as US 2022/0415203 A1). "Interface to natural language generator for generation of knowledge assessment items." Prometric LLC; granted 2025-04-15. https://patents.google.com/patent/US20220415203A1/en
+
+#### Sources: detection methods in general
+
+- Sentence Transformers documentation, "Retrieve & Re-Rank." https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html
+- Sentence Transformers documentation, "Paraphrase Mining." https://sbert.net/examples/sentence_transformer/applications/paraphrase-mining/README.html
+- Model card, `cross-encoder/quora-roberta-large` (trained on the Quora Duplicate Questions dataset). https://huggingface.co/cross-encoder/quora-roberta-large
+- Model card, `microsoft/deberta-v2-xlarge` (results table: DeBERTa-V2-XXLarge reaches 92.7 accuracy / 90.3 F1 on the Quora Question Pairs development set). https://huggingface.co/microsoft/deberta-v2-xlarge
+- Yuan Zhang, Jason Baldridge, Luheng He. "PAWS: Paraphrase Adversaries from Word Scrambling." NAACL 2019. https://aclanthology.org/N19-1131/
+- Qihuang Zhong, Liang Ding, Juhua Liu, Bo Du, Dacheng Tao. "Can ChatGPT Understand Too? A Comparative Study on ChatGPT and Fine-tuned BERT." arXiv:2302.10198, 2023. https://arxiv.org/abs/2302.10198
+- Ralph Peeters, Aaron Steiner, Christian Bizer. "Entity Matching using Large Language Models." Proceedings of the 28th International Conference on Extending Database Technology (EDBT), 2025; arXiv:2310.11244. https://arxiv.org/abs/2310.11244
+- Tianshu Wang, Xiaoyang Chen, Hongyu Lin, Xuanang Chen, Xianpei Han, Hao Wang, Zhenyu Zeng, Le Sun. "Match, Compare, or Select? An Investigation of Large Language Models for Entity Matching." COLING 2025; arXiv:2405.16884. https://arxiv.org/abs/2405.16884
+- Lingjiao Chen, Matei Zaharia, James Zou. "FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance." arXiv:2305.05176, 2023. https://arxiv.org/abs/2305.05176
+- Luis Gaspar Schroeder, Aditya Desai, Alejandro Cuadron, Kyle Chu, Shu Liu, Mark Zhao, Stephan Krusche, Alfons Kemper, Matei Zaharia, Joseph E. Gonzalez. "vCache: Verified Semantic Prompt Caching." ICLR 2026; arXiv:2502.03771. https://arxiv.org/abs/2502.03771
+- Asmit Kumar Singh, Haozhe Wang, Laxmi Naga Santosh Attaluri, Tak Chiam, Weihua Zhu. "Asynchronous Verified Semantic Caching for Tiered LLM Architectures." arXiv:2602.13165, 2026. https://arxiv.org/abs/2602.13165
+- Lorenz Kuhn, Yarin Gal, Sebastian Farquhar. "Semantic Uncertainty: Linguistic Invariances for Uncertainty Estimation in Natural Language Generation." ICLR 2023; arXiv:2302.09664. https://arxiv.org/abs/2302.09664
+- Amro Abbas, Kushal Tirumala, Dániel Simig, Surya Ganguli, Ari S. Morcos. "SemDeDup: Data-efficient learning at web-scale through semantic deduplication." arXiv:2303.09540, 2023. https://arxiv.org/abs/2303.09540
+- SemHash, an open-source semantic deduplication library by MinishLab. https://minish.ai/packages/semhash
+- FAISS wiki, "Guidelines to choose an index." https://github.com/facebookresearch/faiss/wiki/Guidelines-to-choose-an-index
+- Eedi, "From Wrong Answers to Real Insights: How We Used a Kaggle Challenge to Map Student Misconceptions" (the host's summary of the winning solutions of the Kaggle competition "Eedi - Mining Misconceptions in Mathematics"). https://www.eedi.com/news/from-wrong-answers-to-real-insights-how-we-used-a-kaggle-challenge-to-map-student-misconceptions
+
+#### Sources: avoiding duplicates during generation
+
+- Ryan Lingo, Rajeev Chhajer. "Dynamic Context Evolution for Scalable Synthetic Data Generation." arXiv:2604.07147, 2026. https://arxiv.org/abs/2604.07147
+- Mohammed Saidul Islam, Negin Baghbanzadeh, Farnaz Kohankhaki, Afshin Cheraghi, Ali Kore, Shayaan Mehdi, Elham Dolatabadi, Arash Afkanpour. "Fine-Grained Benchmark Generation for Comprehensive Evaluation of Foundation Models." arXiv:2605.18824, 2026. https://arxiv.org/abs/2605.18824
+- Chaitanya Manem, Pratik Prabhanjan Brahma, Prakamya Mishra, Zicheng Liu, Emad Barsoum. "SAND-Math: Using LLMs to Generate Novel, Difficult and Useful Mathematics Questions and Answers." MATH-AI workshop at NeurIPS 2025; arXiv:2507.20527. https://arxiv.org/abs/2507.20527
+- Yizhong Wang, Yeganeh Kordi, Swaroop Mishra, Alisa Liu, Noah A. Smith, Daniel Khashabi, Hannaneh Hajishirzi. "Self-Instruct: Aligning Language Models with Self-Generated Instructions." ACL 2023; arXiv:2212.10560. https://arxiv.org/abs/2212.10560
+- Qianhong Guo, Wei Xie, Xiaofang Cai, Enze Wang, Shuoyoucheng Ma, Xiaobing Sun, Tian Xia, Kai Chen, Xiaofeng Wang, Baosheng Wang. "League of LLMs: A Benchmark-Free Paradigm for Mutual Evaluation of Large Language Models." arXiv:2507.22359. https://arxiv.org/abs/2507.22359
+- Jiayi Zhang, Simon Yu, Derek Chong, Anthony Sicilia, Michael R. Tomz, Christopher D. Manning, Weiyan Shi. "Verbalized Sampling: How to Mitigate Mode Collapse and Unlock LLM Diversity." arXiv:2510.01171. https://arxiv.org/abs/2510.01171
+- Yue Yu, Yuchen Zhuang, Jieyu Zhang, Yu Meng, Alexander Ratner, Ranjay Krishna, Jiaming Shen, Chao Zhang. "Large Language Model as Attributed Training Data Generator: A Tale of Diversity and Bias." NeurIPS 2023 Datasets and Benchmarks Track; arXiv:2306.15895. https://arxiv.org/abs/2306.15895
+- Steven Moore, Robin Schmucker, Tom Mitchell, John Stamper. "Automated Generation and Tagging of Knowledge Components from Multiple-Choice Questions." Learning @ Scale 2024; arXiv:2405.20526. https://arxiv.org/abs/2405.20526
+
+#### Sources: models and services we could use
+
+- Model card, `Qwen/Qwen3-Embedding-0.6B` (includes a benchmark table comparing embedding models). https://huggingface.co/Qwen/Qwen3-Embedding-0.6B
+- Model card, `google/embeddinggemma-300m`. https://huggingface.co/google/embeddinggemma-300m
+- Gemini API documentation, "Embeddings." https://ai.google.dev/gemini-api/docs/embeddings
+- Groq documentation, "Models." https://console.groq.com/docs/models
+
 ### Open
 
-- Next decision (D4): where the embeddings come from (a model run locally, or an online service).
+- Decisions waiting on the research above: the detection design in detail, and the generation approach.
+- After those: where the embeddings come from (a model run locally, or an online service).
 - No project code has been written yet, and nothing has been pushed.
