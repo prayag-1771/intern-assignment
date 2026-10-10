@@ -124,7 +124,30 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Two build rules were added to D4: the labelled test set must include hard pairs, and the search stage is reported with and without the tag route.
 - Commit: `Revise detection decision to two search routes`.
 
+### Question 2: build started
+
+- Go-ahead given to start building, with every decision still put to the user first.
+- Created one folder per question: `q2-duplicate-questions/` for this work and `q1-image-catalog/` (a README only for now) for Question 1.
+- Created a Python environment in `.venv/` at the repository root (not tracked). It reuses the GPU build of PyTorch already on this machine and adds `sentence-transformers`. Downloaded models are kept in `.cache/` (not tracked).
+- Language is Python for both questions: the embedding and LLM libraries this work needs are Python-first.
+- Added `q2-duplicate-questions/data/corpus.json`: the ten assignment questions with their expected labels, restated in a form code can read. For Q8 the assignment names no partner question; reading it as ambiguous against Q1 is ours.
+- Added the package `q2-duplicate-questions/qbank/` with `config.py` (paths and optional API keys) and `embedders.py` (one interface for turning questions into vectors, with a local-model version and a Gemini version).
+- Added `q2-duplicate-questions/requirements.txt` and a short README.
+
+### Question 2: embedding comparison
+
+- Added `q2-duplicate-questions/experiments/compare_embeddings.py`. It scores every pair of the ten questions with each option and reports the lowest-scoring duplicate pair, the highest-scoring different pair, and the gap between them. Results are saved in `experiments/results/embedding_comparison.json`.
+- Options scored: TF-IDF on words and on character n-grams (the conventional baseline), three local models (`all-MiniLM-L6-v2`, `all-mpnet-base-v2`, `Qwen3-Embedding-0.6B` with and without a one-line task instruction), and Gemini's `gemini-embedding-001`.
+- Result, TF-IDF: it ranks the pairs backwards. The duplicates Q3/Q4 score 0.12 and the different pair Q6/Q7 scores 0.80, a gap of -0.67.
+- Result, transformer models: all put every duplicate pair above every different pair, but mostly by a narrow gap: +0.03 for MiniLM, +0.01 for mpnet, +0.01 for Qwen3 without the instruction, +0.03 for Gemini.
+- Result, instruction: Qwen3 with the instruction "retrieve questions that are semantically equivalent" in front of each question gives a gap of +0.11, with duplicates at 0.94 or higher, Q8 at 0.86 to 0.89 and different pairs at 0.83 or lower.
+- Result, speed for ten questions: local models take 0.2 to 0.4 seconds on the GTX 1650; Gemini takes 13.6 seconds (one request per question). On the CPU alone, MiniLM takes 0.09 seconds and Qwen3 takes 24.9 seconds.
+- Limit: ten questions are too few to choose the exact model. The exact model is to be chosen on the larger labelled set that D4 requires.
+- Added `tests/test_embedding_comparison.py` (3 tests, all passing) for the pair labels and the summary numbers, and `pytest.ini`.
+- Commit: `Add Question 2 skeleton and embedding comparison`.
+- Also sent one small test request to each candidate LLM (a throwaway script). All three Groq models and two Gemini models answered in valid JSON. Groq's free tier allows 1,000 requests a day and 8,000 tokens a minute per model; `gemini-2.5-flash` is no longer offered.
+
 ### Open
 
 - Next decision (D6): where the embeddings come from (a model run locally, or an online service). Then D7 (which LLMs) and D8 (how the coverage summary is built, now that concept tags will exist).
-- No project code has been written yet, and nothing has been pushed.
+- Nothing has been pushed.
