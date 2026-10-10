@@ -66,6 +66,73 @@ True duplicates score 0.97 or higher and different questions 0.93 or lower, but 
 
 **Why:** it is the only option that gets the grey-zone pairs right without sending every pair to an LLM. The extra parts are worth it because the prompt asks specifically about scale and about questions that are "effectively equivalent" despite different wording.
 
+## D4. Detection design in detail (Question 2)
+
+**Date:** 2026-10-11
+
+**Question:** D3 chose a layered detector. Research turned up several ways to build one, plus the alternatives to it. Which exact design do we build?
+
+**Evidence:** 36 sources were checked (papers, three patents, a Kaggle-winning solution and a deployed exam system); the full list is in [log.md](log.md). The findings that shaped this decision:
+
+- Every field with this problem uses a cheap wide search followed by a careful judge on the few survivors: exam item banks ([Ma 2026](https://aclanthology.org/2026.aimecon-sessions.9.pdf)), record matching ([Peeters et al. 2025](https://arxiv.org/abs/2310.11244)), search ([Sentence Transformers](https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html)) and the [Kaggle Eedi winner](https://www.eedi.com/news/from-wrong-answers-to-real-insights-how-we-used-a-kaggle-challenge-to-map-student-misconceptions).
+- The search stage can miss real duplicates. In Ma 2026 the same embedding search found 96.2% of known duplicate pairs on one exam and 47.3% on another, because some duplicates shared an answer but were worded differently. A second search route based on content tags fixed it.
+- Showing the judge several candidates together works better than one pair at a time ([Wang et al. 2025](https://arxiv.org/abs/2405.16884)).
+- One fixed similarity cut-off gives unpredictable error rates ([vCache](https://arxiv.org/abs/2502.03771)). Published pipelines use cut-offs anywhere from 0.85 to 0.99.
+- In Ma 2026 a model change cut recall from 0.75 to 0.54, and a prompt rewrite raised it to 0.82. Four human experts on the same pairs ranged from 0.70 to 0.91 recall.
+
+Options are ranked by accuracy first, then whether the approach scales, then build time.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | Layered, two search routes: exact-text match, then the nearest few stored questions found two ways (by embedding and by a "concept tested" tag), then an LLM compares the new question with those few together against a written definition of "duplicate" | The most complete design. The tag route catches duplicates that are worded very differently, which is the failure Ma 2026 hit in production. | One LLM call per stored question to tag it. More parts to build and test. My estimate is about half a day more than option 2. |
+| 2 | Layered, one search route: the same without tags | Strong and simpler. One LLM call per new question however large the bank. Same shape as the Kaggle Eedi winner and as the deployed system in Ma 2026 before its fix. | Blind to duplicates the embedding search does not rank among the nearest few. |
+| 3 | Layered, with a small trained judge instead of the LLM (a model already trained on Quora's duplicate questions) | Runs offline and gives the same answer every time. The best models of this kind reach [92.7% accuracy](https://huggingface.co/microsoft/deberta-v2-xlarge) on Quora's own data. | It learned Quora's idea of "duplicate". It cannot be given our definition (same concept but a different task is not a duplicate) and cannot explain a verdict. |
+| 4 | Embeddings with cut-offs only, grey zone left for a person | Simple, fast, offline. Common in dataset-building pipelines. | Leaves Q6/Q7 and Q8 unresolved, and a fixed cut-off is unreliable. |
+| 5 | LLM compares the new question against every stored question | The best judgement on any single pair. | Thousands of LLM calls per new question. Fails the scaling requirement. |
+| 6 | Word overlap only (normalised text, shared-word runs, ROUGE-L) | Catches copies and light edits for free. Used by [Self-Instruct](https://arxiv.org/abs/2212.10560) and the [Prometric patent](https://patents.google.com/patent/US20220415203A1/en). | Misses paraphrases, which the prompt requires. Useful only as the first layer. |
+| 7 | Train our own classifier | Highest scores on the Quora benchmark come from trained models. | Needs hundreds of thousands of labelled pairs. We have ten questions and four days. |
+
+**Chosen:** option 2, with option 1's tag route added only if measurement shows the search stage missing duplicates.
+
+**Why:** option 2 is option 1 minus the tags, so nothing is thrown away if the tags are added later. On the given test data every true duplicate scores 0.97 or higher, so the tag route would add work without changing any result. Measuring first and adding complexity only when the numbers call for it keeps the build inside the time available.
+
+**Rules this decision sets for the build:**
+
+- The search stage is measured on its own: how many known duplicates appear among the nearest few.
+- Cut-offs are calibrated on labelled pairs, not picked by eye, and a "needs review" band is kept.
+- The judge works from a written definition of "duplicate" with worked examples, and returns a label, a short reason and a confidence.
+- The judge model is fixed and run with no randomness, and a labelled test set is kept so any change can be re-checked.
+- Results are reported as how many duplicates were found and how many flags were correct, not as one accuracy number.
+
+## D5. How duplicates are avoided during generation (Question 2)
+
+**Date:** 2026-10-11
+
+**Question:** how should the generation workflow use the existing questions to steer the LLM toward new ones, without exceeding the context limit and in a way that scales?
+
+**Evidence:**
+
+- [Lingo and Chhajer 2026](https://arxiv.org/abs/2604.07147) rebuild the prompt each round from a memory of accepted items: the 10 most recent as exclusions, 5 from the most crowded areas, and a count per category. On exam questions the share of late items repeating early ones fell from 34.0% with plain prompting to 0.0%. Their conclusion: "Deduplication and prompt evolution are individually insufficient but jointly effective." In their ablation, filtering alone kept 9 distinct topic clusters against 18 for the full method. This is a preprint with small experiments.
+- [Islam et al. 2026](https://arxiv.org/abs/2605.18824) put all previously accepted questions from the same chapter into the prompt with an instruction to avoid near-duplicates, then remove remaining pairs above 0.90 similarity.
+- [League of LLMs](https://arxiv.org/abs/2507.22359) keeps an embedding memory of past questions, compares each new one with its nearest neighbours, and regenerates on a match.
+- [SAND-Math](https://arxiv.org/abs/2507.20527) generates freely and filters afterwards; its semantic filter removed 7.3% of items.
+- [Verbalized sampling](https://arxiv.org/abs/2510.01171) raises variety within a batch (1.6 to 2.1 times in creative writing) but takes no account of an existing collection.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | Memory-guided loop: each round the prompt is rebuilt from the bank (a short coverage summary, the nearest existing questions marked "already asked", and the thinnest topics to aim at); new questions are screened and rejects are fed back | Best evidence. The prompt stays a fixed size as the bank grows, which answers the context-limit and scaling points directly. Tells the LLM both what to avoid and what is missing. | More parts to build. Its main source is a preprint. |
+| 2 | Nearest-question exclusions: retrieve the most similar stored questions and tell the LLM to avoid them | Simple and satisfies the brief. Used in published pipelines. | The LLM sees what to avoid but not what is missing, so it tends to stay in the same area. |
+| 3 | Generate freely, filter afterwards | Easiest. Scales well. | Does not use the existing collection to guide the LLM, which the brief requires. Wasteful, and filtering alone narrows variety. |
+| 4 | Paste the whole bank into the prompt | Trivial for a tiny bank. | Breaks the context-limit requirement and costs more with every question added. |
+| 5 | Sampling tricks only (more randomness, verbalized sampling) | More variety within one batch. | Blind to the bank. An add-on at most. |
+| 6 | Fine-tune the generator | None for this assignment. | The bank changes constantly; no time or data. |
+
+**Chosen:** option 1, the memory-guided loop, kept small.
+
+**Why:** it is the only option that answers all three points the brief raises: how existing questions are selected within the context limit, how meaning-level repeats are avoided, and how the approach scales. Its screening step is separate from the independent detector of D4, which still checks every question on its own.
+
 ## Pending
 
-- **D4.** Where the embeddings come from: a model run locally, or an online service.
+- **D6.** Where the embeddings come from: a model run locally, or an online service.
+- **D7.** Which LLM generates the questions and which one judges.
+- **D8.** How the coverage summary is built: by grouping embeddings, or by LLM-written concept tags.

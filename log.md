@@ -110,8 +110,14 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Gemini API documentation, "Embeddings." https://ai.google.dev/gemini-api/docs/embeddings
 - Groq documentation, "Models." https://console.groq.com/docs/models
 
+### Question 2: approach decided
+
+- **Decision (D4):** the detector is layered with one search route: exact-text match, then an embedding search for the nearest few stored questions, then an LLM that compares the new question with those few together against a written definition of "duplicate". A second search route based on concept tags is added only if measurement shows the search stage missing duplicates. Chosen over six alternatives; see `decision.md`.
+- **Decision (D5):** generation uses a memory-guided loop: each round the prompt is rebuilt from the bank (a coverage summary, the nearest existing questions, the thinnest topics), new questions are screened, and rejects are fed back. Chosen over five alternatives; see `decision.md`.
+- D4 also sets five build rules: measure the search stage on its own, calibrate cut-offs on labelled pairs, give the judge a written definition, fix the judge model, and report found-and-correct counts instead of one accuracy number.
+- Commit: `Record detection and generation decisions`.
+
 ### Open
 
-- Decisions waiting on the research above: the detection design in detail, and the generation approach.
-- After those: where the embeddings come from (a model run locally, or an online service).
+- Next decision (D6): where the embeddings come from (a model run locally, or an online service). Then D7 (which LLMs) and D8 (how the coverage summary is built).
 - No project code has been written yet, and nothing has been pushed.
