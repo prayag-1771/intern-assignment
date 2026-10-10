@@ -1,6 +1,6 @@
 # Change log
 
-Every change to this project is recorded here, newest day last. Each entry says what changed and why. Design decisions are marked **Decision**.
+Every change to this project is recorded here, newest day last. Each entry says what changed and why. Design decisions are marked **Decision**; the options and full reasoning for each are in [decision.md](decision.md).
 
 ## 2026-10-11
 
@@ -41,7 +41,13 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - `Add gitignore and env template`: `.gitignore` and `.env.example`.
 - `Add plain-terms requirements and change log`: `requirement.md` and `log.md`.
 
+### Decision record
+
+- Added `decision.md`. It lists every decision with all the options that were considered, ranked best to worst, the one chosen, and why. Backfilled with the three decisions made so far: D1 (fork), D2 (both questions, Question 2 first) and D3 (layered detector).
+- From now on each new decision is added there in full, with a one-line note here.
+- Commit: `Add decision record`.
+
 ### Open
 
-- Next decision: where the embeddings come from (a model run locally, or an online service).
+- Next decision (D4): where the embeddings come from (a model run locally, or an online service).
 - No project code has been written yet, and nothing has been pushed.
