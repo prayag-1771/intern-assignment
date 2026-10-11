@@ -44,6 +44,7 @@ class LocalEmbedder:
         self._prompt = prompt
         self.name = model_name if prompt is None else f"{model_name} + instruction"
         self.device = str(self._model.device)
+        self.parameter_count = sum(p.numel() for p in self._model.parameters())
 
     def embed(self, texts: Sequence[str]) -> np.ndarray:
         vectors = self._model.encode(

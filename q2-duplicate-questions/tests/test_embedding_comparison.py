@@ -4,12 +4,13 @@ from collections import Counter
 
 import numpy as np
 
-from experiments.compare_embeddings import load_questions, pair_kinds, summarise
+from experiments.compare_embeddings import pair_kinds, summarise
+from qbank.datasets import load_corpus
 from qbank.embedders import _unit_rows
 
 
 def test_ten_questions_split_into_expected_pair_kinds():
-    kinds = pair_kinds(load_questions())
+    kinds = pair_kinds(load_corpus())
 
     # Q1, Q2, Q3, Q4 and Q10 form one group of five, giving 10 duplicate pairs.
     assert Counter(kinds.values()) == {"duplicate": 10, "different": 26, "ambiguous": 5}
@@ -21,7 +22,7 @@ def test_ten_questions_split_into_expected_pair_kinds():
 
 
 def test_summary_reports_lowest_duplicate_highest_different_and_gap():
-    questions = load_questions()
+    questions = load_corpus()
     ids = [q["id"] for q in questions]
     kinds = pair_kinds(questions)
     row = {qid: i for i, qid in enumerate(ids)}

@@ -177,8 +177,30 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Answer key counts are now 10 exact duplicates, 18 semantic duplicates, 3 variants, 16 different and 3 needs review. The data test was updated to match.
 - Commit: `Treat joined questions as duplicates`.
 
+### Question 2: answer key confirmed
+
+- The user confirmed the remaining five judgement-call labels, so the answer key stands as committed.
+
+### Question 2: embedding models tested on the answer key
+
+- Added `qbank/datasets.py` (loads the corpus and the answer key, and works out which corpus questions are copies of each other) and moved the first experiment and its tests onto it.
+- Added `experiments/choose_embedding_model.py` with `tests/test_embedding_model_choice.py`. For each of the 50 answer-key questions a model finds the nearest corpus questions. It reports whether the partner is nearest, whether it is among the nearest three (what the judge is shown), the lowest score of a question that has a partner, the highest score of a "different" question, and the time per question on the CPU. Results are in `experiments/results/embedding_model_choice.json`.
+- Result, finding the partner among the nearest three (34 questions have a partner): TF-IDF 32, `all-MiniLM-L6-v2` 33, `all-mpnet-base-v2` 33, `Qwen3-Embedding-0.6B` 34 with or without the instruction, Gemini 34.
+- Result, scores cannot decide alone: the "different" question C35 scores 0.95 with Qwen3 and 0.91 with MiniLM, above most true duplicates, while the fill-in-the-blank duplicate C26 scores 0.78 and 0.54. With the cut-off at the lowest partnered score, 11 to 14 of the 16 "different" questions still go to the judge. The score is therefore used only to find candidates and to skip clearly unrelated questions; the judge decides.
+- Result, the instruction: on the ten assignment questions it widened the gap from +0.01 to +0.11, but on the 50 harder questions it gave no gain in finding the partner (34 either way), a lower nearest-right count (30 against 32) and twice the CPU time. The earlier result did not hold on more data.
+- Result, CPU time per question: MiniLM 8 ms, mpnet 57 ms, Qwen3 1.1 s without the instruction and 2.5 s with it.
+- Limits: 34 partnered questions is a small sample, so a difference of one question proves nothing. The corpus has only six distinct questions, so "among the nearest three" is an easy target; it must be measured again on a bank of hundreds.
+- Not tested: six more small models (`paraphrase-MiniLM-L6-v2`, `bge-small-en-v1.5`, `quora-distilbert-base`, `paraphrase-mpnet-base-v2`, `bge-base-en-v1.5`, `gte-modernbert-base`). The connection to the model site dropped to about 0.26 MB a second and their downloads did not finish. The script keeps earlier results, so they can be added by running it again.
+- Commit: `Add embedding model test on the answer key`.
+
+### Question 2: building blocks written during the test run
+
+- Added `qbank/text.py` with `tests/test_text.py`: the clean-up behind the exact-duplicate check. It ignores letter case, spacing, sentence punctuation, a leading question number and bold or italic marks, and keeps digits, decimal points and maths symbols, so "5 + 3" and "5 - 3", or "5!" and "5", never match. A test confirms that all ten exact duplicates in the answer key match their corpus partner and that no other candidate does. Commit: `Add text clean-up for exact duplicates`.
+- Added `qbank/llm.py` with `tests/test_llm.py`: one small client for Groq and Gemini that returns JSON, retries when rate-limited, and saves every reply in a cache file so repeated requests need no key and no network. Commit: `Add LLM client with a reply cache`.
+- Added `qbank/judge.py` with `tests/test_judge.py`: the judge's written instructions (the perfect-answer test, the four labels it may give, the joined-question and part-question cases, and six worked examples from another topic so that nothing from the answer key leaks into the prompt), and the handling of its replies. An unusable or missing reply holds the question for review, in line with D9. Commit: `Add the LLM judge`.
+- These three are written and unit-tested (48 tests pass in total) but not yet run against a real LLM or wired together.
+
 ### Open
 
-- Five judgement-call labels in the answer key still await the user's confirmation.
-- Next decisions: the exact local embedding model (on the answer key), the LLMs, the coverage summary and storage.
+- Next decisions: the exact local embedding model, which LLM judges, storage, and the coverage summary.
 - Nothing has been pushed.

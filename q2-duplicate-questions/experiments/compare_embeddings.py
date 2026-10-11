@@ -25,7 +25,8 @@ from typing import Callable
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-from qbank.config import DATA_DIR, api_key
+from qbank.config import api_key
+from qbank.datasets import duplicate_groups, load_corpus
 from qbank.embedders import Embedder, GeminiEmbedder, LocalEmbedder
 
 RESULTS_PATH = Path(__file__).resolve().parent / "results" / "embedding_comparison.json"
@@ -67,20 +68,10 @@ def options() -> list[tuple[str, Callable[[], Embedder]]]:
     return listed
 
 
-def load_questions() -> list[dict]:
-    with open(DATA_DIR / "corpus.json", encoding="utf-8") as handle:
-        return json.load(handle)["questions"]
-
-
 def pair_kinds(questions: list[dict]) -> dict[tuple[str, str], str]:
     """Label every pair of question ids as duplicate, different or ambiguous."""
     by_id = {q["id"]: q for q in questions}
-
-    def group(qid: str) -> str:
-        # Follow "duplicate of" links to the question a duplicate ultimately repeats.
-        while by_id[qid]["kind"] in ("semantic_duplicate", "exact_duplicate"):
-            qid = by_id[qid]["relates_to"]
-        return qid
+    group = duplicate_groups(questions)
 
     kinds = {}
     for a, b in itertools.combinations(by_id, 2):
@@ -88,9 +79,9 @@ def pair_kinds(questions: list[dict]) -> dict[tuple[str, str], str]:
         if ambiguous:
             other = b if ambiguous[0]["id"] == a else a
             # Only the pairs with the group it is ambiguous against are of interest.
-            if group(other) == group(ambiguous[0]["relates_to"]):
+            if group[other] == group[ambiguous[0]["relates_to"]]:
                 kinds[(a, b)] = "ambiguous"
-        elif group(a) == group(b):
+        elif group[a] == group[b]:
             kinds[(a, b)] = "duplicate"
         else:
             kinds[(a, b)] = "different"
@@ -133,7 +124,7 @@ def run_option(build: Callable[[], Embedder], texts: list[str]) -> tuple[np.ndar
 
 
 def main() -> None:
-    questions = load_questions()
+    questions = load_corpus()
     ids = [q["id"] for q in questions]
     texts = [q["text"] for q in questions]
     kinds = pair_kinds(questions)
