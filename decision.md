@@ -135,8 +135,45 @@ Options are ranked by accuracy first, then whether the approach scales, then bui
 
 **Why:** it is the only option that answers all three points the brief raises: how existing questions are selected within the context limit, how meaning-level repeats are avoided, and how the approach scales. Its screening step is separate from the independent detector of D4, which still checks every question on its own.
 
+## D6. Where the embeddings come from (Question 2)
+
+**Date:** 2026-10-11
+
+**Question:** the search stage needs every question turned into a vector. Should that be done by a model on our own machine or by an online service?
+
+**Evidence:** every pair of the ten assignment questions was scored with each option (`q2-duplicate-questions/experiments/compare_embeddings.py`; results in `experiments/results/embedding_comparison.json`). The gap is the lowest score among true duplicate pairs minus the highest score among different pairs; a wider positive gap leaves more room for a cut-off.
+
+| Option | Type | Lowest duplicate | Highest different | Gap | Q8 (ambiguous) | Time for 10 questions |
+|--------|------|------------------|-------------------|-----|----------------|-----------------------|
+| TF-IDF on words | Conventional | 0.12 | 0.80 | -0.67 | 0.04–0.79 | Instant |
+| TF-IDF on character n-grams | Conventional | 0.14 | 0.76 | -0.61 | 0.15–0.57 | Instant |
+| all-MiniLM-L6-v2 (87 MB) | Local model | 0.88 | 0.85 | +0.03 | 0.80–0.86 | 0.4 s on GPU, 0.1 s on CPU |
+| all-mpnet-base-v2 (418 MB) | Local model | 0.78 | 0.78 | +0.01 | 0.75–0.81 | 0.2 s on GPU |
+| Qwen3-Embedding-0.6B (1.1 GB) | Local model | 0.86 | 0.85 | +0.01 | 0.83–0.91 | 0.3 s on GPU |
+| Qwen3-Embedding-0.6B with a task instruction | Local model | 0.94 | 0.83 | +0.11 | 0.86–0.89 | 0.3 s on GPU, 25 s on CPU |
+| gemini-embedding-001 | Online service | 0.97 | 0.93 | +0.03 | 0.92–0.94 | 13.6 s |
+
+Other facts that weighed in: the online service needs one request per question (about 1.4 seconds each) and an API key; and on the same day `gemini-2.5-flash` returned "no longer available", which shows that online models can be withdrawn.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | A local model is the engine; Gemini stays only in the comparison as a reference point | Free and offline after one download. Fastest (about 0.03 seconds per question on the GPU). A reviewer can run it with no key. The model file cannot be withdrawn. The best gap in the test came from a local model. | A download on first run (87 MB to 1.1 GB depending on the model). The strongest model tested is slow without a GPU (about 2.5 seconds per question on this CPU). |
+| 2 | Local by default, Gemini switchable in the pipeline | Flexible: works on a machine with no room for a model. | Each embedding model needs its own calibrated cut-offs, so calibration and testing double for little gain. |
+| 3 | Gemini's online embeddings are the engine | No download. Handles long text and many languages. | A key and internet for every question. About 40 times slower. Rate limits. Can be withdrawn. A reviewer without a key cannot run the search stage at all. |
+| 4 | TF-IDF only | Instant, no model. | Ranks the pairs backwards (gap -0.67): word overlap is not meaning. Fails the paraphrase requirement. |
+
+**Chosen:** option 1, a local model as the engine.
+
+**Why:** it wins on cost, speed, offline use and control, and gives up nothing on quality in this test. Keeping Gemini only in the comparison still lets the write-up show how the local choice measures against a hosted model.
+
+**Still open:** which local model. Ten questions are too few to choose it. It will be chosen on the larger labelled set that D4 requires, with smaller models trained on duplicate questions added to the comparison. The task instruction is kept as a candidate setting because it widened the gap from +0.01 to +0.11 on the same model.
+
 ## Pending
 
-- **D6.** Where the embeddings come from: a model run locally, or an online service.
-- **D7.** Which LLM generates the questions and which one judges.
-- **D8.** How the coverage summary is built: by grouping embeddings, by the concept tags that D4 now provides, or both.
+Decisions still to make, numbered as they are made:
+
+- Exactly what counts as a duplicate, including questions that change only the numbers.
+- Which local embedding model, chosen on the labelled set.
+- Which LLM generates the questions, which one tags, and which one judges.
+- How the coverage summary is built: by grouping embeddings, by the concept tags that D4 provides, or both.
+- How questions and vectors are stored.

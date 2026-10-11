@@ -147,7 +147,13 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Commit: `Add Question 2 skeleton and embedding comparison`.
 - Also sent one small test request to each candidate LLM (a throwaway script). All three Groq models and two Gemini models answered in valid JSON. Groq's free tier allows 1,000 requests a day and 8,000 tokens a minute per model; `gemini-2.5-flash` is no longer offered.
 
+### Question 2: embedding source decided
+
+- **Decision (D6):** a local model is the engine for embeddings; Gemini stays only in the comparison as a reference point. Chosen over a switchable local/Gemini pipeline, Gemini as the engine, and TF-IDF only. The measured table and the ranking are in `decision.md`.
+- The exact local model is left open until the larger labelled set exists.
+- Commit: `Record embedding source decision`.
+
 ### Open
 
-- Next decision (D6): where the embeddings come from (a model run locally, or an online service). Then D7 (which LLMs) and D8 (how the coverage summary is built, now that concept tags will exist).
+- Next decisions: exactly what counts as a duplicate, then the exact local embedding model, the LLMs, the coverage summary and storage.
 - Nothing has been pushed.
