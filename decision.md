@@ -184,12 +184,16 @@ Other facts that weighed in: the online service needs one request per question (
 
 **Why:** it is the only rule that agrees with the assignment's own answer key and can be checked pair by pair.
 
+**Joined questions (added 2026-10-11 at the user's suggestion):** a question made only by joining existing questions counts as the same as those questions. Example: "Define reflection of light and state its laws." is Q1 and Q5 joined. Perfect answers to Q1 and Q5, taken together, are a perfect answer to it with nothing missing and nothing extra, so it asks nothing new. It is labelled a semantic duplicate of both. The first draft of the answer key labelled it "needs review" because it had been compared with one question at a time; comparing it with both together settles it. Allowing such questions would also let the generator pad the bank by joining old questions, the same problem D8 closes for number swaps.
+
+This differs from a question that asks for only part of an existing one, such as "What is the relation between the angle of incidence and the angle of reflection?" against Q5. A perfect answer to that does not fully answer Q5, so the two are not equal, and it stays "needs review".
+
 **The labels this gives:**
 
 | Label | Meaning | Example |
 |-------|---------|---------|
 | Exact duplicate | The same text once case, punctuation and spacing are ignored | Q10 and Q2 |
-| Semantic duplicate | Different words or format, same concept and same task | Q2 and Q1 |
+| Semantic duplicate | Different words or format, same concept and same task; or existing questions joined into one | Q2 and Q1 |
 | Variant | Same concept and same task; only the numbers or names change (see D8) | The Q7 question with 45° in place of 30° |
 | Different | A different concept, or the same concept with a different task | Q6 (define) and Q7 (calculate) |
 | Needs review | One question is broader, narrower or vaguer than the other, so the answer depends on context (see D9) | Q8 "What is reflection?" against Q1 |

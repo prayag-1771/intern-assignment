@@ -170,8 +170,15 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Limit: 50 questions on one topic, written by us. It is five times the given data and has the hard cases, but it is still small, so results will be reported as counts.
 - Commit: `Add labelled answer key for Question 2`.
 
+### Question 2: joined questions count as the same
+
+- The user questioned one label in the answer key: "Define reflection of light and state its laws." had been marked "needs review". Their point: it is Q1 and Q5 joined, so answering it is answering both, and nothing new is asked.
+- **Decision (added to D7):** a question made only by joining existing questions counts as the same as those questions. Candidate C48 is now a semantic duplicate of Q1 and Q5. A question that asks for only part of an existing one (C47) stays "needs review", because the two are not equal.
+- Answer key counts are now 10 exact duplicates, 18 semantic duplicates, 3 variants, 16 different and 3 needs review. The data test was updated to match.
+- Commit: `Treat joined questions as duplicates`.
+
 ### Open
 
-- The six judgement-call labels in the answer key await the user's confirmation.
+- Five judgement-call labels in the answer key still await the user's confirmation.
 - Next decisions: the exact local embedding model (on the answer key), the LLMs, the coverage summary and storage.
 - Nothing has been pushed.

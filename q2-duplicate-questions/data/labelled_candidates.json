@@ -3,13 +3,13 @@
   "rule": "Perfect-answer test (decision D7): two questions are the same if a perfect answer to one would earn full marks on the other. Compare the concept and the task.",
   "labels": {
     "exact_duplicate": "the same text once case, punctuation, spacing and list or formatting marks are ignored",
-    "semantic_duplicate": "different words or format, same concept and same task",
+    "semantic_duplicate": "different words or format, same concept and same task; also a question made only by joining existing questions together",
     "variant": "same concept and same task; only the numbers change (decision D8)",
     "different": "a different concept, or the same concept with a different task",
     "needs_review": "broader, narrower or looser than an existing question, so the answer depends on context (decision D9)"
   },
   "fields": {
-    "of": "the corpus question or questions this candidate relates to; any question in the same duplicate group counts as a correct match",
+    "of": "the corpus question or questions this candidate relates to; any question in the same duplicate group counts as a correct match. Two entries mean the candidate joins two existing questions",
     "looks_like": "for 'different' candidates, the corpus question it resembles on the surface",
     "judgement_call": "true where a careful person could reasonably choose another label"
   },
@@ -65,7 +65,7 @@
     {"id": "C46", "text": "Name the SI unit of electric current.", "label": "different", "of": [], "note": "easy case: another topic altogether"},
 
     {"id": "C47", "text": "What is the relation between the angle of incidence and the angle of reflection?", "label": "needs_review", "of": ["Q5"], "judgement_call": true, "note": "narrower than Q5: asks for one of the two laws"},
-    {"id": "C48", "text": "Define reflection of light and state its laws.", "label": "needs_review", "of": ["Q1", "Q5"], "judgement_call": true, "note": "combines two existing questions"},
+    {"id": "C48", "text": "Define reflection of light and state its laws.", "label": "semantic_duplicate", "of": ["Q1", "Q5"], "judgement_call": true, "note": "Q1 and Q5 joined into one question; perfect answers to both, together, are a perfect answer to this, so nothing new is asked"},
     {"id": "C49", "text": "What happens when a ray of light falls on a polished surface?", "label": "needs_review", "of": ["Q1"], "note": "the answer is reflection, but the question is looser than Q1"},
     {"id": "C50", "text": "Explain the reflection of waves.", "label": "needs_review", "of": ["Q8"], "note": "one reading of the open question Q8, wider than Q1"}
   ]

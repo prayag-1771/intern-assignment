@@ -43,8 +43,8 @@ def test_answer_key_covers_every_label():
 
     assert counts == {
         "exact_duplicate": 10,
-        "semantic_duplicate": 17,
+        "semantic_duplicate": 18,
         "variant": 3,
         "different": 16,
-        "needs_review": 4,
+        "needs_review": 3,
     }
