@@ -103,21 +103,32 @@ class ChatModel:
         return reply
 
     def _send(self, key: str, body: dict) -> str:
+        problem = ""
         for attempt in range(_ATTEMPTS):
-            response = requests.post(self._url, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
+            last_attempt = attempt == _ATTEMPTS - 1
             self.calls_made += 1
+            try:
+                response = requests.post(self._url, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
+            except requests.RequestException as error:
+                # A timeout or dropped connection is usually brief, so it is worth another try.
+                problem = f"network error: {type(error).__name__}"
+                if last_attempt:
+                    break
+                time.sleep(_wait_seconds(None, attempt))
+                continue
             if response.status_code == 200:
                 return response.json()["choices"][0]["message"]["content"] or ""
-            if response.status_code not in _RETRYABLE or attempt == _ATTEMPTS - 1:
+            problem = f"HTTP {response.status_code}: {response.text[:300]}"
+            if response.status_code not in _RETRYABLE or last_attempt:
                 break
             # A rate-limited service says how long to wait; otherwise back off a little longer each time.
             time.sleep(_wait_seconds(response, attempt))
-        raise LLMUnavailable(f"{self.name}: HTTP {response.status_code}: {response.text[:300]}")
+        raise LLMUnavailable(f"{self.name}: {problem}")
 
 
-def _wait_seconds(response: requests.Response, attempt: int) -> float:
+def _wait_seconds(response: requests.Response | None, attempt: int) -> float:
     try:
-        asked = float(response.headers.get("retry-after", ""))
+        asked = float(response.headers.get("retry-after", "")) if response is not None else 2.0**attempt
     except ValueError:
         asked = 2.0**attempt
     return min(max(asked, 1.0), _LONGEST_WAIT_SECONDS)

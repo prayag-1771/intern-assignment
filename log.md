@@ -220,6 +220,15 @@ Every change to this project is recorded here, newest day last. Each entry says 
 
 - Added `experiments/choose_judge_model.py`. The search runs once with the chosen embedding model; then five candidate LLMs each judge the same 40 non-copy questions from the answer key: `gpt-oss-120b`, `gpt-oss-20b` and `qwen3.8-27b` on Groq, `gemini-3.8-flash` and `gemini-3.5-flash-lite` on Gemini. Each answer is sorted by its effect: correct, copy let in, new question blocked, unclear case decided without a person, wrong question named, sent to a person needlessly, wrong kind of block, or no answer.
 
+### Question 2: judge test, first run
+
+- Exact check: all 50 answer-key questions were handled correctly by text alone (the 10 copies matched, nothing else did).
+- Search: for all 24 non-copy questions that have a partner, every expected partner was among the five questions shown to the judge.
+- Groq refused every request with HTTP 403, "Access denied. Please check your network settings.", from all three models and even without a key. It worked on 2026-10-11. The machine's traffic was leaving through a data-centre network in Tokyo (Datacamp Limited), which looks like a VPN; Groq blocks many such networks. The user was asked to turn the VPN off so the Groq models can be tested.
+- The run then crashed when one `gemini-3.8-flash` request timed out after 120 seconds: network errors were not caught. Fixed in `qbank/llm.py`: timeouts and dropped connections are now retried like rate limits, and if they persist the judge gets "unavailable", so that question is held for a person and the run carries on. A test was added (67 pass).
+- The judge test now reports a model with no usable replies as "not scored" instead of counting 40 blank answers against it.
+- Commit: `Retry network errors in the LLM client`.
+
 ### Open
 
 - Next decision: which LLM is the judge, once the test finishes. Then storage and the coverage summary.

@@ -157,6 +157,10 @@ def main() -> None:
             )
         counts = Counter(r["outcome"] for r in rows)
         clear = [r for r in rows if not r["judgement_call"]]
+        if counts["no answer"] == len(rows):
+            # Not a single usable reply: the service could not be used, so there is nothing to score.
+            results[name] = {"unavailable": rows[0]["reason"], "answers": rows}
+            continue
         results[name] = {
             "outcomes": {key: counts.get(key, 0) for key in OUTCOMES},
             "correct_on_clear_cases": f"{sum(r['outcome'] == 'correct' for r in clear)}/{len(clear)}",
@@ -175,6 +179,9 @@ def main() -> None:
     header = f"\n{'judge':<30}{'correct':>8}" + "".join(f"{label:>9}" for label in short.values()) + f"{'clear':>8}{'j.calls':>8}{'s/reply':>9}"
     print(header)
     for name, r in results.items():
+        if "unavailable" in r:
+            print(f"{name:<30}  not scored: {r['unavailable'][:100]}")
+            continue
         o = r["outcomes"]
         print(
             f"{name:<30}{o['correct']:>5}/{len(to_judge)}" + "".join(f"{o[key]:>9}" for key in short)

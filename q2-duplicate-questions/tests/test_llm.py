@@ -81,6 +81,29 @@ def test_rate_limited_request_is_retried(service, tmp_path):
     assert len(sent) == 2
 
 
+def test_a_timeout_is_retried_and_a_lasting_one_becomes_unavailable(service, tmp_path, monkeypatch):
+    replies, sent = service
+    outcomes = [llm.requests.Timeout("slow"), FakeResponse()]
+
+    def flaky_post(url, headers, json, timeout):
+        sent.append(json)
+        result = outcomes.pop(0)
+        if isinstance(result, Exception):
+            raise result
+        return result
+
+    monkeypatch.setattr(llm.requests, "post", flaky_post)
+    assert ChatModel("groq", "some-model", cache_path=tmp_path / "a.json").ask_json("s", "u") == {"label": "different"}
+    assert len(sent) == 2
+
+    def always_times_out(url, headers, json, timeout):
+        raise llm.requests.ConnectionError("down")
+
+    monkeypatch.setattr(llm.requests, "post", always_times_out)
+    with pytest.raises(LLMUnavailable, match="network error: ConnectionError"):
+        ChatModel("groq", "some-model", cache_path=tmp_path / "b.json").ask_json("s", "u")
+
+
 def test_a_refused_request_raises_instead_of_being_cached(service, tmp_path):
     replies, _ = service
     replies.append(FakeResponse(401, "bad key"))
