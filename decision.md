@@ -168,12 +168,70 @@ Other facts that weighed in: the online service needs one request per question (
 
 **Still open:** which local model. Ten questions are too few to choose it. It will be chosen on the larger labelled set that D4 requires, with smaller models trained on duplicate questions added to the comparison. The task instruction is kept as a candidate setting because it widened the gap from +0.01 to +0.11 on the same model.
 
+## D7. The rule for calling two questions the same (Question 2)
+
+**Date:** 2026-10-11
+
+**Question:** what written rule decides whether two questions are the same? The LLM judge follows this rule and the test set is labelled with it, so every later measurement depends on it.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | Perfect-answer test: two questions are the same if a perfect answer to one would earn full marks on the other. It is applied by comparing the concept (what the question is about) and the task (define, state, calculate, compare). | Gives the assignment's expected label for all ten test questions. Each verdict can be explained and checked. Close to the definition used for exam items in [Ma 2026](https://aclanthology.org/2026.aimecon-sessions.9.pdf): items that need the same knowledge to answer are duplicates, while the same knowledge with a different focus or outcome is not. | Needs judgement on vague questions, which is why a "needs review" label exists. |
+| 2 | Same topic: two questions are the same if they are about the same concept, whatever the task | Simplest to state and apply. | Calls Q6/Q7 and Q1/Q5 the same, against the assignment's labels. |
+| 3 | No written rule: rely on similarity scores and the LLM's own sense of "duplicate" | Nothing to write. | Results shift with the model and cannot be explained or checked. In Ma 2026 the written definition and examples moved recall more than the model did (0.54 to 0.82). |
+
+**Chosen:** option 1, the perfect-answer test.
+
+**Why:** it is the only rule that agrees with the assignment's own answer key and can be checked pair by pair.
+
+**The labels this gives:**
+
+| Label | Meaning | Example |
+|-------|---------|---------|
+| Exact duplicate | The same text once case, punctuation and spacing are ignored | Q10 and Q2 |
+| Semantic duplicate | Different words or format, same concept and same task | Q2 and Q1 |
+| Variant | Same concept and same task; only the numbers or names change (see D8) | The Q7 question with 45° in place of 30° |
+| Different | A different concept, or the same concept with a different task | Q6 (define) and Q7 (calculate) |
+| Needs review | One question is broader, narrower or vaguer than the other, so the answer depends on context (see D9) | Q8 "What is reflection?" against Q1 |
+
+## D8. Questions that only change the numbers (Question 2)
+
+**Date:** 2026-10-11
+
+**Question:** a new question repeats an existing one with different values, for example "The angle of incidence is 45°. What is the angle of reflection?" when the 30° version exists. The assignment's test data has no such case. How is it treated?
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | Its own label, "variant". Not counted as a new question by default, with a setting that allows variants when a teacher wants practice sheets. | The detector reports exactly what it found. The policy (allow or not) stays separate from the detection. Stops the generator from padding the bank with number swaps. | One more label for the judge to get right. |
+| 2 | Label it a semantic duplicate | Simple and strict. | The distinction is lost, and variants can never be allowed. |
+| 3 | Send it to "needs review" | Safe. | Fills the review list with cases that have a clear answer. |
+| 4 | Label it different, so it is accepted as new | Follows the perfect-answer test literally (the answers differ). | The generator can fill the bank by changing numbers, which is not "genuinely new". |
+
+**Chosen:** option 1, the "variant" label, rejected by default.
+
+**Why:** it keeps the bank free of number swaps without throwing away the information that a teacher may sometimes want them.
+
+## D9. What happens to "not sure" questions (Question 2)
+
+**Date:** 2026-10-11
+
+**Question:** when the detector labels a question "needs review", is it let into the bank or not?
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | Hold it for a person: it stays out of the bank on a review list, next to the question it resembles and the reason, and a replacement is generated meanwhile | No possible copy enters the bank and no possibly good question is lost. Only that one question waits; generation carries on. | Needs a person eventually. |
+| 2 | Let it in with a warning flag | Nothing is lost and nothing waits. | A copy may already be in the bank, and in later prompts, before anyone looks. |
+| 3 | Reject it like a duplicate | The bank stays clean with no human step. | Good questions are thrown away. |
+
+**Chosen:** option 1, hold for a person.
+
+**Why:** it is the only option that makes neither mistake automatically. It also matches the assignment's wording for Q8, "review context".
+
 ## Pending
 
 Decisions still to make, numbered as they are made:
 
-- Exactly what counts as a duplicate, including questions that change only the numbers.
-- Which local embedding model, chosen on the labelled set.
+- Which local embedding model, chosen on the labelled set (`q2-duplicate-questions/data/labelled_candidates.json`).
 - Which LLM generates the questions, which one tags, and which one judges.
 - How the coverage summary is built: by grouping embeddings, by the concept tags that D4 provides, or both.
 - How questions and vectors are stored.

@@ -153,7 +153,25 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - The exact local model is left open until the larger labelled set exists.
 - Commit: `Record embedding source decision`.
 
+### Question 2: rules for "same question" decided
+
+- **Decision (D7):** two questions are the same if a perfect answer to one would earn full marks on the other, checked by comparing concept and task. Chosen over "same topic" (which contradicts the assignment's labels for Q6/Q7) and no written rule.
+- **Decision (D8):** a question that only changes the numbers of an existing one gets its own label, "variant". It is not counted as new by default, and a setting can allow variants. Chosen over calling it a copy, sending it to review, or accepting it as new.
+- **Decision (D9):** a "needs review" question is held out of the bank until a person decides, and a replacement is generated meanwhile. Chosen over letting it in with a warning and over rejecting it.
+- The detector therefore has five labels: exact duplicate, semantic duplicate, variant, different, needs review.
+- Commit: `Record duplicate rule, variant and review decisions`.
+
+### Question 2: answer key drafted
+
+- Added `q2-duplicate-questions/data/labelled_candidates.json`: 50 new questions, each labelled against the ten assignment questions using the D7 rule. This is the labelled test set that D4 requires, because the ten given questions contain no hard cases.
+- Contents: 10 exact duplicates (case, spacing, punctuation, a question number, bold markers), 17 semantic duplicates (including three worded very differently, a multiple-choice form and a fill-in-the-blank form), 3 variants, 16 different questions (most of them look-alikes such as "refraction" for "reflection") and 4 needs-review questions.
+- Six candidates are marked `judgement_call` because a careful person could label them otherwise. They are the ones put to the user for confirmation.
+- Added `tests/test_data_files.py` (3 tests) so a typo in the data files cannot skew results.
+- Limit: 50 questions on one topic, written by us. It is five times the given data and has the hard cases, but it is still small, so results will be reported as counts.
+- Commit: `Add labelled answer key for Question 2`.
+
 ### Open
 
-- Next decisions: exactly what counts as a duplicate, then the exact local embedding model, the LLMs, the coverage summary and storage.
+- The six judgement-call labels in the answer key await the user's confirmation.
+- Next decisions: the exact local embedding model (on the answer key), the LLMs, the coverage summary and storage.
 - Nothing has been pushed.
