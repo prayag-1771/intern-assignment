@@ -200,7 +200,14 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Added `qbank/judge.py` with `tests/test_judge.py`: the judge's written instructions (the perfect-answer test, the four labels it may give, the joined-question and part-question cases, and six worked examples from another topic so that nothing from the answer key leaks into the prompt), and the handling of its replies. An unusable or missing reply holds the question for review, in line with D9. Commit: `Add the LLM judge`.
 - These three are written and unit-tested (48 tests pass in total) but not yet run against a real LLM or wired together.
 
+## 2026-10-12
+
+### Question 2: embedding model decided
+
+- **Decision (D10):** the search stage uses `Qwen3-Embedding-0.6B` without the task instruction. It was the only local model that put the partner among the nearest three for all 34 partnered questions. Chosen over `all-MiniLM-L6-v2`, the same Qwen3 model with the instruction, and `all-mpnet-base-v2`; see `decision.md`.
+- Commit: `Record embedding model decision`.
+
 ### Open
 
-- Next decisions: the exact local embedding model, which LLM judges, storage, and the coverage summary.
+- Next decision: which LLM is the judge. Then storage and the coverage summary.
 - Nothing has been pushed.

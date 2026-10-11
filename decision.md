@@ -231,11 +231,45 @@ This differs from a question that asks for only part of an existing one, such as
 
 **Why:** it is the only option that makes neither mistake automatically. It also matches the assignment's wording for Q8, "review context".
 
+## D10. Which local embedding model (Question 2)
+
+**Date:** 2026-10-12
+
+**Question:** D6 chose a local model for the search stage. Which one?
+
+**Evidence:** each model searched the ten assignment questions for each of the 50 questions in our answer key (`q2-duplicate-questions/experiments/choose_embedding_model.py`; results in `experiments/results/embedding_model_choice.json`). Of the 50, 34 have a partner among the ten. The search stage hands the nearest questions to the judge, so what matters most is whether the partner is among them. CPU time is per question on this laptop without using the graphics card.
+
+| Option | Size | Partner nearest | Partner in nearest three | CPU time per question |
+|--------|------|-----------------|--------------------------|-----------------------|
+| TF-IDF on words (reference) | none | 29 of 34 | 32 of 34 | instant |
+| all-MiniLM-L6-v2 | 23 M parameters, 87 MB | 30 of 34 | 33 of 34 | 8 ms |
+| all-mpnet-base-v2 | 110 M parameters, 418 MB | 31 of 34 | 33 of 34 | 57 ms |
+| Qwen3-Embedding-0.6B | 596 M parameters, 1.1 GB | 32 of 34 | 34 of 34 | 1.1 s |
+| Qwen3-Embedding-0.6B with the task instruction | same | 30 of 34 | 34 of 34 | 2.5 s |
+| gemini-embedding-001 (online, reference) | none | 32 of 34 | 34 of 34 | not measured |
+
+Two further findings:
+
+- No model's score can decide "duplicate or not" by itself. With Qwen3, the different question C35 ("The angle of reflection is 30°. What is the angle between the incident ray and the reflected ray?") scores 0.95, above most true duplicates, while the fill-in-the-blank duplicate C26 scores 0.78. This confirms D3 and D4: the score finds candidates, the judge decides.
+- The task instruction, which widened the gap from +0.01 to +0.11 on the ten assignment questions, gave no gain on the 50 harder ones and doubled the time.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | Qwen3-Embedding-0.6B, without the instruction | Found every partner. The search is the one step the judge cannot correct: a partner never shown is never judged. A 2025 model, 26 times larger than MiniLM; its [model card](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B) reports 86.6 on the MTEB English v2 sentence-similarity tasks. | A 1.1 GB download once. About 1 second per question on a machine without a graphics card (0.03 s with one). |
+| 2 | all-MiniLM-L6-v2 | Tiny and instant on any machine. One partner behind here. | A smaller 2021 model; the one partner it missed may become many in a large bank. No score for it on the same benchmark version was found, so the two cannot be compared there directly. |
+| 3 | Qwen3-Embedding-0.6B with the instruction | Same partners found as option 1. | Twice as slow, fewer partners ranked first. |
+| 4 | all-mpnet-base-v2 | Middle size. | No better than MiniLM here, but five times bigger and slower. |
+
+**Chosen:** option 1, Qwen3-Embedding-0.6B without the instruction.
+
+**Why:** finding the partner is the step where a miss cannot be repaired later, so quality there is worth the size. The reviewer's machine is protected by saving the demo's results in the repository, so the demo does not need the model downloaded.
+
+**Limits:** 34 partnered questions is a small sample, and the corpus has only six distinct questions, so "nearest three" is an easy target. The measurement must be repeated on a bank of hundreds. Six further small models could not be tested because their downloads did not finish.
+
 ## Pending
 
 Decisions still to make, numbered as they are made:
 
-- Which local embedding model, chosen on the labelled set (`q2-duplicate-questions/data/labelled_candidates.json`).
 - Which LLM generates the questions, which one tags, and which one judges.
 - How the coverage summary is built: by grouping embeddings, by the concept tags that D4 provides, or both.
 - How questions and vectors are stored.
