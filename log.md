@@ -207,7 +207,20 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - **Decision (D10):** the search stage uses `Qwen3-Embedding-0.6B` without the task instruction. It was the only local model that put the partner among the nearest three for all 34 partnered questions. Chosen over `all-MiniLM-L6-v2`, the same Qwen3 model with the instruction, and `all-mpnet-base-v2`; see `decision.md`.
 - Commit: `Record embedding model decision`.
 
+### Question 2: detector assembled
+
+- Added `qbank/search.py`: the bank's search stage. Exact copies are found with one lookup on the cleaned-text fingerprint. The nearest questions by meaning come from one matrix product over all stored vectors, which is exact and fast for tens of thousands of questions. Stored questions with the same wording as one already listed are skipped, so the judge's places are not wasted on Q2 and Q10 together.
+- Added `qbank/detector.py`: the independent detector. Exact check first; otherwise the five nearest stored questions go to the judge together. It reads only the question text and the bank, nothing from generation.
+- The judge is shown five questions. This is a setting (`SHOWN_TO_JUDGE`), not yet a decision put to the user; five is enough to cover a question joined from two others and still keeps the prompt short.
+- `qbank/llm.py` now keeps one cache file per model in `data/llm_cache/`, so several models can run at the same time without overwriting each other's replies, and it counts replies and waiting time.
+- Added `tests/test_detector.py` (8 tests, using a word-count stand-in for the embedding model and a stand-in judge) and `tests/test_judge_model_choice.py`. 66 tests pass.
+- Commit: `Add search stage and detector`.
+
+### Question 2: judge test started
+
+- Added `experiments/choose_judge_model.py`. The search runs once with the chosen embedding model; then five candidate LLMs each judge the same 40 non-copy questions from the answer key: `gpt-oss-120b`, `gpt-oss-20b` and `qwen3.8-27b` on Groq, `gemini-3.8-flash` and `gemini-3.5-flash-lite` on Gemini. Each answer is sorted by its effect: correct, copy let in, new question blocked, unclear case decided without a person, wrong question named, sent to a person needlessly, wrong kind of block, or no answer.
+
 ### Open
 
-- Next decision: which LLM is the judge. Then storage and the coverage summary.
+- Next decision: which LLM is the judge, once the test finishes. Then storage and the coverage summary.
 - Nothing has been pushed.

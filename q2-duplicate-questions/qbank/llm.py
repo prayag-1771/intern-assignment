@@ -2,8 +2,8 @@
 
 Both services accept the same chat request format, so one small client covers both.
 
-Every reply is saved in a cache file, keyed by the exact request. Asking the same
-thing again returns the saved reply without calling the service. That makes results
+Every reply is saved in a cache file (one file per model), keyed by the exact request.
+Asking the same thing again returns the saved reply without calling the service. That makes results
 repeatable, stays inside the free rate limits, and lets the examples and tests run
 on a machine with no API key.
 """
@@ -23,10 +23,10 @@ PROVIDERS = {
     "groq": ("https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY"),
     "gemini": ("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", "GEMINI_API_KEY"),
 }
-DEFAULT_CACHE = DATA_DIR / "llm_cache.json"
+CACHE_DIR = DATA_DIR / "llm_cache"
 
 _RETRYABLE = (429, 500, 502, 503)
-_ATTEMPTS = 6
+_ATTEMPTS = 8
 _LONGEST_WAIT_SECONDS = 60.0
 
 
@@ -42,7 +42,7 @@ class ChatModel:
         provider: str,
         model: str,
         temperature: float = 0.0,
-        cache_path: Path | None = DEFAULT_CACHE,
+        cache_path: Path | None = None,
         extra: dict | None = None,
     ):
         if provider not in PROVIDERS:
@@ -53,9 +53,12 @@ class ChatModel:
         self._url, self._key_name = PROVIDERS[provider]
         self._temperature = temperature
         self._extra = extra or {}
-        self._cache_path = cache_path
+        # One file per model, so several models can be run at once without overwriting each other.
+        self._cache_path = cache_path or CACHE_DIR / f"{provider}__{model.replace('/', '__')}.json"
         self._cache = self._read_cache()
         self.calls_made = 0  # requests actually sent to the service, not counting cache hits
+        self.seconds_waiting = 0.0  # time spent on those requests, including rate-limit waits
+        self.replies_fetched = 0  # replies received from the service (each may have taken several requests)
 
     def ask_json(self, system: str, user: str) -> dict:
         """Send one instruction and one message; return the model's JSON reply as a dict."""
@@ -70,14 +73,12 @@ class ChatModel:
         return hashlib.sha256(json.dumps(request, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
 
     def _read_cache(self) -> dict[str, str]:
-        if self._cache_path is None or not self._cache_path.exists():
+        if not self._cache_path.exists():
             return {}
         with open(self._cache_path, encoding="utf-8") as handle:
             return json.load(handle)
 
     def _write_cache(self) -> None:
-        if self._cache_path is None:
-            return
         self._cache_path.parent.mkdir(parents=True, exist_ok=True)
         with open(self._cache_path, "w", encoding="utf-8") as handle:
             json.dump(self._cache, handle, ensure_ascii=False, indent=1, sort_keys=True)
@@ -93,6 +94,15 @@ class ChatModel:
             "response_format": {"type": "json_object"},
             **self._extra,
         }
+        started = time.perf_counter()
+        try:
+            reply = self._send(key, body)
+        finally:
+            self.seconds_waiting += time.perf_counter() - started
+        self.replies_fetched += 1
+        return reply
+
+    def _send(self, key: str, body: dict) -> str:
         for attempt in range(_ATTEMPTS):
             response = requests.post(self._url, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
             self.calls_made += 1
