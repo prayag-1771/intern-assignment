@@ -1,0 +1,3545 @@
+{
+  "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+  "shown_to_judge": 5,
+  "search": {
+    "C01": {
+      "exact_copies": [
+        "Q1"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C02": {
+      "exact_copies": [
+        "Q1"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C03": {
+      "exact_copies": [
+        "Q2",
+        "Q10"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C04": {
+      "exact_copies": [
+        "Q5"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C05": {
+      "exact_copies": [
+        "Q6"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C06": {
+      "exact_copies": [
+        "Q9"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C07": {
+      "exact_copies": [
+        "Q5"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C08": {
+      "exact_copies": [
+        "Q2",
+        "Q10"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C09": {
+      "exact_copies": [
+        "Q7"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C10": {
+      "exact_copies": [
+        "Q8"
+      ],
+      "shown": [],
+      "scores": []
+    },
+    "C11": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.9692,
+        0.9504,
+        0.925,
+        0.887,
+        0.8819
+      ]
+    },
+    "C12": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ]
+      ],
+      "scores": [
+        0.9561,
+        0.9254,
+        0.8918,
+        0.881,
+        0.8673
+      ]
+    },
+    "C13": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ]
+      ],
+      "scores": [
+        0.9326,
+        0.9265,
+        0.9126,
+        0.8888,
+        0.8558
+      ]
+    },
+    "C14": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.9138,
+        0.8849,
+        0.8825,
+        0.8579,
+        0.8304
+      ]
+    },
+    "C15": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ]
+      ],
+      "scores": [
+        0.9116,
+        0.8572,
+        0.8506,
+        0.8121,
+        0.8032
+      ]
+    },
+    "C16": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.9119,
+        0.8086,
+        0.7888,
+        0.7645,
+        0.7631
+      ]
+    },
+    "C17": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ]
+      ],
+      "scores": [
+        0.8596,
+        0.8028,
+        0.7565,
+        0.7071,
+        0.6868
+      ]
+    },
+    "C18": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ]
+      ],
+      "scores": [
+        0.9393,
+        0.7883,
+        0.788,
+        0.783,
+        0.779
+      ]
+    },
+    "C19": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ]
+      ],
+      "scores": [
+        0.9655,
+        0.849,
+        0.6714,
+        0.6563,
+        0.6433
+      ]
+    },
+    "C20": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.8971,
+        0.8395,
+        0.6974,
+        0.6785,
+        0.6768
+      ]
+    },
+    "C21": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.8369,
+        0.8196,
+        0.6781,
+        0.658,
+        0.6502
+      ]
+    },
+    "C22": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q9",
+          "What is the difference between regular and diffuse reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.9895,
+        0.7997,
+        0.7859,
+        0.7719,
+        0.7661
+      ]
+    },
+    "C23": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q9",
+          "What is the difference between regular and diffuse reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.9736,
+        0.803,
+        0.7865,
+        0.772,
+        0.7681
+      ]
+    },
+    "C24": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q9",
+          "What is the difference between regular and diffuse reflection?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.8702,
+        0.747,
+        0.7361,
+        0.7242,
+        0.6988
+      ]
+    },
+    "C25": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ]
+      ],
+      "scores": [
+        0.7894,
+        0.7492,
+        0.7268,
+        0.6988,
+        0.6935
+      ]
+    },
+    "C26": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ]
+      ],
+      "scores": [
+        0.7717,
+        0.77,
+        0.7272,
+        0.7125,
+        0.7076
+      ]
+    },
+    "C27": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ]
+      ],
+      "scores": [
+        0.9223,
+        0.8752,
+        0.8608,
+        0.8161,
+        0.8133
+      ]
+    },
+    "C28": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.913,
+        0.8733,
+        0.6887,
+        0.6646,
+        0.6562
+      ]
+    },
+    "C29": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.9387,
+        0.8635,
+        0.6754,
+        0.6564,
+        0.6487
+      ]
+    },
+    "C30": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.8529,
+        0.8368,
+        0.6912,
+        0.6772,
+        0.6765
+      ]
+    },
+    "C31": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ]
+      ],
+      "scores": [
+        0.8645,
+        0.8105,
+        0.7911,
+        0.7822,
+        0.7684
+      ]
+    },
+    "C32": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.9041,
+        0.7974,
+        0.7661,
+        0.7634,
+        0.7507
+      ]
+    },
+    "C33": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.9106,
+        0.7609,
+        0.7476,
+        0.7223,
+        0.7114
+      ]
+    },
+    "C34": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.8817,
+        0.8072,
+        0.702,
+        0.6925,
+        0.6796
+      ]
+    },
+    "C35": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ]
+      ],
+      "scores": [
+        0.9466,
+        0.8568,
+        0.6732,
+        0.6601,
+        0.6516
+      ]
+    },
+    "C36": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ]
+      ],
+      "scores": [
+        0.887,
+        0.8392,
+        0.7115,
+        0.689,
+        0.6887
+      ]
+    },
+    "C37": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.765,
+        0.7495,
+        0.7323,
+        0.7218,
+        0.7053
+      ]
+    },
+    "C38": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ]
+      ],
+      "scores": [
+        0.8246,
+        0.7822,
+        0.7698,
+        0.7642,
+        0.745
+      ]
+    },
+    "C39": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ]
+      ],
+      "scores": [
+        0.7551,
+        0.7518,
+        0.7199,
+        0.7192,
+        0.7164
+      ]
+    },
+    "C40": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q9",
+          "What is the difference between regular and diffuse reflection?"
+        ]
+      ],
+      "scores": [
+        0.9073,
+        0.8375,
+        0.8298,
+        0.8271,
+        0.8202
+      ]
+    },
+    "C41": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q9",
+          "What is the difference between regular and diffuse reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ]
+      ],
+      "scores": [
+        0.9307,
+        0.7593,
+        0.7454,
+        0.7434,
+        0.7396
+      ]
+    },
+    "C42": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ]
+      ],
+      "scores": [
+        0.8074,
+        0.7637,
+        0.7564,
+        0.7563,
+        0.7422
+      ]
+    },
+    "C43": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ]
+      ],
+      "scores": [
+        0.8512,
+        0.8066,
+        0.7988,
+        0.7913,
+        0.7734
+      ]
+    },
+    "C44": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.6981,
+        0.6845,
+        0.6734,
+        0.6621,
+        0.6413
+      ]
+    },
+    "C45": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ]
+      ],
+      "scores": [
+        0.5898,
+        0.5835,
+        0.554,
+        0.5456,
+        0.5382
+      ]
+    },
+    "C46": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q10",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.489,
+        0.4803,
+        0.4767,
+        0.4706,
+        0.4681
+      ]
+    },
+    "C47": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q6",
+          "What is the angle of reflection?"
+        ],
+        [
+          "Q7",
+          "The angle of incidence is 30°. What is the angle of reflection?"
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.8637,
+        0.8194,
+        0.7439,
+        0.7258,
+        0.6956
+      ]
+    },
+    "C48": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q10",
+          "Define the reflection of light."
+        ],
+        [
+          "Q5",
+          "State the laws of reflection of light."
+        ],
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ]
+      ],
+      "scores": [
+        0.9062,
+        0.9017,
+        0.8924,
+        0.8482,
+        0.8298
+      ]
+    },
+    "C49": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q9",
+          "What is the difference between regular and diffuse reflection?"
+        ]
+      ],
+      "scores": [
+        0.7977,
+        0.7737,
+        0.7435,
+        0.7394,
+        0.7305
+      ]
+    },
+    "C50": {
+      "exact_copies": [],
+      "shown": [
+        [
+          "Q1",
+          "What is reflection of light?"
+        ],
+        [
+          "Q8",
+          "What is reflection?"
+        ],
+        [
+          "Q4",
+          "Explain the meaning of light reflection."
+        ],
+        [
+          "Q3",
+          "What do you understand by the reflection of light?"
+        ],
+        [
+          "Q2",
+          "Define the reflection of light."
+        ]
+      ],
+      "scores": [
+        0.8286,
+        0.8092,
+        0.8017,
+        0.7779,
+        0.7444
+      ]
+    }
+  },
+  "judges": {
+    "groq/openai/gpt-oss-120b": {
+      "unavailable": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}",
+      "answers": [
+        {
+          "id": "C11",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C12",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C13",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C14",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C15",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C16",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C17",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C18",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C19",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C20",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C21",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C22",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C23",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C24",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C25",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C26",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C27",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C28",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C29",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C30",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C31",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C32",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C33",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C34",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C35",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C36",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C37",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C38",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C39",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C40",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C41",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C42",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C43",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C44",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C45",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C46",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C47",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C48",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C49",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C50",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        }
+      ]
+    },
+    "groq/openai/gpt-oss-20b": {
+      "unavailable": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}",
+      "answers": [
+        {
+          "id": "C11",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C12",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C13",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C14",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C15",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C16",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C17",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C18",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C19",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C20",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C21",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C22",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C23",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C24",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C25",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C26",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C27",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C28",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C29",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C30",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C31",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C32",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C33",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C34",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C35",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C36",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C37",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C38",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C39",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C40",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C41",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C42",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C43",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C44",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C45",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C46",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C47",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C48",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C49",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C50",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        }
+      ]
+    },
+    "groq/qwen/qwen3.8-27b": {
+      "unavailable": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}",
+      "answers": [
+        {
+          "id": "C11",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C12",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C13",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C14",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C15",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C16",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C17",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C18",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C19",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C20",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C21",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C22",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C23",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C24",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C25",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C26",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C27",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C28",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C29",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C30",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C31",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C32",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C33",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C34",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C35",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C36",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C37",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C38",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C39",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C40",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C41",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C42",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C43",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C44",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C45",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C46",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C47",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C48",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C49",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        },
+        {
+          "id": "C50",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+        }
+      ]
+    },
+    "gemini/gemini-3.8-flash": {
+      "outcomes": {
+        "correct": 32,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 0,
+        "wrong question named": 0,
+        "sent to a person": 0,
+        "wrong kind of block": 0,
+        "no answer": 8
+      },
+      "correct_on_clear_cases": "27/34",
+      "correct_on_judgement_calls": "5/6",
+      "replies_fetched_this_run": 1,
+      "seconds_per_reply_this_run": 9.95,
+      "seconds_lost_to_limits_and_errors": 18.7,
+      "answers": [
+        {
+          "id": "C11",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "It asks to define/explain reflection of light, which is identical in concept and task to Q1, Q2, Q3, and Q4."
+        },
+        {
+          "id": "C12",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q1",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Asking to give the definition of reflection of light is semantically identical to defining or explaining what reflection of light is."
+        },
+        {
+          "id": "C13",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Asking to describe what 'reflection of light' means requires the exact same definition as Q1, Q2, Q3, and Q4."
+        },
+        {
+          "id": "C14",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q10"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Reflection in optics is the reflection of light; defining it satisfies Q1, Q3, Q4, and Q10."
+        },
+        {
+          "id": "C15",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both questions ask the student to state the laws of reflection; a perfect answer to either earns full marks on both."
+        },
+        {
+          "id": "C16",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both ask the student to state the two standard laws of reflection of light."
+        },
+        {
+          "id": "C17",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both ask for the definition of the angle of reflection."
+        },
+        {
+          "id": "C18",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both questions ask the student to define the angle of reflection."
+        },
+        {
+          "id": "C19",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "It asks the exact same question with the same numerical value (30°) using slight phrasing differences."
+        },
+        {
+          "id": "C20",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both questions ask to find the angle of reflection given an angle of incidence of 30 degrees."
+        },
+        {
+          "id": "C21",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both questions describe an angle of incidence of 30° and ask to find the corresponding angle of reflection."
+        },
+        {
+          "id": "C22",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        },
+        {
+          "id": "C23",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both ask the student to state the differences between regular and diffuse reflection."
+        },
+        {
+          "id": "C24",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "Specular reflection is synonymous with regular reflection, making this the same concept and comparison task as Q9."
+        },
+        {
+          "id": "C25",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "Tests the definition of reflection of light in a multiple-choice format, matching the definition asked in Q1, Q2, Q3, and Q4."
+        },
+        {
+          "id": "C26",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": true,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        },
+        {
+          "id": "C27",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q8"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both ask the student to explain or define the concept of reflection, requiring identical answers."
+        },
+        {
+          "id": "C28",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        },
+        {
+          "id": "C29",
+          "expected": "variant",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Shares the same concept, task, and method as Q7, with only the numerical angle value differing."
+        },
+        {
+          "id": "C30",
+          "expected": "variant",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        },
+        {
+          "id": "C31",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        },
+        {
+          "id": "C32",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        },
+        {
+          "id": "C33",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about the laws of refraction, whereas existing questions concern the reflection of light."
+        },
+        {
+          "id": "C34",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The question asks to define the angle of incidence, whereas existing questions define angle of reflection or reflection itself."
+        },
+        {
+          "id": "C35",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Existing questions ask for the angle of reflection or definitions, whereas this asks to calculate the total angle between incident and reflected rays."
+        },
+        {
+          "id": "C36",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "Unlike Q7, the angle given is with the mirror surface, requiring finding the angle of incidence first (60°), testing a different concept and method."
+        },
+        {
+          "id": "C37",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Existing questions ask to state or define laws and concepts of reflection; describing an experimental verification requires a completely different task."
+        },
+        {
+          "id": "C38",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Existing questions ask to define or state laws of reflection, whereas this question asks for real-world examples."
+        },
+        {
+          "id": "C39",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Existing questions ask for verbal definitions or statements of laws, whereas this question requires drawing a labelled diagram."
+        },
+        {
+          "id": "C40",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Existing questions ask to define reflection or contrast reflection types, not to differentiate reflection from refraction."
+        },
+        {
+          "id": "C41",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Q9 asks to compare or differentiate regular and diffuse reflection, whereas the new question specifically asks to provide examples."
+        },
+        {
+          "id": "C42",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Total internal reflection is a distinct optical phenomenon requiring specific conditions, different from general reflection of light."
+        },
+        {
+          "id": "C43",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Existing questions ask to define reflection itself, whereas the new question asks specifically for the definition of the normal."
+        },
+        {
+          "id": "C44",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Existing questions ask to define reflection or angle of reflection, whereas the new question asks about image properties formed by a plane mirror."
+        },
+        {
+          "id": "C45",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks for the speed of light in vacuum, whereas the existing questions ask about the reflection of light."
+        },
+        {
+          "id": "C46",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question is about electric current, whereas all existing questions are about reflection of light."
+        },
+        {
+          "id": "C47",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 4,
+          "reason": "The new question asks for one specific law of reflection (i = r), which is only part of stating the laws in Q5."
+        },
+        {
+          "id": "C48",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5",
+            "Q10"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "The new question combines two existing questions: defining reflection of light (Q10) and stating the laws of reflection (Q5)."
+        },
+        {
+          "id": "C49",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        },
+        {
+          "id": "C50",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [],
+          "outcome": "no answer",
+          "judgement_call": false,
+          "confidence": 0,
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+        }
+      ]
+    },
+    "gemini/gemini-3.5-flash-lite": {
+      "outcomes": {
+        "correct": 32,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 1,
+        "wrong question named": 2,
+        "sent to a person": 2,
+        "wrong kind of block": 3,
+        "no answer": 0
+      },
+      "correct_on_clear_cases": "28/34",
+      "correct_on_judgement_calls": "4/6",
+      "replies_fetched_this_run": 0,
+      "seconds_per_reply_this_run": null,
+      "seconds_lost_to_limits_and_errors": 0.0,
+      "answers": [
+        {
+          "id": "C11",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q2"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Asks for the definition and meaning of light reflection, identical in concept and task to existing questions."
+        },
+        {
+          "id": "C12",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q1",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks for the definition of light reflection, which matches the concept and task of defining it in existing questions."
+        },
+        {
+          "id": "C13",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q2"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks for the meaning of light reflection, identical in concept and task to the existing definitions."
+        },
+        {
+          "id": "C14",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q8",
+            "Q10"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "It asks for the definition of reflection in optics, which is identical in concept and task to the existing questions."
+        },
+        {
+          "id": "C15",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks to state the laws of reflection, which is identical in concept and task to Q5."
+        },
+        {
+          "id": "C16",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both questions ask the student to state the laws of reflection of light."
+        },
+        {
+          "id": "C17",
+          "expected": "semantic_duplicate",
+          "given": "needs_review",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "sent to a person",
+          "judgement_call": false,
+          "confidence": 4,
+          "reason": "Asks for a definition related to an existing question about what the angle is, making it narrower."
+        },
+        {
+          "id": "C18",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Both questions ask for the definition or meaning of the angle of reflection."
+        },
+        {
+          "id": "C19",
+          "expected": "semantic_duplicate",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "wrong kind of block",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "It uses the exact same concept, task, and method as Q7, with identical numbers."
+        },
+        {
+          "id": "C20",
+          "expected": "semantic_duplicate",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "wrong kind of block",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "It uses the same concept and task with slightly rephrased wording, mapping directly to Q7's numerical problem."
+        },
+        {
+          "id": "C21",
+          "expected": "semantic_duplicate",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "wrong kind of block",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, only the wording of the scenario and numbers slightly differ."
+        },
+        {
+          "id": "C22",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "It asks for the exact same conceptual comparison and task as Q9 using different wording."
+        },
+        {
+          "id": "C23",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Distinguishing between regular and diffuse reflection is the same task and concept as asking for the difference between them."
+        },
+        {
+          "id": "C24",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "Comparing specular and diffuse reflection asks for the difference between regular and diffuse reflection."
+        },
+        {
+          "id": "C25",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q4",
+            "Q3",
+            "Q2",
+            "Q8"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "It tests the definition of light reflection in a multiple-choice format, matching the concept and task of the existing questions."
+        },
+        {
+          "id": "C26",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q10"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "The new question asks for the definition of light reflection using a fill-in-the-blank format, matching existing definitions."
+        },
+        {
+          "id": "C27",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q8",
+            "Q4",
+            "Q1",
+            "Q2",
+            "Q3"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks for an explanation of reflection, which shares the exact same concept and task as the existing definitions."
+        },
+        {
+          "id": "C28",
+          "expected": "variant",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Same concept, task, and method as Q7, only the incidence angle number differs from 30 to 45 degrees."
+        },
+        {
+          "id": "C29",
+          "expected": "variant",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Same concept, task, and method as Q7, but with a different angle value."
+        },
+        {
+          "id": "C30",
+          "expected": "variant",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Same concept, task, and method as Q7; only the numerical value for the angle of incidence differs."
+        },
+        {
+          "id": "C31",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about refraction, whereas all existing questions are about reflection."
+        },
+        {
+          "id": "C32",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about refraction, whereas the existing questions are about reflection."
+        },
+        {
+          "id": "C33",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about refraction, whereas the existing questions ask about reflection."
+        },
+        {
+          "id": "C34",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about the angle of incidence, whereas the existing questions ask about the angle of reflection or reflection itself."
+        },
+        {
+          "id": "C35",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Calculates the total angle between rays using the law of reflection, unlike existing questions which ask for single angles or definitions."
+        },
+        {
+          "id": "C36",
+          "expected": "different",
+          "given": "needs_review",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "sent to a person",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "Requires calculating angle of incidence first since angle is given with the surface, making it narrower and trickier than Q7."
+        },
+        {
+          "id": "C37",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Testing experimental verification is a different task than stating the laws."
+        },
+        {
+          "id": "C38",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks for examples of reflection in daily life, whereas existing questions ask for definition or meaning."
+        },
+        {
+          "id": "C39",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks to draw a diagram, which is a different task compared to defining or stating laws."
+        },
+        {
+          "id": "C40",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question introduces refraction, comparing it to reflection, which is a different concept from any existing question."
+        },
+        {
+          "id": "C41",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks for examples, whereas the existing questions ask for definitions or differences."
+        },
+        {
+          "id": "C42",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Total internal reflection is a completely different physical phenomenon from standard light reflection."
+        },
+        {
+          "id": "C43",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about the normal line, which is a different concept from the general phenomenon of reflection."
+        },
+        {
+          "id": "C44",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about the characteristics of an image formed by a plane mirror, which is a different concept from light reflection itself."
+        },
+        {
+          "id": "C45",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about the speed of light, whereas existing questions focus on the definition and laws of light reflection."
+        },
+        {
+          "id": "C46",
+          "expected": "different",
+          "given": "different",
+          "named": [],
+          "outcome": "correct",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "The new question asks about electric current, which is a completely different concept from light reflection."
+        },
+        {
+          "id": "C47",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [
+            "Q6",
+            "Q7"
+          ],
+          "outcome": "wrong question named",
+          "judgement_call": true,
+          "confidence": 4,
+          "reason": "The question asks for the general relationship, which is broader than asking for a specific value or definition."
+        },
+        {
+          "id": "C48",
+          "expected": "semantic_duplicate",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q5"
+          ],
+          "outcome": "correct",
+          "judgement_call": true,
+          "confidence": 5,
+          "reason": "The new question combines the exact concept and tasks of defining the reflection of light and stating its laws."
+        },
+        {
+          "id": "C49",
+          "expected": "needs_review",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q4",
+            "Q2",
+            "Q3"
+          ],
+          "outcome": "unclear decided",
+          "judgement_call": false,
+          "confidence": 5,
+          "reason": "Asking what happens when light falls on a polished surface is another way of asking for the definition of light reflection."
+        },
+        {
+          "id": "C50",
+          "expected": "needs_review",
+          "given": "needs_review",
+          "named": [
+            "Q1",
+            "Q4"
+          ],
+          "outcome": "wrong question named",
+          "judgement_call": false,
+          "confidence": 4,
+          "reason": "The new question broadens the concept from light to all waves, while keeping a similar explanatory task."
+        }
+      ]
+    }
+  }
+}

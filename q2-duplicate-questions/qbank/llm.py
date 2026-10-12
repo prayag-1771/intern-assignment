@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import time
 from pathlib import Path
 
@@ -58,6 +59,7 @@ class ChatModel:
         self._cache = self._read_cache()
         self.calls_made = 0  # requests actually sent to the service, not counting cache hits
         self.seconds_waiting = 0.0  # time spent on those requests, including rate-limit waits
+        self.seconds_answering = 0.0  # time of the successful requests alone: the model's real speed
         self.replies_fetched = 0  # replies received from the service (each may have taken several requests)
 
     def ask_json(self, system: str, user: str) -> dict:
@@ -107,6 +109,7 @@ class ChatModel:
         for attempt in range(_ATTEMPTS):
             last_attempt = attempt == _ATTEMPTS - 1
             self.calls_made += 1
+            attempt_started = time.perf_counter()
             try:
                 response = requests.post(self._url, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=120)
             except requests.RequestException as error:
@@ -117,19 +120,34 @@ class ChatModel:
                 time.sleep(_wait_seconds(None, attempt))
                 continue
             if response.status_code == 200:
+                self.seconds_answering += time.perf_counter() - attempt_started
                 return response.json()["choices"][0]["message"]["content"] or ""
             problem = f"HTTP {response.status_code}: {response.text[:300]}"
             if response.status_code not in _RETRYABLE or last_attempt:
+                break
+            asked = _requested_wait(response)
+            if asked is not None and asked > _LONGEST_WAIT_SECONDS:
+                # A daily allowance is used up; waiting a minute will not help.
+                problem = f"HTTP {response.status_code}: allowance used up, retry in about {asked / 3600:.1f} hours"
                 break
             # A rate-limited service says how long to wait; otherwise back off a little longer each time.
             time.sleep(_wait_seconds(response, attempt))
         raise LLMUnavailable(f"{self.name}: {problem}")
 
 
-def _wait_seconds(response: requests.Response | None, attempt: int) -> float:
+def _requested_wait(response: requests.Response) -> float | None:
+    """Seconds the service asks us to wait: Groq sends a retry-after header, Gemini a retryDelay in the body."""
     try:
-        asked = float(response.headers.get("retry-after", "")) if response is not None else 2.0**attempt
+        return float(response.headers.get("retry-after", ""))
     except ValueError:
+        pass
+    found = re.search(r'"retryDelay":\s*"(\d+(?:\.\d+)?)s"', response.text)
+    return float(found.group(1)) if found else None
+
+
+def _wait_seconds(response: requests.Response | None, attempt: int) -> float:
+    asked = _requested_wait(response) if response is not None else None
+    if asked is None:
         asked = 2.0**attempt
     return min(max(asked, 1.0), _LONGEST_WAIT_SECONDS)
 

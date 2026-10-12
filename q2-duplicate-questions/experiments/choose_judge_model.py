@@ -166,7 +166,9 @@ def main() -> None:
             "correct_on_clear_cases": f"{sum(r['outcome'] == 'correct' for r in clear)}/{len(clear)}",
             "correct_on_judgement_calls": f"{sum(r['outcome'] == 'correct' for r in rows if r['judgement_call'])}/{len(rows) - len(clear)}",
             "replies_fetched_this_run": chat.replies_fetched,
-            "seconds_per_reply_this_run": round(chat.seconds_waiting / chat.replies_fetched, 2) if chat.replies_fetched else None,
+            # Speed of the model itself; waits caused by rate limits and quotas are left out.
+            "seconds_per_reply_this_run": round(chat.seconds_answering / chat.replies_fetched, 2) if chat.replies_fetched else None,
+            "seconds_lost_to_limits_and_errors": round(chat.seconds_waiting - chat.seconds_answering, 1),
             "answers": rows,
         }
 

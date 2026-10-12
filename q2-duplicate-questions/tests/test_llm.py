@@ -104,6 +104,16 @@ def test_a_timeout_is_retried_and_a_lasting_one_becomes_unavailable(service, tmp
         ChatModel("groq", "some-model", cache_path=tmp_path / "b.json").ask_json("s", "u")
 
 
+def test_a_used_up_daily_allowance_is_not_retried(service, tmp_path):
+    replies, sent = service
+    quota_body = '[{"error": {"code": 429, "details": [{"retryDelay": "59767s"}]}}]'
+    replies.append(FakeResponse(429, quota_body))
+
+    with pytest.raises(LLMUnavailable, match="allowance used up, retry in about 16.6 hours"):
+        ChatModel("groq", "some-model", cache_path=tmp_path / "cache.json").ask_json("s", "u")
+    assert len(sent) == 1
+
+
 def test_a_refused_request_raises_instead_of_being_cached(service, tmp_path):
     replies, _ = service
     replies.append(FakeResponse(401, "bad key"))

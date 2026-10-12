@@ -229,7 +229,19 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - The judge test now reports a model with no usable replies as "not scored" instead of counting 40 blank answers against it.
 - Commit: `Retry network errors in the LLM client`.
 
+### Question 2: judge test results
+
+- Groq: still refused with HTTP 403 from this network, so its three models are "not scored".
+- `gemini-3.8-flash`: answered 32 of the 40 questions and got all 32 right. The other 8 got no answer: its free plan allows 20 requests a day per model (the refusal names the quota `GenerateRequestsPerDayPerProjectPerModel-FreeTier`, value 20). About 10 seconds per answer.
+- `gemini-3.5-flash-lite`: answered all 40 and got 32 fully right. It made no serious mistake: no copy let in and no new question blocked. Its 8 slips: three same-number rewordings of Q7 called "variant" instead of "semantic duplicate" (blocked either way); two clear cases sent to a person (C17, and C36, a judgement call); one unclear case decided as a duplicate (C49); two unclear cases with a related but not the expected question named (C47, C50).
+- On the 32 questions both answered, `gemini-3.8-flash` got 32 right and `gemini-3.5-flash-lite` 26.
+- The "variant" slip suggests the judge's instructions should say plainly that a variant has different numbers and the same numbers in other words is a semantic duplicate. If the instructions are changed after seeing these results, the answer-key score becomes optimistic, so any change will be recorded and reported as such.
+- Two fixes to `qbank/llm.py`: speed is now measured on successful replies only (the first run reported 1,530 seconds per reply because quota waits were counted), and a refusal saying the daily allowance is used up is no longer retried. A test was added (68 pass).
+- The saved replies in `data/llm_cache/` are committed, so the test can be rerun without keys and without spending allowance.
+- Commit: `Add judge test results and stop retrying used-up allowances`.
+
 ### Open
 
-- Next decision: which LLM is the judge, once the test finishes. Then storage and the coverage summary.
+- Decision waiting on the user: which LLM is the judge. Groq can only be tested with the VPN off.
+- Then storage and the coverage summary.
 - Nothing has been pushed.
