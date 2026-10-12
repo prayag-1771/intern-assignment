@@ -1357,1217 +1357,1478 @@
   },
   "judges": {
     "groq/openai/gpt-oss-120b": {
-      "unavailable": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}",
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 0,
+        "new question blocked": 1,
+        "unclear decided": 3,
+        "wrong question named": 1,
+        "sent to a person": 0,
+        "wrong kind of block": 0,
+        "no answer": 0
+      },
+      "correct_on_clear_cases": "31/34",
+      "correct_on_judgement_calls": "4/6",
+      "replies_fetched_this_run": 40,
+      "seconds_per_reply_this_run": 4.31,
+      "seconds_lost_to_limits_and_errors": 26.6,
       "answers": [
         {
           "id": "C11",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and asks for definition of reflection of light"
         },
         {
           "id": "C12",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q1",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition request as existing questions"
         },
         {
           "id": "C13",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as existing definition questions"
         },
         {
           "id": "C14",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q8",
+            "Q3",
+            "Q4",
+            "Q10"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task as existing questions"
         },
         {
           "id": "C15",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q5, just rephrased"
         },
         {
           "id": "C16",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q5, just rephrased"
         },
         {
           "id": "C17",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition request as Q6"
         },
         {
           "id": "C18",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and asks for definition as Q6"
         },
         {
           "id": "C19",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Identical question to Q7"
         },
         {
           "id": "C20",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Identical task and concept as Q7, just rephrased"
         },
         {
           "id": "C21",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same question as Q7, just rephrased"
         },
         {
           "id": "C22",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q9, just rephrased"
         },
         {
           "id": "C23",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q9, just rephrased"
         },
         {
           "id": "C24",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and compare task as Q9"
         },
         {
           "id": "C25",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q8"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task, presented as multiple‑choice"
         },
         {
           "id": "C26",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q10",
+            "Q3"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 4,
+          "reason": "Same concept and asks to state the term/definition"
         },
         {
           "id": "C27",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q4",
+            "Q3"
+          ],
+          "outcome": "wrong question named",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and explain task as Q4 and Q3"
         },
         {
           "id": "C28",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task, only the incidence angle number differs"
         },
         {
           "id": "C29",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, only the incidence angle differs"
         },
         {
           "id": "C30",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and calculation, only numeric value differs"
         },
         {
           "id": "C31",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from reflection questions"
         },
         {
           "id": "C32",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing items cover reflection, not refraction"
         },
         {
           "id": "C33",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs (refraction vs reflection) despite same task"
         },
         {
           "id": "C34",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "No existing question asks for definition of angle of incidence"
         },
         {
           "id": "C35",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "No existing question asks for the angle between incident and reflected rays"
         },
         {
           "id": "C36",
           "expected": "different",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "new question blocked",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 4,
+          "reason": "Same concept and calculation task, phrased differently"
         },
         {
           "id": "C37",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing items ask to state/define; new asks for experimental description"
         },
         {
           "id": "C38",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing items ask for definitions or laws, not examples"
         },
         {
           "id": "C39",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing items ask for definitions or statements; new asks for a diagram"
         },
         {
           "id": "C40",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions only address reflection definitions or reflection types, not refraction"
         },
         {
           "id": "C41",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing items ask for definitions or differences, not examples"
         },
         {
           "id": "C42",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "asks about a specific phenomenon not covered by existing questions"
         },
         {
           "id": "C43",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "asks about a different concept (normal) than existing reflection definitions"
         },
         {
           "id": "C44",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions ask about definition of reflection, not image type"
         },
         {
           "id": "C45",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Different concept; existing focus on reflection, not speed"
         },
         {
           "id": "C46",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Different concept and task from reflection questions"
         },
         {
           "id": "C47",
           "expected": "needs_review",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "unclear decided",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "asks to state the law linking incidence and reflection, same as Q5"
         },
         {
           "id": "C48",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Combines definition (Q10) and laws (Q5)"
         },
         {
           "id": "C49",
           "expected": "needs_review",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "unclear decided",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 4,
+          "reason": "Same concept and explanatory task as Q1‑Q4"
         },
         {
           "id": "C50",
           "expected": "needs_review",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "unclear decided",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-120b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions focus on light reflection; new asks about waves, a different concept."
         }
       ]
     },
     "groq/openai/gpt-oss-20b": {
-      "unavailable": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}",
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 1,
+        "new question blocked": 1,
+        "unclear decided": 2,
+        "wrong question named": 1,
+        "sent to a person": 0,
+        "wrong kind of block": 0,
+        "no answer": 0
+      },
+      "correct_on_clear_cases": "32/34",
+      "correct_on_judgement_calls": "3/6",
+      "replies_fetched_this_run": 40,
+      "seconds_per_reply_this_run": 4.01,
+      "seconds_lost_to_limits_and_errors": 37.2,
       "answers": [
         {
           "id": "C11",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q2"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task as existing questions"
         },
         {
           "id": "C12",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task as Q10"
         },
         {
           "id": "C13",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q2"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as existing questions"
         },
         {
           "id": "C14",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q10",
+            "Q8"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task as existing questions"
         },
         {
           "id": "C15",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q5"
         },
         {
           "id": "C16",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q5"
         },
         {
           "id": "C17",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task as Q6"
         },
         {
           "id": "C18",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task as Q6"
         },
         {
           "id": "C19",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7"
         },
         {
           "id": "C20",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7"
         },
         {
           "id": "C21",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, identical wording and numbers"
         },
         {
           "id": "C22",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q9"
         },
         {
           "id": "C23",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q9"
         },
         {
           "id": "C24",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and comparison task as Q9"
         },
         {
           "id": "C25",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "copy let in",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "asks for a choice, not a definition or explanation"
         },
         {
           "id": "C26",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q10",
+            "Q3"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and definition task as existing questions"
         },
         {
           "id": "C27",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q4"
+          ],
+          "outcome": "wrong question named",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q4"
         },
         {
           "id": "C28",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, only incidence angle differs"
         },
         {
           "id": "C29",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task, only incidence angle differs"
         },
         {
           "id": "C30",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task, only incidence angle differs"
         },
         {
           "id": "C31",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from existing reflection questions"
         },
         {
           "id": "C32",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from existing reflection questions"
         },
         {
           "id": "C33",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from existing reflection questions"
         },
         {
           "id": "C34",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "No existing question asks about angle of incidence"
         },
         {
           "id": "C35",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept, different calculation task"
         },
         {
           "id": "C36",
           "expected": "different",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "new question blocked",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task, different wording"
         },
         {
           "id": "C37",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept, different task"
         },
         {
           "id": "C38",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept, different task"
         },
         {
           "id": "C39",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept, different task"
         },
         {
           "id": "C40",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from existing questions"
         },
         {
           "id": "C41",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept, different task (examples vs definition/difference)."
         },
         {
           "id": "C42",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from existing reflection questions"
         },
         {
           "id": "C43",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from existing reflection questions"
         },
         {
           "id": "C44",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "asks about image type, not definition or angle"
         },
         {
           "id": "C45",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Concept differs from all existing reflection questions"
         },
         {
           "id": "C46",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "No existing question covers electric current units"
         },
         {
           "id": "C47",
           "expected": "needs_review",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "unclear decided",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "asks for the same law as Q5"
         },
         {
           "id": "C48",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Combines definition and laws, matching Q10 and Q5."
         },
         {
           "id": "C49",
           "expected": "needs_review",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "unclear decided",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and explanatory task as existing reflection questions"
         },
         {
           "id": "C50",
           "expected": "needs_review",
           "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "named": [
+            "Q1",
+            "Q8",
+            "Q4",
+            "Q3",
+            "Q2"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/openai/gpt-oss-20b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 4,
+          "reason": "Broader domain (waves) than existing light-only questions"
         }
       ]
     },
     "groq/qwen/qwen3.8-27b": {
-      "unavailable": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}",
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 1,
+        "new question blocked": 1,
+        "unclear decided": 2,
+        "wrong question named": 0,
+        "sent to a person": 0,
+        "wrong kind of block": 1,
+        "no answer": 0
+      },
+      "correct_on_clear_cases": "30/34",
+      "correct_on_judgement_calls": "5/6",
+      "replies_fetched_this_run": 40,
+      "seconds_per_reply_this_run": 3.61,
+      "seconds_lost_to_limits_and_errors": 21.6,
       "answers": [
         {
           "id": "C11",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q8"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for the definition of light reflection, identical to existing questions."
         },
         {
           "id": "C12",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q8"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for the definition of reflection of light, identical to existing questions."
         },
         {
           "id": "C13",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q8"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "All existing questions ask for the definition or meaning of light reflection, identical to the new question."
         },
         {
           "id": "C14",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q8",
+            "Q3",
+            "Q4",
+            "Q10"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for the definition of reflection in optics, identical to existing questions."
         },
         {
           "id": "C15",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks to state the laws of reflection, identical to Q5."
         },
         {
           "id": "C16",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Both ask to state the specific laws of reflection; a perfect answer to one satisfies the other."
         },
         {
           "id": "C17",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "copy let in",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions ask for the value or general reflection definition, not the specific definition of the angle."
         },
         {
           "id": "C18",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q6"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Both ask for the definition of the angle of reflection."
         },
         {
           "id": "C19",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Identical concept and task as Q7, only minor wording differences."
         },
         {
           "id": "C20",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, just phrased differently with a specific scenario."
         },
         {
           "id": "C21",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "wrong kind of block",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and calculation task as Q7, but with different phrasing and context."
         },
         {
           "id": "C22",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for the same comparison between regular and diffuse reflection as Q9."
         },
         {
           "id": "C23",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asking to distinguish between regular and diffuse reflection is the same task as asking for the difference."
         },
         {
           "id": "C24",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q9"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asking to compare specular and diffuse reflection is equivalent to asking for the difference between regular and diffuse reflection."
         },
         {
           "id": "C25",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q8"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for the definition of reflection, same as existing questions."
         },
         {
           "id": "C26",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q3",
+            "Q4",
+            "Q10"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks to identify the term for light bouncing back, equivalent to defining reflection."
         },
         {
           "id": "C27",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q8",
+            "Q4",
+            "Q1",
+            "Q2",
+            "Q3"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for the definition or explanation of reflection, identical to all existing questions."
         },
         {
           "id": "C28",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, only the specific angle value differs."
         },
         {
           "id": "C29",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, only the numerical value of the angle differs."
         },
         {
           "id": "C30",
           "expected": "variant",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, but with a different angle of incidence (20° vs 30°)."
         },
         {
           "id": "C31",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Refraction is a different physical phenomenon from reflection."
         },
         {
           "id": "C32",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "The new question asks about refraction, while existing questions are about reflection."
         },
         {
           "id": "C33",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Refraction is a different concept from reflection."
         },
         {
           "id": "C34",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for definition of angle of incidence, not reflection angle or reflection concept."
         },
         {
           "id": "C35",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions ask for the angle of reflection or definitions, not the angle between rays."
         },
         {
           "id": "C36",
           "expected": "different",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "variant",
+          "named": [
+            "Q7"
+          ],
+          "outcome": "new question blocked",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Same concept and task as Q7, but input angle is with surface instead of normal."
         },
         {
           "id": "C37",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions ask to state or define laws, not to describe a verification experiment."
         },
         {
           "id": "C38",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions ask for definitions or laws, not daily life examples."
         },
         {
           "id": "C39",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions ask for definitions or laws, while the new question requires a specific diagram."
         },
         {
           "id": "C40",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions cover reflection definitions or regular vs diffuse reflection, not comparison with refraction."
         },
         {
           "id": "C41",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions ask for definitions or differences, not specific examples."
         },
         {
           "id": "C42",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Total internal reflection is a specific phenomenon distinct from general reflection."
         },
         {
           "id": "C43",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for definition of a specific term (normal), not the general phenomenon of reflection."
         },
         {
           "id": "C44",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions define reflection; new question asks about image properties."
         },
         {
           "id": "C45",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "The new question asks for a specific physical constant, while existing questions ask for definitions or laws of reflection."
         },
         {
           "id": "C46",
           "expected": "different",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "correct",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions concern light reflection; new question concerns electric current units."
         },
         {
           "id": "C47",
           "expected": "needs_review",
           "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "named": [
+            "Q5",
+            "Q6",
+            "Q7"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 4,
+          "reason": "Asks for the specific law (equality) which is part of Q5, but distinct from defining Q6 or calculating Q7."
         },
         {
           "id": "C48",
           "expected": "semantic_duplicate",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q10",
+            "Q5"
+          ],
+          "outcome": "correct",
           "judgement_call": true,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Combines the definition task of Q10 and the laws task of Q5 into a single question."
         },
         {
           "id": "C49",
           "expected": "needs_review",
-          "given": "needs_review",
-          "named": [],
-          "outcome": "no answer",
+          "given": "semantic_duplicate",
+          "named": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "outcome": "unclear decided",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Asks for the definition/explanation of light reflection, same as existing questions."
         },
         {
           "id": "C50",
           "expected": "needs_review",
-          "given": "needs_review",
+          "given": "different",
           "named": [],
-          "outcome": "no answer",
+          "outcome": "unclear decided",
           "judgement_call": false,
-          "confidence": 0,
-          "reason": "Judge unavailable: groq/qwen/qwen3.8-27b: HTTP 403: {\"error\":{\"message\":\"Access denied. Please check your network settings.\"}}"
+          "confidence": 5,
+          "reason": "Existing questions are specific to light; new question is about waves generally."
         }
       ]
     },
@@ -2584,9 +2845,9 @@
       },
       "correct_on_clear_cases": "27/34",
       "correct_on_judgement_calls": "5/6",
-      "replies_fetched_this_run": 1,
-      "seconds_per_reply_this_run": 9.95,
-      "seconds_lost_to_limits_and_errors": 18.7,
+      "replies_fetched_this_run": 0,
+      "seconds_per_reply_this_run": null,
+      "seconds_lost_to_limits_and_errors": 34.0,
       "answers": [
         {
           "id": "C11",
@@ -2740,7 +3001,7 @@
           "outcome": "no answer",
           "judgement_call": false,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         },
         {
           "id": "C23",
@@ -2789,7 +3050,7 @@
           "outcome": "no answer",
           "judgement_call": true,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         },
         {
           "id": "C27",
@@ -2811,7 +3072,7 @@
           "outcome": "no answer",
           "judgement_call": false,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         },
         {
           "id": "C29",
@@ -2833,7 +3094,7 @@
           "outcome": "no answer",
           "judgement_call": false,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         },
         {
           "id": "C31",
@@ -2843,7 +3104,7 @@
           "outcome": "no answer",
           "judgement_call": false,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         },
         {
           "id": "C32",
@@ -2853,7 +3114,7 @@
           "outcome": "no answer",
           "judgement_call": false,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         },
         {
           "id": "C33",
@@ -3028,7 +3289,7 @@
           "outcome": "no answer",
           "judgement_call": false,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         },
         {
           "id": "C50",
@@ -3038,7 +3299,7 @@
           "outcome": "no answer",
           "judgement_call": false,
           "confidence": 0,
-          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 16.5 hours"
+          "reason": "Judge unavailable: gemini/gemini-3.8-flash: HTTP 429: allowance used up, retry in about 6.9 hours"
         }
       ]
     },

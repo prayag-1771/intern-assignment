@@ -240,8 +240,27 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - The saved replies in `data/llm_cache/` are committed, so the test can be rerun without keys and without spending allowance.
 - Commit: `Add judge test results and stop retrying used-up allowances`.
 
+### Question 2: Groq judges tested
+
+- The user changed the connection, and Groq accepted requests again (the traffic now left through a server in the Netherlands). The three Groq models were run on the same 40 questions; the Gemini replies came from the cache.
+- Results, out of 40:
+
+| Judge | Correct | Copy let in | New question blocked | Unclear case decided | Smaller slips | No answer | Seconds per answer |
+|-------|---------|-------------|----------------------|----------------------|---------------|-----------|--------------------|
+| `gpt-oss-120b` (Groq) | 35 | 0 | 1 (C36, a judgement call) | 3 | 1 | 0 | 4.3 |
+| `gpt-oss-20b` (Groq) | 35 | 1 (C25, a judgement call) | 1 (C36) | 2 | 1 | 0 | 4.0 |
+| `qwen3.8-27b` (Groq) | 35 | 1 (C17, a clear case) | 1 (C36) | 2 | 1 | 0 | 3.6 |
+| `gemini-3.8-flash` | 32 | 0 | 0 | 0 | 0 | 8 (daily allowance) | about 10 |
+| `gemini-3.5-flash-lite` | 32 | 0 | 0 | 1 | 7 | 0 | about 2 (from the 2026-10-11 probe) |
+
+- On the 32 questions `gemini-3.8-flash` answered: it got 32 right, `gpt-oss-120b` and `qwen3.8-27b` 29, `gpt-oss-20b` 28, `gemini-3.5-flash-lite` 26. Its 8 unanswered questions include five of the hardest, so its perfect score is on an easier subset.
+- Every model differs from the answer key most on the "needs review" cases: the single judges rarely say "not sure" and decide instead. `gpt-oss-120b` decided all three of them itself.
+- Extra analysis from the saved answers: a rule where two judges must agree, and a disagreement goes to a person. `gpt-oss-120b` with `qwen3.8-27b` gave 35 correct, no copy let in, no new question blocked, 2 unclear cases decided, and 3 questions sent to a person. `gpt-oss-20b` with `qwen3.8-27b` gave 35 correct, no harmful mistake, 1 unclear decided, 4 sent to a person. Pairs with `gemini-3.5-flash-lite` gave 33 correct with no harmful mistake but 4 to 6 sent to a person.
+- Limits: 40 questions is small, so a difference of one or two answers can be chance. The pairs were chosen by looking at the same 40 questions, so the best pair's score is optimistic; it needs checking on questions it has not seen.
+- Commit: `Add Groq judge results`.
+
 ### Open
 
-- Decision waiting on the user: which LLM is the judge. Groq can only be tested with the VPN off.
+- Decision waiting on the user: which LLM is the judge, or which pair.
 - Then storage and the coverage summary.
 - Nothing has been pushed.
