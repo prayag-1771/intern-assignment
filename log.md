@@ -270,9 +270,15 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Limit, as before: all schemes were compared on the same 40 questions that were used to pick them, so the best score is optimistic.
 - Commit: `Compare ways of combining judges`.
 
+### Question 2: judge decided
+
+- **Decision (D11):** two judges, `gpt-oss-120b` and `qwen3.8-27b`, and only when they disagree a referee, `gemini-3.8-flash`. The referee counts when it backs one of the judges; otherwise the question is held for a person. Chosen over two judges with every disagreement going to a person, a majority vote, a single judge, and a cheap-then-strong cascade; see `decision.md`.
+- The user asked to complete Question 2 and report results, and to make sure the data built for it is of good quality, unbiased and has nothing unnecessary.
+- Added `JudgePanel` to `qbank/judge.py`, which the detector uses like a single judge, with 6 tests (76 pass).
+- Commit: `Add the judge panel`.
+
 ### Open
 
-- Decision waiting on the user: which judge setup.
 - The deadline: the user said on 2026-10-11 they had four days, so it may be today. Asked the user for the exact date.
 - Then storage and the coverage summary.
 - Nothing has been pushed.

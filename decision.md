@@ -266,10 +266,36 @@ Two further findings:
 
 **Limits:** 34 partnered questions is a small sample, and the corpus has only six distinct questions, so "nearest three" is an easy target. The measurement must be repeated on a bank of hundreds. Six further small models could not be tested because their downloads did not finish.
 
+## D11. Which LLM judges, and how (Question 2)
+
+**Date:** 2026-10-15
+
+**Question:** which LLM makes the final call, and should one model decide alone?
+
+**Evidence:** five models judged the same 40 non-copy questions from the answer key (`experiments/choose_judge_model.py`), and combinations of them were replayed from the saved answers (`experiments/combine_judges.py`). "Harmful" means a copy let into the bank or a new question blocked.
+
+| Option | Correct of 40 | Harmful mistakes | Unclear cases decided without a person | Sent to a person | AI answers used |
+|--------|---------------|------------------|-----------------------------------------|------------------|-----------------|
+| `gpt-oss-120b` + `qwen3.8-27b`, referee `gemini-3.8-flash` on disagreement | 37 | 0 | 2 | 1 | 84 |
+| `gpt-oss-120b` + `qwen3.8-27b`, disagreement to a person | 35 | 0 | 2 | 3 | 80 |
+| Majority vote of `gpt-oss-120b`, `qwen3.8-27b`, `gpt-oss-20b` | 36 | 1 | 3 | 0 | 120 |
+| `gpt-oss-120b` alone | 35 | 1 | 3 | 0 | 40 |
+| `gemini-3.5-flash-lite` alone | 32 | 0 | 1 | 2 | 40 |
+| `gemini-3.5-flash-lite` first, `gpt-oss-120b` when it is unsure | 33 | 1 | 3 | 0 | 44 |
+| `gemini-3.8-flash` alone | 32 answered, all right | 0 | 0 | 0 | stopped after its free allowance of 20 a day |
+
+Two findings shaped the choice. A single model rarely says "not sure": `gpt-oss-120b` decided all three unclear cases itself. And a model's own confidence is no guide: `gemini-3.5-flash-lite` rated itself 4 or 5 out of 5 on every answer it got wrong.
+
+**Chosen:** two judges, `gpt-oss-120b` and `qwen3.8-27b` (both on Groq), and only when they disagree a referee, `gemini-3.8-flash`. The referee's answer counts when it matches one of the two judges; otherwise, or when the referee cannot be reached, the question is held for a person (D9).
+
+**Why:** it was the best setup on every measure that matters: most correct, no harmful mistakes, and the fewest questions left for a person. Disagreement between two different models is used as the signal that a question is unclear, which a single model does not give. The referee is needed for about one question in ten, which fits inside its free allowance.
+
+**Limits:** all setups were compared on the same 40 questions used to pick them, so the winner's score is optimistic; the assignment's own Q1–Q10 check is the independent test. Both judges are on Groq, so if Groq is unreachable (as happened through one VPN server) new questions are held for a person.
+
 ## Pending
 
 Decisions still to make, numbered as they are made:
 
-- Which LLM generates the questions, which one tags, and which one judges.
+- Which LLM generates the questions and which one assigns concept labels.
 - How the coverage summary is built: by grouping embeddings, by the concept tags that D4 provides, or both.
 - How questions and vectors are stored.

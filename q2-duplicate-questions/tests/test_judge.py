@@ -1,6 +1,6 @@
 """The judge's handling of model replies, tested with a stand-in model so no key is needed."""
 
-from qbank.judge import SYSTEM_PROMPT, Judge, Verdict, build_user_message
+from qbank.judge import SYSTEM_PROMPT, Judge, JudgePanel, Verdict, build_user_message
 from qbank.llm import LLMUnavailable
 
 EXISTING = [("Q6", "What is the angle of reflection?"), ("Q7", "The angle of incidence is 30°. What is the angle of reflection?")]
@@ -79,3 +79,59 @@ def test_odd_confidence_values_do_not_break_the_verdict():
     model = StandInModel({"label": "different", "matches": [], "reason": "x", "confidence": "high"})
 
     assert Judge(model).judge("anything", EXISTING).confidence == 0
+
+
+
+def _judge(label, matches=("Q7",), error=None):
+    return Judge(StandInModel({"label": label, "matches": list(matches), "reason": label, "confidence": 4}, error=error))
+
+
+def test_panel_accepts_when_both_judges_agree_without_asking_the_referee():
+    referee_model = StandInModel({"label": "different", "matches": []})
+    panel = JudgePanel(_judge("variant"), _judge("variant"), Judge(referee_model))
+
+    verdict = panel.judge("anything", EXISTING)
+
+    assert (verdict.label, verdict.matches, verdict.judged) == ("variant", ("Q7",), True)
+    assert referee_model.asked == []
+
+
+def test_panel_follows_the_referee_when_it_backs_one_judge():
+    panel = JudgePanel(_judge("semantic_duplicate"), _judge("different", ()), _judge("semantic_duplicate", ("Q6",)))
+
+    verdict = panel.judge("anything", EXISTING)
+
+    assert (verdict.label, set(verdict.matches)) == ("semantic_duplicate", {"Q6", "Q7"})
+
+
+def test_panel_holds_the_question_when_nobody_agrees():
+    panel = JudgePanel(_judge("semantic_duplicate"), _judge("different", ()), _judge("variant"))
+
+    verdict = panel.judge("anything", EXISTING)
+
+    assert (verdict.label, verdict.judged) == ("needs_review", True)
+    assert "first judge said semantic_duplicate" in verdict.reason and "referee said variant" in verdict.reason
+
+
+def test_panel_holds_the_question_when_judges_disagree_and_the_referee_is_unreachable():
+    panel = JudgePanel(_judge("variant"), _judge("different", ()), _judge("variant", error=LLMUnavailable("quota")))
+
+    assert panel.judge("anything", EXISTING).label == "needs_review"
+
+
+def test_one_unreachable_judge_still_needs_the_referee_to_agree():
+    unreachable = _judge("variant", error=LLMUnavailable("blocked"))
+    backed = JudgePanel(_judge("different", ()), unreachable, _judge("different", ()))
+    unbacked = JudgePanel(_judge("different", ()), unreachable, None)
+
+    assert backed.judge("anything", EXISTING).label == "different"
+    assert unbacked.judge("anything", EXISTING).label == "needs_review"
+
+
+def test_panel_with_no_usable_answer_at_all_is_held_without_a_verdict():
+    down = LLMUnavailable("down")
+    panel = JudgePanel(_judge("x", error=down), _judge("x", error=down), _judge("x", error=down))
+
+    verdict = panel.judge("anything", EXISTING)
+
+    assert (verdict.label, verdict.judged) == ("needs_review", False)

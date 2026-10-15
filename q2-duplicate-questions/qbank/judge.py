@@ -86,6 +86,42 @@ class Judge:
         return _read_verdict(reply, {qid for qid, _ in existing})
 
 
+class JudgePanel:
+    """Two judges must agree; a referee is asked only when they do not (decision D11).
+
+    The referee's answer counts when it matches one of the two judges. Otherwise, or
+    when the referee cannot answer, the question is held for a person: disagreement
+    between two different models is the signal that the question is unclear.
+    """
+
+    def __init__(self, first: Judge, second: Judge, referee: Judge | None = None):
+        self._first, self._second, self._referee = first, second, referee
+
+    def judge(self, new_question: str, existing: Sequence[tuple[str, str]]) -> Verdict:
+        a = self._first.judge(new_question, existing)
+        b = self._second.judge(new_question, existing)
+        if a.judged and b.judged and a.label == b.label:
+            return _agreed(a.label, [a, b])
+
+        votes = [v for v in (a, b) if v.judged]
+        r = self._referee.judge(new_question, existing) if self._referee else None
+        if r is not None and r.judged:
+            backing = [v for v in votes if v.label == r.label]
+            if backing:
+                return _agreed(r.label, [r, *backing])
+        said = "; ".join(f"{name} said {v.label if v.judged else 'nothing usable'}" for name, v in
+                         [("first judge", a), ("second judge", b)] + ([("referee", r)] if r is not None else []))
+        named = tuple(dict.fromkeys(m for v in (a, b, r) if v is not None for m in v.matches))
+        if not votes:
+            return _held(f"No judge gave a usable answer ({said}).")
+        return Verdict("needs_review", named, f"The judges disagree: {said}.", 0)
+
+
+def _agreed(label: str, verdicts: list[Verdict]) -> Verdict:
+    matches = () if label == "different" else tuple(dict.fromkeys(m for v in verdicts for m in v.matches))
+    return Verdict(label, matches, verdicts[0].reason, min(v.confidence for v in verdicts))
+
+
 def _read_verdict(reply: dict, known_ids: set[str]) -> Verdict:
     label = reply.get("label")
     if label not in JUDGE_LABELS:

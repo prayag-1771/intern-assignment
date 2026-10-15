@@ -10,7 +10,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Sequence
 
-from .judge import Judge
+from .judge import Judge, JudgePanel
 from .search import Neighbour, QuestionIndex
 
 # How many of the nearest stored questions the judge is shown at once.
@@ -33,7 +33,7 @@ class Detection:
 
 
 class DuplicateDetector:
-    def __init__(self, index: QuestionIndex, judge: Judge, shown_to_judge: int = SHOWN_TO_JUDGE):
+    def __init__(self, index: QuestionIndex, judge: Judge | JudgePanel, shown_to_judge: int = SHOWN_TO_JUDGE):
         self.index = index
         self._judge = judge
         self._shown_to_judge = shown_to_judge
