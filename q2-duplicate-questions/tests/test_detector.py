@@ -83,7 +83,7 @@ def test_exact_copy_is_caught_without_asking_the_judge(index):
 def test_other_questions_go_to_the_judge_with_the_nearest_ones(index):
     model = StandInModel({"label": "variant", "matches": ["Q7"], "reason": "Only the number changes.", "confidence": 5})
 
-    detection = DuplicateDetector(index, Judge(model), shown_to_judge=2).check(
+    detection = DuplicateDetector(index, Judge(model), shown_by_meaning=2).check(
         "The angle of incidence is 45°. What is the angle of reflection?"
     )
 
@@ -112,3 +112,49 @@ def test_empty_bank_accepts_anything():
     detection = DuplicateDetector(QuestionIndex(WordEmbedder()), Judge(StandInModel({}))).check("Anything?")
 
     assert (detection.label, detection.method) == ("different", "empty_bank")
+
+
+from qbank.concepts import ConceptLabel, ConceptLabeler, plan_syllabus
+
+
+class FixedLabeler:
+    """Gives every question the same concept label, as a stand-in for the LLM labeler."""
+
+    def __init__(self, concept):
+        self.concept = concept
+
+    def label(self, question):
+        return ConceptLabel(self.concept, "calculate")
+
+
+def test_concept_route_shows_a_same_concept_question_the_meaning_search_ranked_too_low():
+    index = QuestionIndex(WordEmbedder())
+    index.add(BANK, concepts=[None, None, None, "angle calculation", None])
+    model = StandInModel({"label": "semantic_duplicate", "matches": ["Q7"], "reason": "Same calculation.", "confidence": 4})
+    text = "A light ray hits a flat mirror 30 degrees off its normal; find its bounce"  # shares no word with Q7
+
+    without = DuplicateDetector(index, Judge(model), shown_by_meaning=1).check(text)
+    with_route = DuplicateDetector(index, Judge(model), FixedLabeler("angle calculation"), shown_by_meaning=1).check(text)
+
+    assert "Q7" not in [n.id for n in without.shown]
+    assert [(n.id, n.route) for n in with_route.shown][-1] == ("Q7", "concept")
+    assert with_route.concept == ConceptLabel("angle calculation", "calculate")
+
+
+def test_labeler_reuses_known_concepts_and_falls_back_to_other_task():
+    model = StandInModel({"concept": "  Laws of Reflection ", "task": "write down"})
+    labeler = ConceptLabeler(model, "reflection of light", known=["laws of reflection"])
+
+    assert labeler.label("Write down the laws of reflection.") == ConceptLabel("laws of reflection", "other")
+    assert labeler.known == ["laws of reflection"]
+    assert "- laws of reflection" in model.asked[0]
+
+
+def test_labeler_gives_nothing_when_the_model_cannot_answer():
+    assert ConceptLabeler(StandInModel(ValueError("bad")), "x").label("q") is None
+
+
+def test_syllabus_is_cleaned_and_deduplicated():
+    model = StandInModel({"concepts": ["Laws of reflection", "laws of  reflection", "", "plane mirror images"]})
+
+    assert plan_syllabus(model, "reflection of light") == ["laws of reflection", "plane mirror images"]

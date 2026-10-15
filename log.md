@@ -277,8 +277,26 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Added `JudgePanel` to `qbank/judge.py`, which the detector uses like a single judge, with 6 tests (76 pass).
 - Commit: `Add the judge panel`.
 
+### Question 2: data audit
+
+- Asked by the user to make sure the data we made is of good quality, unbiased and has nothing unnecessary. Checks run: label counts per kind and per corpus question; near-identical pairs inside the answer key (embedding similarity of 0.93 or more); four-word runs shared between the judge's instructions and any test question; and the commit history, which shows the labels were fixed (2026-10-11 11:35) before the judge's instructions were written (12:02) and before any judge was run.
+- Removed 9 questions, with the reason recorded in the answer key's `audit` field: C04, C05, C06 and C10 tested the same text clean-up as another question; C12 was nearly the wording of corpus question Q2; C23 was the same plain rewording of Q9 as C22; C32 repeated C31's one-word trick on the same question group; C37 ("Describe an experiment to verify ...") matched a worked example in the judge's instructions, which would favour the judge; C46 was off the subject. None of them had been answered wrongly by any judge, so removing them can only lower scores.
+- Added 6 questions for the thinnest kinds (variants C51 to C53, needs review C54 to C56), marked `added` because they were written after the first tests; their results are reported separately. No existing label was changed.
+- The answer key now has 47 questions: 6 exact duplicates, 16 semantic duplicates, 6 variants, 13 different, 6 needs review.
+- From the Amazon ML Challenge 2026 notes (asked for by the user), two lessons applied: the search stage is measured on its own because a candidate it misses cannot be recovered later, and results are reported per kind of question because the test mix is not the real-world mix (an overall score there hid about 90% of wrong picks). Nothing else from that project applied.
+- All experiments were rerun on the audited key. Embeddings: `Qwen3-Embedding-0.6B` still the only local model with every partner among the nearest three (34 of 34), so D10 stands. Judges: the chosen panel, run for real, got 38 of 41 with no harmful mistake, and 6 of 6 on the added questions; D11 stands. `gemini-3.8-flash` was limited to its saved answers in this run so its daily allowance stays for the referee job.
+- Commit: `Audit the answer key and rerun the experiments`.
+
+### Question 2: completed
+
+- **Decisions D12 to D14 were made by Claude without asking**, because the user asked to finish quickly; each is recorded in `decision.md` so the user can change it. D12: `gemini-3.5-flash-lite` writes new questions and labels concepts, so the two judges never mark their own writing. D13: the coverage summary is built from concept labels (an LLM-made syllabus plus a label per question), the same labels that drive the detector's second search route. D14: the bank is one readable JSON file, with vectors recomputed on load.
+- Added `qbank/concepts.py` (syllabus and concept labeler, reusing known labels), the second search route in `qbank/search.py` and `qbank/detector.py` (up to 3 stored questions sharing the new question's concept label are shown to the judges after the 5 nearest by meaning), `qbank/bank.py` (stored questions with key-value tags that duplicate checks never read, the review list, save and load), `qbank/generator.py` (the memory-guided loop and a naive baseline for comparison), `qbank/setup.py` (builds the decided system), `qbank/__main__.py` (command line: check, generate, review, resolve, list) and `examples/run_demo.py` (end-to-end demo writing `examples/REPORT.md`).
+- Tests use stand-ins for every model: 86 pass with no keys or downloads.
+- Added the Question 2 README: architecture, the duplicate rule, both mechanisms, tags, technology choices and trade-offs, evaluation method and what a proper evaluation would add, limits, and how to run.
+- Commit: `Complete Question 2: concept labels, bank, generator, command line and README`.
+
 ### Open
 
-- The deadline: the user said on 2026-10-11 they had four days, so it may be today. Asked the user for the exact date.
-- Then storage and the coverage summary.
+- The deadline: the user said on 2026-10-11 they had four days, so it may be today. Asked the user for the exact date; no answer yet.
+- Question 1 has not been started.
 - Nothing has been pushed.

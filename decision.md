@@ -248,6 +248,19 @@ This differs from a question that asks for only part of an existing one, such as
 | Qwen3-Embedding-0.6B with the task instruction | same | 30 of 34 | 34 of 34 | 2.5 s |
 | gemini-embedding-001 (online, reference) | none | 32 of 34 | 34 of 34 | not measured |
 
+**Re-measured on 2026-10-15** after the data audit (9 redundant or biased questions removed, 6 added; the answer key now has 47 questions, 34 of them partnered):
+
+| Option | Partner nearest | Partner in nearest three | CPU time per question |
+|--------|-----------------|--------------------------|-----------------------|
+| TF-IDF on words | 27 of 34 | 32 of 34 | instant |
+| all-MiniLM-L6-v2 | 27 of 34 | 33 of 34 | 10 ms |
+| all-mpnet-base-v2 | 30 of 34 | 33 of 34 | 49 ms |
+| Qwen3-Embedding-0.6B | 32 of 34 | 34 of 34 | 1.0 s |
+| Qwen3-Embedding-0.6B with the task instruction | 29 of 34 | 34 of 34 | 2.2 s |
+| gemini-embedding-001 | 32 of 34 | 34 of 34 | not measured |
+
+The ranking, and therefore the choice below, did not change.
+
 Two further findings:
 
 - No model's score can decide "duplicate or not" by itself. With Qwen3, the different question C35 ("The angle of reflection is 30°. What is the angle between the incident ray and the reflected ray?") scores 0.95, above most true duplicates, while the fill-in-the-blank duplicate C26 scores 0.78. This confirms D3 and D4: the score finds candidates, the judge decides.
@@ -292,10 +305,50 @@ Two findings shaped the choice. A single model rarely says "not sure": `gpt-oss-
 
 **Limits:** all setups were compared on the same 40 questions used to pick them, so the winner's score is optimistic; the assignment's own Q1–Q10 check is the independent test. Both judges are on Groq, so if Groq is unreachable (as happened through one VPN server) new questions are held for a person.
 
+**Re-measured on 2026-10-15** after the data audit, on the 41 non-copy questions of the audited answer key, with the panel run for real (not replayed): 38 of 41 correct, no copy let in, no new question blocked, 2 unclear cases decided without a person, 1 question sent to a person. By kind: semantic duplicates 16 of 16, variants 6 of 6, different 12 of 13, needs review 4 of 6. On the 6 questions written after the first tests it got 6 of 6. `gpt-oss-120b` alone got 36 of 41, `qwen3.8-27b` alone 36, `gemini-3.5-flash-lite` 33, `gpt-oss-20b` 33.
+
+## D12. Which LLM writes new questions and which labels concepts (Question 2)
+
+**Date:** 2026-10-15
+
+**Made by:** Claude, without asking, because the user asked to finish quickly; recorded here so the user can change it.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | `gemini-3.5-flash-lite` for both, writer at temperature 0.7, labeler at 0 | A different model family from the two judges, so the judges are not marking their own writing (models tend to rate their own output kindly). Fast, and its free allowance was never reached in testing. | Less capable than the larger models, so its questions may be plainer. |
+| 2 | `gpt-oss-120b` as writer | Stronger writer. | It is also the first judge, so it would judge its own questions; it shares Groq's per-minute limit with the judging. |
+| 3 | `gemini-3.8-flash` as writer | Strongest Gemini model tested. | 20 requests a day, which the referee needs. |
+
+**Chosen:** option 1.
+
+## D13. How the coverage summary is built (Question 2)
+
+**Date:** 2026-10-15
+
+**Made by:** Claude, without asking, because the user asked to finish quickly; recorded here so the user can change it.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | Concept labels: an LLM lists the subject's syllabus points once, labels each question with one of them (reusing existing labels), and the summary counts questions per label; the gaps are syllabus points with the fewest questions | The same labels feed the detector's second search route (D4), so one mechanism serves both. Readable by the writer and by a person. Can name gaps that have no questions yet. | One LLM call per new question. Labels depend on the labeler and can drift; reusing the known list keeps them compact, as in [Ma 2026](https://aclanthology.org/2026.aimecon-sessions.9.pdf) Method 2. |
+| 2 | Grouping embeddings into clusters | No LLM call per question. | Clusters have no names for the writer to read, and an empty topic has no cluster, so gaps cannot be named. |
+| 3 | Both | Most information. | Two mechanisms to build and explain for little gain. |
+
+**Chosen:** option 1.
+
+## D14. How questions are stored (Question 2)
+
+**Date:** 2026-10-15
+
+**Made by:** Claude, without asking, for the same reason.
+
+| Rank | Option | For | Against |
+|------|--------|-----|---------|
+| 1 | One readable JSON file per bank; vectors recomputed when it is loaded | Nothing to install; the file can be read and checked by hand; fits a bank of thousands. | Recomputing vectors takes seconds per thousand questions on a graphics card; a bank of hundreds of thousands would want stored vectors and a database. |
+| 2 | SQLite with stored vectors | Scales further; safe with several users. | More code and a binary file a reviewer cannot read. |
+| 3 | A vector database server | Built for millions of vectors. | Far beyond the assignment's size; another service to run. |
+
+**Chosen:** option 1, with the upgrade path (stored vectors, then an approximate index such as FAISS) described in the README.
+
 ## Pending
 
-Decisions still to make, numbered as they are made:
-
-- Which LLM generates the questions and which one assigns concept labels.
-- How the coverage summary is built: by grouping embeddings, by the concept tags that D4 provides, or both.
-- How questions and vectors are stored.
+None for Question 2.

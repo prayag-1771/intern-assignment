@@ -21,10 +21,11 @@ class Neighbour(NamedTuple):
     id: str
     text: str
     score: float
+    route: str = "meaning"  # "meaning" (nearest by embedding) or "concept" (same concept label)
 
 
 class QuestionIndex:
-    """The stored questions, their fingerprints and their vectors."""
+    """The stored questions, their fingerprints, their vectors and their concept labels."""
 
     def __init__(self, embedder: Embedder):
         self._embedder = embedder
@@ -32,14 +33,18 @@ class QuestionIndex:
         self._texts: list[str] = []
         self._by_fingerprint: dict[str, list[str]] = {}
         self._vectors: np.ndarray | None = None
+        self._concepts: dict[str, str] = {}
 
     def __len__(self) -> int:
         return len(self._ids)
 
-    def add(self, questions: Sequence[tuple[str, str]]) -> None:
-        """Store questions given as (id, text) pairs."""
+    def add(self, questions: Sequence[tuple[str, str]], concepts: Sequence[str | None] | None = None) -> None:
+        """Store questions given as (id, text) pairs, optionally with their concept labels."""
         if not questions:
             return
+        for (qid, _), concept in zip(questions, concepts or []):
+            if concept:
+                self._concepts[qid] = concept
         known = set(self._ids)
         for qid, text in questions:
             if qid in known:
@@ -55,23 +60,40 @@ class QuestionIndex:
         """Ids of stored questions whose cleaned text equals the cleaned new text."""
         return list(self._by_fingerprint.get(fingerprint(text), []))
 
-    def nearest(self, text: str, k: int) -> list[Neighbour]:
-        """The k stored questions closest in meaning, most similar first.
+    def concept_of(self, qid: str) -> str | None:
+        return self._concepts.get(qid)
 
-        Stored questions that are exact copies of one already listed are skipped,
-        so the k places are not used up by the same wording twice.
+    def nearest(self, text: str, k: int) -> list[Neighbour]:
+        """The k stored questions closest in meaning, most similar first."""
+        return self.search(text, k)
+
+    def search(self, text: str, k: int, concept: str | None = None, by_concept: int = 0) -> list[Neighbour]:
+        """The k stored questions closest in meaning, then up to `by_concept` more that share the concept label.
+
+        The second route (decision D4) catches a duplicate whose wording is too far apart
+        for the meaning search to rank it among the nearest k. Stored questions that are
+        exact copies of one already listed are skipped, so places are not used up by the
+        same wording twice.
         """
         if self._vectors is None or k <= 0:
             return []
         scores = self._vectors @ self._embedder.embed([text])[0]
         found: list[Neighbour] = []
+        extra = 0
         listed_wordings: set[str] = set()
         for row in np.argsort(-scores, kind="stable"):
             wording = normalise(self._texts[row])
             if wording in listed_wordings:
                 continue
+            qid = self._ids[row]
+            if len(found) < k:
+                route = "meaning"
+            elif concept and extra < by_concept and self._concepts.get(qid) == concept:
+                route, extra = "concept", extra + 1
+            else:
+                if len(found) >= k and (not concept or extra >= by_concept):
+                    break
+                continue
             listed_wordings.add(wording)
-            found.append(Neighbour(self._ids[row], self._texts[row], float(scores[row])))
-            if len(found) == k:
-                break
+            found.append(Neighbour(qid, self._texts[row], float(scores[row]), route))
         return found
