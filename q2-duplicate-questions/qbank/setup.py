@@ -1,9 +1,11 @@
 """Builds the working system from the decided parts, so every script and the command line use the same setup.
 
   search model  Qwen3-Embedding-0.6B, run locally                       (decision D10)
-  judges        gpt-oss-120b and qwen3.8-27b, referee gemini-3.8-flash   (decision D11)
+  judges        gpt-oss-120b and qwen3.8-27b, referee gemini-3.8-flash,
+                backup referee gemini-3.5-flash-lite                     (decision D11)
   writer        gemini-3.5-flash-lite                                    (decision D12)
-  labeler       gemini-3.5-flash-lite, temperature 0                     (decision D12)
+  syllabus      gpt-oss-120b, listed once per subject                     (decision D12)
+  labeler       gpt-oss-20b, temperature 0                               (decision D12)
 """
 
 from __future__ import annotations
@@ -24,8 +26,10 @@ SUBJECT = "Physics: reflection of light"
 EMBEDDING_MODEL = "Qwen/Qwen3-Embedding-0.6B"
 JUDGES = (("groq", "openai/gpt-oss-120b"), ("groq", "qwen/qwen3.8-27b"))
 REFEREE = ("gemini", "gemini-3.8-flash")
+BACKUP_REFEREE = ("gemini", "gemini-3.5-flash-lite")  # when the referee's 20-a-day allowance is used up
 WRITER = ("gemini", "gemini-3.5-flash-lite")
-LABELER = ("gemini", "gemini-3.5-flash-lite")
+SYLLABUS_MODEL = ("groq", "openai/gpt-oss-120b")  # the only model whose list stayed inside the subject
+LABELER = ("groq", "openai/gpt-oss-20b")  # labelled identical questions identically; flash-lite did not
 WRITER_TEMPERATURE = 0.7  # some variety in what is written; replies are cached, so runs still repeat exactly
 BANK_PATH = DATA_DIR / "bank.json"
 CORPUS_TAGS = {"subject": "physics", "chapter": "light", "source": "assignment"}
@@ -33,7 +37,7 @@ CORPUS_TAGS = {"subject": "physics", "chapter": "light", "source": "assignment"}
 
 def build_panel() -> JudgePanel:
     first, second = (Judge(ChatModel(p, m)) for p, m in JUDGES)
-    return JudgePanel(first, second, Judge(ChatModel(*REFEREE)))
+    return JudgePanel(first, second, Judge(ChatModel(*REFEREE)), Judge(ChatModel(*BACKUP_REFEREE)))
 
 
 def build_labeler(subject: str = SUBJECT, known: list[str] | None = None) -> ConceptLabeler:
@@ -41,7 +45,7 @@ def build_labeler(subject: str = SUBJECT, known: list[str] | None = None) -> Con
 
 
 def build_syllabus(subject: str = SUBJECT) -> list[str]:
-    return plan_syllabus(ChatModel(*LABELER), subject)
+    return plan_syllabus(ChatModel(*SYLLABUS_MODEL), subject)
 
 
 def corpus_bank(labeler: ConceptLabeler, embedder=None) -> QuestionBank:

@@ -13,6 +13,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import threading
 import time
 from pathlib import Path
 
@@ -25,6 +26,12 @@ PROVIDERS = {
     "gemini": ("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", "GEMINI_API_KEY"),
 }
 CACHE_DIR = DATA_DIR / "llm_cache"
+
+# One shared store per cache file. Several clients for the same model (a judge, a backup
+# referee, a writer) may exist at once; each keeping its own copy would let the last one
+# to save overwrite replies the others had saved.
+_STORES: dict[Path, dict[str, str]] = {}
+_STORE_LOCK = threading.Lock()
 
 _RETRYABLE = (429, 500, 502, 503)
 _ATTEMPTS = 8
@@ -78,15 +85,20 @@ class ChatModel:
         return hashlib.sha256(json.dumps(request, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
 
     def _read_cache(self) -> dict[str, str]:
-        if not self._cache_path.exists():
-            return {}
-        with open(self._cache_path, encoding="utf-8") as handle:
-            return json.load(handle)
+        path = self._cache_path.resolve()
+        with _STORE_LOCK:
+            if path not in _STORES:
+                _STORES[path] = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+            return _STORES[path]
 
     def _write_cache(self) -> None:
-        self._cache_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(self._cache_path, "w", encoding="utf-8") as handle:
-            json.dump(self._cache, handle, ensure_ascii=False, indent=1, sort_keys=True)
+        with _STORE_LOCK:
+            # Merge with what is on disk, so replies saved by another process are kept too.
+            on_disk = json.loads(self._cache_path.read_text(encoding="utf-8")) if self._cache_path.exists() else {}
+            self._cache.update({k: v for k, v in on_disk.items() if k not in self._cache})
+            self._cache_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(self._cache_path, "w", encoding="utf-8") as handle:
+                json.dump(self._cache, handle, ensure_ascii=False, indent=1, sort_keys=True)
 
     def _request(self, system: str, user: str) -> str:
         if not self._allow_requests:

@@ -33,7 +33,8 @@ WRITER_PROMPT = """You write new exam questions for a question bank. Every quest
 A question is NOT new if it only rewords an existing question, changes its numbers or names, changes its format (multiple choice, fill in the blank, true or false), asks for only part of it, or joins existing questions together.
 A question IS new if it tests a concept the bank does not cover, or a covered concept with a different task (for example explain why, calculate, compare, give an example, draw, describe an experiment).
 
-Each question must be clear, correct for the subject, answerable by a school student, and different from the other questions you write.
+Stay strictly inside the subject as named: a question on a neighbouring topic is not useful, even if it is new.
+Each question must be clear, correct, answerable by a school student, and different from the other questions you write.
 Reply with JSON only: {"questions": [{"question": "...", "concept": "<the syllabus point it tests>", "task": "<what the student must do>"}]}"""
 
 NAIVE_PROMPT = """You write exam questions for a school subject. Each question must be clear, correct and answerable by a school student.

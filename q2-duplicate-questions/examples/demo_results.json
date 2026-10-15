@@ -1,0 +1,547 @@
+{
+  "syllabus": [
+    "law of reflection",
+    "angle of incidence",
+    "angle of reflection",
+    "specular reflection",
+    "diffuse reflection",
+    "plane mirror image formation",
+    "virtual image",
+    "real image",
+    "lateral inversion",
+    "mirror formula",
+    "mirror magnification",
+    "radius of curvature",
+    "focal length of spherical mirror",
+    "sign convention for mirrors",
+    "concave mirror image characteristics",
+    "convex mirror image characteristics",
+    "multiple reflections",
+    "principal axis",
+    "spherical aberration"
+  ],
+  "assignment_check": [
+    {
+      "id": "Q1",
+      "text": "What is reflection of light?",
+      "assignment": "Original",
+      "detector": "different",
+      "matches": [],
+      "method": "empty_bank",
+      "reason": "The bank is empty.",
+      "shown": [],
+      "agrees": true
+    },
+    {
+      "id": "Q2",
+      "text": "Define the reflection of light.",
+      "assignment": "Semantic duplicate of Q1",
+      "detector": "semantic_duplicate",
+      "matches": [
+        "Q1"
+      ],
+      "method": "judge",
+      "reason": "Same concept and asks for definition",
+      "shown": [
+        [
+          "Q1",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q3",
+      "text": "What do you understand by the reflection of light?",
+      "assignment": "Semantic duplicate of Q1",
+      "detector": "semantic_duplicate",
+      "matches": [
+        "Q1",
+        "Q2"
+      ],
+      "method": "judge",
+      "reason": "Same concept and definition task, just rephrased",
+      "shown": [
+        [
+          "Q1",
+          "meaning"
+        ],
+        [
+          "Q2",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q4",
+      "text": "Explain the meaning of light reflection.",
+      "assignment": "Semantic duplicate of Q1",
+      "detector": "semantic_duplicate",
+      "matches": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "method": "judge",
+      "reason": "Same concept and definition task as existing questions",
+      "shown": [
+        [
+          "Q1",
+          "meaning"
+        ],
+        [
+          "Q3",
+          "meaning"
+        ],
+        [
+          "Q2",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q5",
+      "text": "State the laws of reflection of light.",
+      "assignment": "Different question",
+      "detector": "different",
+      "matches": [],
+      "method": "judge",
+      "reason": "asks for laws, not definition/meaning",
+      "shown": [
+        [
+          "Q1",
+          "meaning"
+        ],
+        [
+          "Q4",
+          "meaning"
+        ],
+        [
+          "Q2",
+          "meaning"
+        ],
+        [
+          "Q3",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q6",
+      "text": "What is the angle of reflection?",
+      "assignment": "Different question",
+      "detector": "different",
+      "matches": [],
+      "method": "judge",
+      "reason": "No existing question asks specifically for the definition of angle of reflection",
+      "shown": [
+        [
+          "Q1",
+          "meaning"
+        ],
+        [
+          "Q4",
+          "meaning"
+        ],
+        [
+          "Q5",
+          "meaning"
+        ],
+        [
+          "Q3",
+          "meaning"
+        ],
+        [
+          "Q2",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q7",
+      "text": "The angle of incidence is 30°. What is the angle of reflection?",
+      "assignment": "Different question",
+      "detector": "different",
+      "matches": [],
+      "method": "judge",
+      "reason": "Existing questions ask for definitions or laws of reflection, whereas the new question calculates a specific angle using the first law of reflection.",
+      "shown": [
+        [
+          "Q6",
+          "meaning"
+        ],
+        [
+          "Q1",
+          "meaning"
+        ],
+        [
+          "Q5",
+          "meaning"
+        ],
+        [
+          "Q2",
+          "meaning"
+        ],
+        [
+          "Q4",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q8",
+      "text": "What is reflection?",
+      "assignment": "Potentially ambiguous; review context",
+      "detector": "needs_review",
+      "matches": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4"
+      ],
+      "method": "judge",
+      "reason": "The new question is broader as it does not specify 'reflection of light', making it ambiguous.",
+      "shown": [
+        [
+          "Q1",
+          "meaning"
+        ],
+        [
+          "Q4",
+          "meaning"
+        ],
+        [
+          "Q3",
+          "meaning"
+        ],
+        [
+          "Q2",
+          "meaning"
+        ],
+        [
+          "Q6",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q9",
+      "text": "What is the difference between regular and diffuse reflection?",
+      "assignment": "Different question",
+      "detector": "different",
+      "matches": [],
+      "method": "judge",
+      "reason": "asks for comparison, not definition like existing",
+      "shown": [
+        [
+          "Q1",
+          "meaning"
+        ],
+        [
+          "Q8",
+          "meaning"
+        ],
+        [
+          "Q2",
+          "meaning"
+        ],
+        [
+          "Q4",
+          "meaning"
+        ],
+        [
+          "Q3",
+          "meaning"
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "id": "Q10",
+      "text": "Define the reflection of light.",
+      "assignment": "Exact duplicate of Q2",
+      "detector": "exact_duplicate",
+      "matches": [
+        "Q2"
+      ],
+      "method": "exact_text",
+      "reason": "Same text once letter case, spacing and punctuation are ignored.",
+      "shown": [],
+      "agrees": true
+    }
+  ],
+  "naive": [
+    {
+      "round": 1,
+      "question": "State the first law of reflection.",
+      "outcome": "held",
+      "label": "needs_review",
+      "repeats": [
+        "State the laws of reflection of light."
+      ],
+      "concept": "law of reflection",
+      "reason": "asks only first law, narrower than Q5 which asks for all laws"
+    },
+    {
+      "round": 1,
+      "question": "If a light ray strikes a plane mirror at an angle of 35 degrees to the surface of the mirror, what is the angle of reflection?",
+      "outcome": "rejected",
+      "label": "variant",
+      "repeats": [
+        "The angle of incidence is 30°. What is the angle of reflection?"
+      ],
+      "concept": "law of reflection",
+      "reason": "Same concept and task as Q7, only the numeric value differs"
+    },
+    {
+      "round": 1,
+      "question": "What is the primary difference between regular reflection and diffuse reflection?",
+      "outcome": "rejected",
+      "label": "semantic_duplicate",
+      "repeats": [
+        "What is the difference between regular and diffuse reflection?"
+      ],
+      "concept": "specular reflection",
+      "reason": "Same concept and task as Q9, just rephrased"
+    },
+    {
+      "round": 1,
+      "question": "Describe two characteristics of the image formed by a plane mirror.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "plane mirror image formation",
+      "reason": "No existing question asks about image properties of a plane mirror"
+    },
+    {
+      "round": 1,
+      "question": "Explain why the word 'AMBULANCE' is painted in reverse on the front of emergency vehicles.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "lateral inversion",
+      "reason": "Existing items address light reflection concepts, not practical reverse lettering; tasks differ"
+    },
+    {
+      "round": 1,
+      "question": "An object is placed 5 cm in front of a flat plane mirror. What is the distance between the object and its image?",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "plane mirror image formation",
+      "reason": "Existing questions ask for definitions or characteristics, not a calculation of distance"
+    },
+    {
+      "round": 1,
+      "question": "If you rotate a plane mirror by 15 degrees, by what angle does the reflected ray rotate for a fixed incident ray?",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "law of reflection",
+      "reason": "No existing question asks about mirror rotation and resulting reflected ray change"
+    },
+    {
+      "round": 1,
+      "question": "What is meant by the term 'normal' in the context of the reflection of light?",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "normal in reflection",
+      "reason": "Existing items define reflection, not the normal term"
+    },
+    {
+      "round": 1,
+      "question": "Explain why smooth metal surfaces like polished silver make good mirrors, while rough surfaces like paper do not.",
+      "outcome": "held",
+      "label": "needs_review",
+      "repeats": [
+        "What is the difference between regular and diffuse reflection?"
+      ],
+      "concept": "specular reflection",
+      "reason": "The judges disagree: first judge said semantic_duplicate; second judge said needs_review; referee said different."
+    },
+    {
+      "round": 1,
+      "question": "Two plane mirrors are placed parallel to each other. How many images of an object placed between them will be formed?",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "multiple reflections",
+      "reason": "No existing question addresses image count with two parallel mirrors"
+    }
+  ],
+  "guided": [
+    {
+      "round": 1,
+      "question": "Define the angle of incidence in relation to a reflecting surface and the normal.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "angle of incidence",
+      "reason": "No existing question defines angle of incidence; others address reflection or calculations"
+    },
+    {
+      "round": 1,
+      "question": "If a light ray strikes a plane mirror at an angle of 45 degrees to the mirror's surface, what is the angle of incidence?",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "angle of incidence",
+      "reason": "No existing question asks to compute angle of incidence; others only define or ask for reflection angle"
+    },
+    {
+      "round": 1,
+      "question": "Describe how parallel rays of light behave when they strike a smooth, polished surface like a calm pool of water.",
+      "outcome": "held",
+      "label": "needs_review",
+      "repeats": [
+        "State the laws of reflection of light.",
+        "What is reflection of light?",
+        "Define the reflection of light.",
+        "What do you understand by the reflection of light?",
+        "Explain the meaning of light reflection."
+      ],
+      "concept": "specular reflection",
+      "reason": "Specific scenario narrower than general definition or law statements"
+    },
+    {
+      "round": 1,
+      "question": "Give two real-world examples where specular reflection occurs.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "specular reflection",
+      "reason": "Existing items define/explain reflection; new asks for real-world examples of specular reflection"
+    },
+    {
+      "round": 1,
+      "question": "Explain why you can see your full face clearly when looking into a bathroom mirror, but not when looking at a flat white wall.",
+      "outcome": "held",
+      "label": "needs_review",
+      "repeats": [
+        "What is the difference between regular and diffuse reflection?"
+      ],
+      "concept": "specular reflection",
+      "reason": "It applies the concept of regular and diffuse reflection to a specific scenario, making it narrower than Q9."
+    },
+    {
+      "round": 1,
+      "question": "List three characteristics of the image formed by a plane mirror.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "plane mirror image formation",
+      "reason": "Existing questions only ask about definition, angle, or laws of reflection, not image characteristics"
+    },
+    {
+      "round": 1,
+      "question": "If you stand 1.5 meters in front of a flat vertical mirror, what is the total distance between you and your image?",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "plane mirror image formation",
+      "reason": "No existing question asks for this calculation"
+    },
+    {
+      "round": 1,
+      "question": "Explain why the word 'AMBULANCE' is often painted in laterally inverted (reversed) letters on the front of emergency vehicles.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "lateral inversion",
+      "reason": "Concept differs from general light reflection; task is explain a specific application, not same as existing items"
+    },
+    {
+      "round": 1,
+      "question": "What is the fundamental difference between a virtual image and a real image in terms of light rays?",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "difference between virtual and real images",
+      "reason": "No existing question addresses virtual vs real image distinction"
+    },
+    {
+      "round": 1,
+      "question": "Can a virtual image formed by a plane mirror be projected onto a sheet of paper? Justify your answer.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "virtual image",
+      "reason": "No existing question asks about projecting a virtual image onto paper"
+    },
+    {
+      "round": 1,
+      "question": "Describe an experimental setup using a converging lens or a curved mirror that produces a real image on a screen.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "real image",
+      "reason": "No existing question asks for a setup to produce a real image; tasks differ"
+    },
+    {
+      "round": 1,
+      "question": "Why is the image formed on a cinema screen classified as a real image rather than a virtual image?",
+      "outcome": "held",
+      "label": "needs_review",
+      "repeats": [
+        "What is the fundamental difference between a virtual image and a real image in terms of light rays?"
+      ],
+      "concept": "difference between virtual and real images",
+      "reason": "It relates to the difference between real and virtual images, but focuses on a specific application rather than a direct definition."
+    },
+    {
+      "round": 2,
+      "question": "Calculate the focal length of a concave mirror whose radius of curvature is 30 cm, applying the correct sign convention.",
+      "outcome": "accepted",
+      "label": "different",
+      "repeats": [],
+      "concept": "focal length of spherical mirror",
+      "reason": "No existing question covers mirror focal length calculation"
+    },
+    {
+      "round": 2,
+      "question": "An object 4 cm tall is placed in front of a concave mirror, and the formed image has a magnification of -2. Determine the height and orientation of the image.",
+      "outcome": "not checked",
+      "label": null,
+      "repeats": [],
+      "concept": null,
+      "reason": ""
+    },
+    {
+      "round": 2,
+      "question": "An object is placed 20 cm in front of a concave mirror of focal length 15 cm. Use the mirror formula to calculate the image distance.",
+      "outcome": "not checked",
+      "label": null,
+      "repeats": [],
+      "concept": null,
+      "reason": ""
+    }
+  ],
+  "naive_summary": {
+    "written": 10,
+    "checked": 10,
+    "accepted": 6,
+    "rejected": 2,
+    "held": 2,
+    "rejected_share": 0.2,
+    "concepts_accepted": 5,
+    "rounds": 1
+  },
+  "guided_summary": {
+    "written": 15,
+    "checked": 13,
+    "accepted": 10,
+    "rejected": 0,
+    "held": 3,
+    "rejected_share": 0.0,
+    "concepts_accepted": 8,
+    "rounds": 2
+  },
+  "first_guided_prompt": "Subject: Physics: reflection of light\nWrite 12 new questions.\n\nCoverage of the bank (concept: number of questions):\n- reflection of light: 6\n- law of reflection: 2\n- angle of reflection: 1\n- diffuse reflection: 1\n\nConcepts with few or no questions; aim at these first:\n- angle of incidence (0 so far)\n- specular reflection (0 so far)\n- plane mirror image formation (0 so far)\n- virtual image (0 so far)\n- real image (0 so far)\n\nQuestions already in the bank (do not repeat, reword, renumber or reformat them):\n- What is the angle of reflection?\n- The angle of incidence is 30°. What is the angle of reflection?\n- Define the reflection of light.\n- What is the difference between regular and diffuse reflection?\n- What is reflection?\n- What is reflection of light?\n- Explain the meaning of light reflection.\n- What do you understand by the reflection of light?\n- State the laws of reflection of light."
+}

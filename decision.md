@@ -307,6 +307,8 @@ Two findings shaped the choice. A single model rarely says "not sure": `gpt-oss-
 
 **Re-measured on 2026-10-15** after the data audit, on the 41 non-copy questions of the audited answer key, with the panel run for real (not replayed): 38 of 41 correct, no copy let in, no new question blocked, 2 unclear cases decided without a person, 1 question sent to a person. By kind: semantic duplicates 16 of 16, variants 6 of 6, different 12 of 13, needs review 4 of 6. On the 6 questions written after the first tests it got 6 of 6. `gpt-oss-120b` alone got 36 of 41, `qwen3.8-27b` alone 36, `gemini-3.5-flash-lite` 33, `gpt-oss-20b` 33.
 
+**Addition on 2026-10-15 (made by Claude):** a backup referee, `gemini-3.5-flash-lite`, is asked when `gemini-3.8-flash` cannot answer. The first demo run used up the referee's 20 daily requests, after which every disagreement went to a person. As a referee, `gemini-3.5-flash-lite` made no harmful mistakes in the replayed comparison (36 of 41 correct).
+
 ## D12. Which LLM writes new questions and which labels concepts (Question 2)
 
 **Date:** 2026-10-15
@@ -319,7 +321,11 @@ Two findings shaped the choice. A single model rarely says "not sure": `gpt-oss-
 | 2 | `gpt-oss-120b` as writer | Stronger writer. | It is also the first judge, so it would judge its own questions; it shares Groq's per-minute limit with the judging. |
 | 3 | `gemini-3.8-flash` as writer | Strongest Gemini model tested. | 20 requests a day, which the referee needs. |
 
-**Chosen:** option 1.
+**Chosen:** option 1 for writing.
+
+**Revised on 2026-10-15 for labelling (made by Claude):** the first demo run showed `gemini-3.5-flash-lite` labelling badly: all ten assignment questions got "laws of reflection", and after a stricter prompt it still gave Q1 and Q3 (the same question) different labels. `gpt-oss-20b`, which has no other job, labelled the ten consistently: the six definition questions shared one label, the laws and angle questions another, and regular-versus-diffuse its own, and generated questions on lateral inversion and multiple reflection got those labels. Its own syllabus was narrower (mostly curved mirrors).
+
+**Revised again on 2026-10-15 for the syllabus (made by Claude):** with `gemini-3.5-flash-lite` listing the syllabus, its list began with general light topics (nature of light, luminous objects, rectilinear propagation), even after it was told to stay inside the subject. The gap-targeting then steered the writer to those topics, and the second demo run produced off-subject questions, two of them on quantum theory. `gpt-oss-120b` listed 19 points that all belong to reflection, from the law and the angles through specular and diffuse reflection, lateral inversion and multiple reflections to curved mirrors. It is asked once per subject, so its use as a judge is not affected. Final: writer `gemini-3.5-flash-lite`, syllabus `gpt-oss-120b`, labeler `gpt-oss-20b`.
 
 ## D13. How the coverage summary is built (Question 2)
 

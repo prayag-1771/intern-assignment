@@ -8,12 +8,14 @@ Every design choice below was measured before it was made. The options considere
 
 | What was checked | Result |
 |---|---|
-| The assignment's ten questions, classified in order (each against the ones before it) | see [examples/REPORT.md](examples/REPORT.md) §1 |
+| The assignment's ten questions, classified in order (each against the ones before it) | 10 of 10 agree with the assignment's labels, including Q8 flagged for review ([REPORT §1](examples/REPORT.md)); Q8 is borderline, see below |
 | Exact duplicates in our 47-question answer key, caught by text alone | 6 of 6, and no false matches among the other 41 |
 | Search: the right existing question among those shown to the judges | 28 of 28 non-copy questions that have one |
 | Judges on the 41 non-copy questions of the answer key | 38 correct; no copy let in, no new question blocked; 2 unclear cases decided, 1 sent to a person |
 | Same, by kind of question | semantic duplicates 16/16, variants 6/6, different 12/13, needs review 4/6 |
-| Generation: memory-guided loop against a writer that never sees the bank | see [examples/REPORT.md](examples/REPORT.md) §2 |
+| Generation, writer that never sees the bank | 10 checked: 6 accepted, 2 rejected as repeats, 2 held for a person; 5 concepts ([REPORT §2](examples/REPORT.md)) |
+| Generation, memory-guided loop | 13 checked: 10 accepted, 0 rejected as repeats, 3 held for a person; 8 concepts, in 2 rounds |
+| Repeatability | the experiments and the demo were rerun with all network access blocked and gave identical results from the saved replies |
 
 The answer key is small and was written by us, so these numbers show the method works on hard cases; they are not a precise accuracy estimate. See [Evaluation](#evaluation) for how it would be measured properly.
 
@@ -61,7 +63,7 @@ Variants are rejected by default, since a generator could otherwise fill the ban
    - *by meaning*: the 5 nearest by cosine similarity of [Qwen3-Embedding-0.6B](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B) vectors, run locally;
    - *by concept*: up to 3 more that share the new question's concept label, which catches a duplicate worded too differently for the embedding to rank it near.
    Similarity scores are only used to find candidates, never to decide: in our tests a different question scored 0.95 while a true duplicate scored 0.78.
-3. **Judges** ([qbank/judge.py](qbank/judge.py)). `gpt-oss-120b` and `qwen3.8-27b` (on Groq) each label the new question against the shown questions *together*, so a question that joins two existing ones can be recognised. They work from the written rule and six worked examples on another topic (Ohm's law), so nothing from the test data is in the prompt. If they agree, that is the answer; if not, `gemini-3.8-flash` is asked as referee and counts only if it backs one of them; otherwise the question is held for a person. Disagreement between two different models is our signal that a question is unclear: single models almost never say "not sure". Any unusable reply also holds the question rather than letting it through.
+3. **Judges** ([qbank/judge.py](qbank/judge.py)). `gpt-oss-120b` and `qwen3.8-27b` (on Groq) each label the new question against the shown questions *together*, so a question that joins two existing ones can be recognised. They work from the written rule and six worked examples on another topic (Ohm's law), so nothing from the test data is in the prompt. If they agree, that is the answer; if not, `gemini-3.8-flash` is asked as referee (or `gemini-3.5-flash-lite` once the referee's 20 free daily requests are used) and counts only if it backs one of them; otherwise the question is held for a person. Disagreement between two different models is our signal that a question is unclear: single models almost never say "not sure". Any unusable reply also holds the question rather than letting it through.
 
 The detector reads only the question text and the bank. It ignores everything the generator says about its own questions, including the concept it claims, so it still works when prevention fails or when questions come from elsewhere.
 
@@ -89,7 +91,7 @@ Questions carry free key-value tags (`subject=physics`, `grade=8`, `source=gener
 | Embeddings | Qwen3-Embedding-0.6B, local (D6, D10) | Gemini embeddings: a key and a request per question, 40 times slower, can be withdrawn. MiniLM: instant but missed a partner the judge then never sees. TF-IDF: ranks duplicates *below* different questions (Q3/Q4 score 0.12, Q6/Q7 0.80). |
 | Decision | LLM judges on the few nearest questions (D3, D4) | Cut-offs on similarity: no cut-off separates our classes. LLM against every stored question: thousands of calls per new question. |
 | Judges | two models + referee (D11) | One model: 36 of 41 and never says "not sure". Majority of three: hides doubt. Cheap model first: its confidence was 4–5 out of 5 even when wrong. |
-| Writer and labeler | `gemini-3.5-flash-lite` (D12) | Using a judge model as writer would have it mark its own work. |
+| Writer, syllabus, labeler | writer `gemini-3.5-flash-lite`, syllabus `gpt-oss-120b`, labeler `gpt-oss-20b` (D12) | Using a judge model as writer would have it mark its own work. `gemini-3.5-flash-lite` labelled the same question two different ways and listed off-subject syllabus points, which steered the writer off the subject. |
 | Storage | one readable JSON file, vectors recomputed on load (D14) | SQLite or a vector database: more to run, needed only at much larger sizes. |
 
 Costs per new question: one labeler call and two judge calls (a third only on disagreement, about one in ten). The cost does not grow with the bank: the search is one matrix product, exact up to tens of thousands of questions; beyond that an approximate index (FAISS) replaces it with no other change.
@@ -106,6 +108,11 @@ Costs per new question: one labeler call and two judge calls (a third only on di
 - Search recall on a bank of thousands, where "among the nearest five" is a hard target; ours had six distinct questions.
 - Performance: requests and seconds per new question, and the share needing a person, on a realistic stream of mostly new questions.
 
+**Notes on these results.**
+- Q8 ("What is reflection?") is a genuine borderline case. In an earlier demo run, when the judges were shown a slightly different set of existing questions, both called it a semantic duplicate of Q1 and the check came out 9 of 10. The final run shows the same five questions to the judges that the meaning search alone would.
+- The comparison of the two writers is one run each on a ten-question bank: it shows the guided loop removing repeats (0 of 13 against 2 of 10) and spreading questions over more concepts, but it is not a measured rate. The effect should grow with the bank, as the naive writer keeps returning to the same few questions.
+- 3 of the 13 guided questions were held for a person. They are applied versions of an existing question (for example why a mirror shows a clear face and a white wall does not, against the question on regular and diffuse reflection), which the judges read as "narrower". That is safe but costs a teacher's time; a sharper rule for applications is the first improvement we would make, re-measured on the answer key.
+
 ## Limits
 
 - 47 test questions on one topic, written by one person: enough to show behaviour on hard cases, not to estimate accuracy precisely.
@@ -118,7 +125,7 @@ Costs per new question: one labeler call and two judge calls (a third only on di
 ```bash
 cd q2-duplicate-questions
 pip install -r requirements.txt          # Python 3.11
-python -m pytest                         # 86 tests; no keys or downloads needed
+python -m pytest                         # 89 tests; no keys or downloads needed
 python -m examples.run_demo              # rebuilds examples/REPORT.md from cached AI replies
 python -m qbank check "Define the reflection of light."
 python -m qbank generate 5               # needs GROQ_API_KEY and GEMINI_API_KEY in ../.env

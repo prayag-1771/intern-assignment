@@ -21,13 +21,14 @@ from .llm import LLMUnavailable
 TASKS = ("define", "state", "explain", "describe", "calculate", "compare", "give_examples", "draw", "experiment", "identify", "other")
 
 SYLLABUS_PROMPT = """You plan exam coverage for a school subject.
-List the distinct concepts that exam questions on the given subject can test, at the level of syllabus points: specific enough that two questions on the same point would test the same idea (for example "laws of reflection", not "light").
-Give 10 to 15 concepts, each 2 to 6 words, lower case.
+List the distinct concepts that exam questions on the given subject can test, at the level of syllabus points: specific enough that two questions on the same point would test the same idea.
+Cover the whole subject, starting with its basic definitions and terms, then its laws and quantities, then its applications. List only concepts inside the subject as named, not concepts of the wider topic it belongs to or of neighbouring subjects (for "Electricity: Ohm's law", list resistance and current, not static electricity or magnetism).
+Give 12 to 20 concepts, each 2 to 6 words, lower case.
 Reply with JSON only: {"concepts": ["...", "..."]}"""
 
 LABEL_PROMPT = """You label one exam question with the concept it tests and the task it sets.
 
-concept: the specific idea the question tests, as a syllabus point of 2 to 6 words in lower case. Reuse one of the known concepts, written exactly as listed, whenever it fits. Only when none fits, write a new one.
+concept: the specific idea the question tests, as a syllabus point of 2 to 6 words in lower case. Reuse a known concept, written exactly as listed, only when the question tests exactly that idea; a broader or related concept does not fit (in electricity, "ohm's law" does not fit a question asking what resistance is). When no known concept fits exactly, write a new one.
 task: what the student must do, one of: """ + ", ".join(TASKS) + """.
 
 Reply with JSON only: {"concept": "...", "task": "..."}"""

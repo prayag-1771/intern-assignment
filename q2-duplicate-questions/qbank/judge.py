@@ -94,8 +94,10 @@ class JudgePanel:
     between two different models is the signal that the question is unclear.
     """
 
-    def __init__(self, first: Judge, second: Judge, referee: Judge | None = None):
-        self._first, self._second, self._referee = first, second, referee
+    def __init__(self, first: Judge, second: Judge, *referees: Judge | None):
+        # Referees are tried in order until one answers: a backup covers a used-up daily allowance.
+        self._first, self._second = first, second
+        self._referees = [r for r in referees if r is not None]
 
     def judge(self, new_question: str, existing: Sequence[tuple[str, str]]) -> Verdict:
         a = self._first.judge(new_question, existing)
@@ -104,7 +106,11 @@ class JudgePanel:
             return _agreed(a.label, [a, b])
 
         votes = [v for v in (a, b) if v.judged]
-        r = self._referee.judge(new_question, existing) if self._referee else None
+        r = None
+        for referee in self._referees:
+            r = referee.judge(new_question, existing)
+            if r.judged:
+                break
         if r is not None and r.judged:
             backing = [v for v in votes if v.label == r.label]
             if backing:
@@ -134,7 +140,8 @@ def _read_verdict(reply: dict, known_ids: set[str]) -> Verdict:
     matches = tuple(m for m in (str(item).strip("[] ") for item in listed) if m in known_ids)
     if label == "different":
         matches = ()
-    elif not matches:
+    elif not matches and label != "needs_review":
+        # A duplicate or variant must say what it repeats; "not sure" is usable without it.
         return _held(f"Judge said {label} but named no existing question.")
 
     try:

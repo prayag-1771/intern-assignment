@@ -295,6 +295,20 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Added the Question 2 README: architecture, the duplicate rule, both mechanisms, tags, technology choices and trade-offs, evaluation method and what a proper evaluation would add, limits, and how to run.
 - Commit: `Complete Question 2: concept labels, bank, generator, command line and README`.
 
+### Question 2: end-to-end demo and quality fixes
+
+- First demo run: the assignment check gave 9 of 10 (Q8 judged a semantic duplicate of Q1 instead of "needs review"). Checking the output for quality found three problems, all fixed:
+  - `gemini-3.5-flash-lite`, as labeler, gave all ten assignment questions the label "laws of reflection", and with a stricter prompt still labelled Q1 and Q3, the same question, differently. `gpt-oss-20b` labelled them consistently, so it is now the labeler (D12, revised).
+  - A judge answering "needs review" without naming an existing question had its answer thrown away as unusable. "Needs review" is now usable without a named question; a duplicate or variant must still name one. Test added.
+  - The referee's 20 daily requests ran out during the run, so every disagreement went to a person. `gemini-3.5-flash-lite` was added as a backup referee (D11, addition); it made no harmful mistake as referee in the replayed comparison.
+- Second run: 10 of 10, but the syllabus (listed by `gemini-3.5-flash-lite`) began with general light topics, and gap-targeting steered the guided writer off the subject: two questions on quantum theory, others on luminous objects and shadows. The syllabus is now listed by `gpt-oss-120b`, whose 19 points all belong to reflection, and both the syllabus and writer prompts now say to stay inside the subject.
+- A repeatability check (rerunning everything from the saved replies) found a bug: several clients for the same model each kept their own copy of the reply cache, and the last to save overwrote replies the others had saved, so reruns asked the writer again and got different questions. Fixed in `qbank/llm.py`: one shared store per cache file, merged with the file on every save. Test added.
+- The saved replies were then trimmed to the ones the final experiments and demo use (superseded prompts and removed test questions dropped), and everything was rerun with all network access blocked: the demo files came out byte-for-byte identical and the judge results unchanged.
+- Final, verified results: 10 of 10 on the assignment check. Naive writer: 10 checked, 6 accepted, 2 rejected as repeats, 2 held, 5 concepts. Memory-guided writer: 13 checked, 10 accepted, 0 rejected, 3 held, 8 concepts, 2 rounds. All generated questions are on reflection. Answer key: the panel 38 of 41 with no harmful mistake, unchanged. Results are in `examples/REPORT.md`, `examples/demo_results.json` and `examples/demo_bank.json`.
+- Honest notes recorded in the README: Q8 is borderline (it changed with the set of questions shown to the judges); one run each is not a rate; 3 of 13 guided questions were held, all applied versions of existing ones, which is the first thing to improve.
+- Tests: 89 pass.
+- Commit: `Fix labelling, referee and syllabus quality; add the final demo results`.
+
 ### Open
 
 - The deadline: the user said on 2026-10-11 they had four days, so it may be today. Asked the user for the exact date; no answer yet.

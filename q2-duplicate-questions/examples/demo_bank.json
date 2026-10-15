@@ -1,0 +1,277 @@
+{
+  "questions": [
+    {
+      "id": "Q1",
+      "text": "What is reflection of light?",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "reflection of light",
+      "task": "define",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q2",
+      "text": "Define the reflection of light.",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "reflection of light",
+      "task": "define",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q3",
+      "text": "What do you understand by the reflection of light?",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "reflection of light",
+      "task": "define",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q4",
+      "text": "Explain the meaning of light reflection.",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "reflection of light",
+      "task": "explain",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q5",
+      "text": "State the laws of reflection of light.",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "law of reflection",
+      "task": "state",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q6",
+      "text": "What is the angle of reflection?",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "angle of reflection",
+      "task": "define",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q7",
+      "text": "The angle of incidence is 30°. What is the angle of reflection?",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "law of reflection",
+      "task": "calculate",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q8",
+      "text": "What is reflection?",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "reflection of light",
+      "task": "define",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q9",
+      "text": "What is the difference between regular and diffuse reflection?",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "diffuse reflection",
+      "task": "explain",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "Q10",
+      "text": "Define the reflection of light.",
+      "tags": {
+        "subject": "physics",
+        "chapter": "light",
+        "source": "assignment"
+      },
+      "concept": "reflection of light",
+      "task": "define",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N1",
+      "text": "Define the angle of incidence in relation to a reflecting surface and the normal.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "angle of incidence",
+      "task": "define",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N2",
+      "text": "If a light ray strikes a plane mirror at an angle of 45 degrees to the mirror's surface, what is the angle of incidence?",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "angle of incidence",
+      "task": "state",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N3",
+      "text": "Describe how parallel rays of light behave when they strike a smooth, polished surface like a calm pool of water.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "specular reflection",
+      "task": "describe",
+      "status": "held",
+      "note": "Specific scenario narrower than general definition or law statements"
+    },
+    {
+      "id": "N4",
+      "text": "Give two real-world examples where specular reflection occurs.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "specular reflection",
+      "task": "give_examples",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N5",
+      "text": "Explain why you can see your full face clearly when looking into a bathroom mirror, but not when looking at a flat white wall.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "specular reflection",
+      "task": "explain",
+      "status": "held",
+      "note": "It applies the concept of regular and diffuse reflection to a specific scenario, making it narrower than Q9."
+    },
+    {
+      "id": "N6",
+      "text": "List three characteristics of the image formed by a plane mirror.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "plane mirror image formation",
+      "task": "give_examples",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N7",
+      "text": "If you stand 1.5 meters in front of a flat vertical mirror, what is the total distance between you and your image?",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "plane mirror image formation",
+      "task": "calculate",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N8",
+      "text": "Explain why the word 'AMBULANCE' is often painted in laterally inverted (reversed) letters on the front of emergency vehicles.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "lateral inversion",
+      "task": "explain",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N9",
+      "text": "What is the fundamental difference between a virtual image and a real image in terms of light rays?",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "difference between virtual and real images",
+      "task": "explain",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N10",
+      "text": "Can a virtual image formed by a plane mirror be projected onto a sheet of paper? Justify your answer.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "virtual image",
+      "task": "explain",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N11",
+      "text": "Describe an experimental setup using a converging lens or a curved mirror that produces a real image on a screen.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "real image",
+      "task": "describe",
+      "status": "accepted",
+      "note": ""
+    },
+    {
+      "id": "N12",
+      "text": "Why is the image formed on a cinema screen classified as a real image rather than a virtual image?",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "difference between virtual and real images",
+      "task": "explain",
+      "status": "held",
+      "note": "It relates to the difference between real and virtual images, but focuses on a specific application rather than a direct definition."
+    },
+    {
+      "id": "N13",
+      "text": "Calculate the focal length of a concave mirror whose radius of curvature is 30 cm, applying the correct sign convention.",
+      "tags": {
+        "source": "generated"
+      },
+      "concept": "focal length of spherical mirror",
+      "task": "calculate",
+      "status": "accepted",
+      "note": ""
+    }
+  ]
+}

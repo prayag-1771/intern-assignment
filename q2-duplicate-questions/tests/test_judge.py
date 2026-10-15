@@ -75,6 +75,14 @@ def test_a_real_needs_review_verdict_is_marked_as_judged():
     assert Judge(model).judge("What is an angle in optics?", EXISTING).judged is True
 
 
+def test_not_sure_without_a_named_question_is_still_a_usable_answer():
+    model = StandInModel({"label": "needs_review", "matches": [], "reason": "Broader.", "confidence": 3})
+
+    verdict = Judge(model).judge("What is an angle in optics?", EXISTING)
+
+    assert (verdict.label, verdict.matches, verdict.judged) == ("needs_review", (), True)
+
+
 def test_odd_confidence_values_do_not_break_the_verdict():
     model = StandInModel({"label": "different", "matches": [], "reason": "x", "confidence": "high"})
 
@@ -126,6 +134,13 @@ def test_one_unreachable_judge_still_needs_the_referee_to_agree():
 
     assert backed.judge("anything", EXISTING).label == "different"
     assert unbacked.judge("anything", EXISTING).label == "needs_review"
+
+
+def test_a_backup_referee_answers_when_the_first_referee_cannot():
+    used_up = _judge("x", error=LLMUnavailable("allowance used up"))
+    panel = JudgePanel(_judge("variant"), _judge("different", ()), used_up, _judge("variant"))
+
+    assert panel.judge("anything", EXISTING).label == "variant"
 
 
 def test_panel_with_no_usable_answer_at_all_is_held_without_a_verdict():

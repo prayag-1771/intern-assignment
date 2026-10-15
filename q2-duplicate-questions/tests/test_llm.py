@@ -158,3 +158,17 @@ def test_requests_can_be_switched_off_so_only_saved_replies_are_used(service, tm
     with pytest.raises(LLMUnavailable, match="switched off"):
         saved_only.ask_json("s", "never asked")
     assert len(sent) == 1
+
+
+def test_two_clients_for_one_model_never_lose_each_others_saved_replies(service, tmp_path):
+    replies, _ = service
+    replies.extend([FakeResponse(content='{"label": "a"}'), FakeResponse(content='{"label": "b"}')])
+    cache = tmp_path / "shared.json"
+    first = ChatModel("groq", "some-model", cache_path=cache)
+    second = ChatModel("groq", "some-model", cache_path=cache)
+
+    first.ask_json("s", "one")
+    second.ask_json("s", "two")
+    first.ask_json("s", "one")  # saves again after the second client's reply
+
+    assert len(json.loads(cache.read_text(encoding="utf-8"))) == 2
