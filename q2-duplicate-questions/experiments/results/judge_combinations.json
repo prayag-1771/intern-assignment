@@ -1,0 +1,144 @@
+{
+  "schemes": {
+    "alone: gpt-oss-120b": {
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 0,
+        "new question blocked": 1,
+        "unclear decided": 3,
+        "wrong question named": 1,
+        "sent to a person": 0,
+        "wrong kind of block": 0,
+        "no answer": 0
+      },
+      "ai_answers_used": 40
+    },
+    "alone: qwen3.8-27b": {
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 1,
+        "new question blocked": 1,
+        "unclear decided": 2,
+        "wrong question named": 0,
+        "sent to a person": 0,
+        "wrong kind of block": 1,
+        "no answer": 0
+      },
+      "ai_answers_used": 40
+    },
+    "alone: gemini-3.5-flash-lite": {
+      "outcomes": {
+        "correct": 32,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 1,
+        "wrong question named": 2,
+        "sent to a person": 2,
+        "wrong kind of block": 3,
+        "no answer": 0
+      },
+      "ai_answers_used": 40
+    },
+    "pair: gpt-oss-120b + qwen3.8-27b": {
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 2,
+        "wrong question named": 0,
+        "sent to a person": 3,
+        "wrong kind of block": 0,
+        "no answer": 0
+      },
+      "ai_answers_used": 80
+    },
+    "pair: gpt-oss-120b + gemini-3.5-flash-lite": {
+      "outcomes": {
+        "correct": 33,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 1,
+        "wrong question named": 1,
+        "sent to a person": 5,
+        "wrong kind of block": 0,
+        "no answer": 0
+      },
+      "ai_answers_used": 80
+    },
+    "pair+referee: gpt-oss-120b + qwen3.8-27b, referee gemini-3.8-flash": {
+      "outcomes": {
+        "correct": 37,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 2,
+        "wrong question named": 0,
+        "sent to a person": 1,
+        "wrong kind of block": 0,
+        "no answer": 0
+      },
+      "ai_answers_used": 84
+    },
+    "pair+referee: gpt-oss-120b + qwen3.8-27b, referee gemini-3.5-flash-lite": {
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 2,
+        "wrong question named": 0,
+        "sent to a person": 2,
+        "wrong kind of block": 1,
+        "no answer": 0
+      },
+      "ai_answers_used": 84
+    },
+    "majority: gpt-oss-120b, qwen3.8-27b, gpt-oss-20b": {
+      "outcomes": {
+        "correct": 36,
+        "copy let in": 0,
+        "new question blocked": 1,
+        "unclear decided": 3,
+        "wrong question named": 0,
+        "sent to a person": 0,
+        "wrong kind of block": 0,
+        "no answer": 0
+      },
+      "ai_answers_used": 120
+    },
+    "majority: gpt-oss-120b, qwen3.8-27b, gemini-3.5-flash-lite": {
+      "outcomes": {
+        "correct": 35,
+        "copy let in": 0,
+        "new question blocked": 0,
+        "unclear decided": 2,
+        "wrong question named": 0,
+        "sent to a person": 2,
+        "wrong kind of block": 1,
+        "no answer": 0
+      },
+      "ai_answers_used": 120
+    },
+    "cascade: gemini-3.5-flash-lite, then gpt-oss-120b": {
+      "outcomes": {
+        "correct": 33,
+        "copy let in": 0,
+        "new question blocked": 1,
+        "unclear decided": 3,
+        "wrong question named": 0,
+        "sent to a person": 0,
+        "wrong kind of block": 3,
+        "no answer": 0
+      },
+      "ai_answers_used": 44
+    }
+  },
+  "flash_lite_confidence_when_wrong": {
+    "C17": 4,
+    "C19": 5,
+    "C20": 5,
+    "C21": 5,
+    "C36": 5,
+    "C47": 4,
+    "C49": 5,
+    "C50": 4
+  }
+}

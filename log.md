@@ -259,8 +259,20 @@ Every change to this project is recorded here, newest day last. Each entry says 
 - Limits: 40 questions is small, so a difference of one or two answers can be chance. The pairs were chosen by looking at the same 40 questions, so the best pair's score is optimistic; it needs checking on questions it has not seen.
 - Commit: `Add Groq judge results`.
 
+## 2026-10-15
+
+### Question 2: other ways of combining judges
+
+- The user asked whether there was a better option than two judges that must agree. Added `experiments/combine_judges.py`, which replays the saved answers (no new AI calls) under several schemes. Results are in `experiments/results/judge_combinations.json`.
+- Best: two judges (`gpt-oss-120b` and `qwen3.8-27b`), and only when they disagree a referee (`gemini-3.8-flash`) is asked. 37 of 40 correct, no copy let in, no new question blocked, 2 unclear cases decided, 1 sent to a person. The referee was needed for 4 of the 40 questions, which fits its free allowance of 20 a day.
+- Majority vote of three Groq models: 36 correct but one new question blocked and all three unclear cases decided: voting hides doubt.
+- Cheap judge first, stronger judge only when the cheap one is unsure: 33 correct. It fails because `gemini-3.5-flash-lite` rated itself 4 or 5 out of 5 on every answer it got wrong, so its confidence is no guide.
+- Limit, as before: all schemes were compared on the same 40 questions that were used to pick them, so the best score is optimistic.
+- Commit: `Compare ways of combining judges`.
+
 ### Open
 
-- Decision waiting on the user: which LLM is the judge, or which pair.
+- Decision waiting on the user: which judge setup.
+- The deadline: the user said on 2026-10-11 they had four days, so it may be today. Asked the user for the exact date.
 - Then storage and the coverage summary.
 - Nothing has been pushed.
