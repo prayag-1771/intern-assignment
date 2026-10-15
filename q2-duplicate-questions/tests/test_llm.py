@@ -144,3 +144,17 @@ def test_cache_file_is_plain_json(service, tmp_path):
 
     saved = json.loads(cache.read_text(encoding="utf-8"))
     assert list(saved.values()) == ['{"label": "different"}']
+
+
+def test_requests_can_be_switched_off_so_only_saved_replies_are_used(service, tmp_path):
+    replies, sent = service
+    replies.append(FakeResponse())
+    cache = tmp_path / "cache.json"
+    ChatModel("groq", "some-model", cache_path=cache).ask_json("s", "u")
+
+    saved_only = ChatModel("groq", "some-model", cache_path=cache, allow_requests=False)
+
+    assert saved_only.ask_json("s", "u") == {"label": "different"}
+    with pytest.raises(LLMUnavailable, match="switched off"):
+        saved_only.ask_json("s", "never asked")
+    assert len(sent) == 1

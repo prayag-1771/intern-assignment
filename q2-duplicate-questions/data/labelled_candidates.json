@@ -1,5 +1,5 @@
 {
-  "about": "Our own answer key: 50 new questions, each labelled against the ten assignment questions in corpus.json. The assignment's ten questions contain no hard cases, so these add them: copies with different formatting, same questions in very different words, number swaps, and look-alike questions that test something else.",
+  "about": "Our own answer key: 47 new questions, each labelled against the ten assignment questions in corpus.json. The assignment's ten questions contain no hard cases, so these add them: copies with different formatting, same questions in very different words, number swaps, and look-alike questions that test something else. Labels were fixed before any judge saw them; see 'audit'.",
   "rule": "Perfect-answer test (decision D7): two questions are the same if a perfect answer to one would earn full marks on the other. Compare the concept and the task.",
   "labels": {
     "exact_duplicate": "the same text once case, punctuation, spacing and list or formatting marks are ignored",
@@ -11,62 +11,449 @@
   "fields": {
     "of": "the corpus question or questions this candidate relates to; any question in the same duplicate group counts as a correct match. Two entries mean the candidate joins two existing questions",
     "looks_like": "for 'different' candidates, the corpus question it resembles on the surface",
-    "judgement_call": "true where a careful person could reasonably choose another label"
+    "judgement_call": "true where a careful person could reasonably choose another label",
+    "added": "set on questions written after the first judge tests (2026-10-15 audit); results for them are reported separately"
   },
   "candidates": [
-    {"id": "C01", "text": "what is reflection of light", "label": "exact_duplicate", "of": ["Q1"], "note": "lower case, no question mark"},
-    {"id": "C02", "text": "What is  reflection of light ??", "label": "exact_duplicate", "of": ["Q1"], "note": "extra space, repeated question mark"},
-    {"id": "C03", "text": "DEFINE THE REFLECTION OF LIGHT.", "label": "exact_duplicate", "of": ["Q2"], "note": "capital letters"},
-    {"id": "C04", "text": "State the laws of reflection of light", "label": "exact_duplicate", "of": ["Q5"], "note": "no full stop"},
-    {"id": "C05", "text": "What is the angle of reflection ?", "label": "exact_duplicate", "of": ["Q6"], "note": "space before the question mark"},
-    {"id": "C06", "text": "what is the difference between regular and diffuse reflection", "label": "exact_duplicate", "of": ["Q9"], "note": "lower case, no question mark"},
-    {"id": "C07", "text": "1) State the laws of reflection of light.", "label": "exact_duplicate", "of": ["Q5"], "note": "question number in front"},
-    {"id": "C08", "text": "**Define the reflection of light.**", "label": "exact_duplicate", "of": ["Q2"], "note": "bold markers, as LLMs often add"},
-    {"id": "C09", "text": "The angle of incidence is 30 °. What is the angle of reflection ?", "label": "exact_duplicate", "of": ["Q7"], "note": "spaces before the degree sign and question mark"},
-    {"id": "C10", "text": "what is reflection", "label": "exact_duplicate", "of": ["Q8"], "note": "lower case, no question mark"},
-
-    {"id": "C11", "text": "What is meant by reflection of light?", "label": "semantic_duplicate", "of": ["Q1"], "note": "asks for the definition"},
-    {"id": "C12", "text": "Give the definition of reflection of light.", "label": "semantic_duplicate", "of": ["Q1"], "note": "asks for the definition"},
-    {"id": "C13", "text": "Describe what the term 'reflection of light' means.", "label": "semantic_duplicate", "of": ["Q1"], "note": "asks for the definition"},
-    {"id": "C14", "text": "What is meant by reflection in optics?", "label": "semantic_duplicate", "of": ["Q1"], "note": "hard: optics is the study of light, but the word 'light' is missing"},
-    {"id": "C15", "text": "What are the laws of reflection?", "label": "semantic_duplicate", "of": ["Q5"], "note": "asks for the laws"},
-    {"id": "C16", "text": "Write down the two laws of reflection of light.", "label": "semantic_duplicate", "of": ["Q5"], "note": "asks for the laws"},
-    {"id": "C17", "text": "Define the angle of reflection.", "label": "semantic_duplicate", "of": ["Q6"], "note": "asks for the definition"},
-    {"id": "C18", "text": "What is meant by the term 'angle of reflection'?", "label": "semantic_duplicate", "of": ["Q6"], "note": "asks for the definition"},
-    {"id": "C19", "text": "If the angle of incidence is 30°, what will be the angle of reflection?", "label": "semantic_duplicate", "of": ["Q7"], "note": "same calculation, same number"},
-    {"id": "C20", "text": "A ray of light strikes a plane mirror at an angle of incidence of 30 degrees. Find the angle of reflection.", "label": "semantic_duplicate", "of": ["Q7"], "note": "same calculation, same number, told as a small story"},
-    {"id": "C21", "text": "A light ray hits a flat mirror making an angle of 30° with the normal. At what angle does it bounce off?", "label": "semantic_duplicate", "of": ["Q7"], "note": "hard: same calculation, but neither 'incidence' nor 'reflection' appears"},
-    {"id": "C22", "text": "How do regular and diffuse reflection differ?", "label": "semantic_duplicate", "of": ["Q9"], "note": "asks for the difference"},
-    {"id": "C23", "text": "Distinguish between regular reflection and diffuse reflection.", "label": "semantic_duplicate", "of": ["Q9"], "note": "asks for the difference"},
-    {"id": "C24", "text": "Compare specular reflection with diffuse reflection.", "label": "semantic_duplicate", "of": ["Q9"], "judgement_call": true, "note": "hard: 'specular' is another word for 'regular'; 'compare' could also invite similarities"},
-    {"id": "C25", "text": "Which of the following best describes reflection of light? (A) Bending of light as it passes from one medium to another (B) Bouncing back of light from a surface (C) Splitting of white light into colours (D) Absorption of light by a surface", "label": "semantic_duplicate", "of": ["Q1"], "judgement_call": true, "note": "same knowledge in multiple-choice form; the student recognises the definition instead of writing it"},
-    {"id": "C26", "text": "The bouncing back of light when it strikes a surface is called ________.", "label": "semantic_duplicate", "of": ["Q1"], "judgement_call": true, "note": "same knowledge as a fill-in-the-blank; goes from definition to term"},
-    {"id": "C27", "text": "Explain reflection.", "label": "semantic_duplicate", "of": ["Q8"], "note": "the same open question as Q8"},
-
-    {"id": "C28", "text": "The angle of incidence is 45°. What is the angle of reflection?", "label": "variant", "of": ["Q7"], "note": "only the number changes"},
-    {"id": "C29", "text": "The angle of incidence is 60°. What is the angle of reflection?", "label": "variant", "of": ["Q7"], "note": "only the number changes"},
-    {"id": "C30", "text": "A ray of light falls on a plane mirror at an angle of incidence of 20°. Find the angle of reflection.", "label": "variant", "of": ["Q7"], "note": "different wording and a different number, same calculation"},
-
-    {"id": "C31", "text": "What is refraction of light?", "label": "different", "of": [], "looks_like": "Q1", "note": "one word differs, another concept"},
-    {"id": "C32", "text": "Define the refraction of light.", "label": "different", "of": [], "looks_like": "Q2", "note": "one word differs, another concept"},
-    {"id": "C33", "text": "State the laws of refraction of light.", "label": "different", "of": [], "looks_like": "Q5", "note": "one word differs, another concept"},
-    {"id": "C34", "text": "What is the angle of incidence?", "label": "different", "of": [], "looks_like": "Q6", "note": "another angle"},
-    {"id": "C35", "text": "The angle of reflection is 30°. What is the angle between the incident ray and the reflected ray?", "label": "different", "of": [], "looks_like": "Q7", "note": "another calculation; the answer is 60°"},
-    {"id": "C36", "text": "A ray of light makes an angle of 30° with the surface of a plane mirror. What is the angle of reflection?", "label": "different", "of": [], "looks_like": "Q7", "judgement_call": true, "note": "needs an extra step: the angle is with the surface, so the answer is 60°"},
-    {"id": "C37", "text": "Describe an experiment to verify the laws of reflection.", "label": "different", "of": [], "looks_like": "Q5", "note": "same concept, another task"},
-    {"id": "C38", "text": "Give two examples of reflection of light in daily life.", "label": "different", "of": [], "looks_like": "Q1", "note": "same concept, another task"},
-    {"id": "C39", "text": "Draw a labelled ray diagram showing the reflection of light from a plane mirror.", "label": "different", "of": [], "looks_like": "Q1", "note": "same concept, another task"},
-    {"id": "C40", "text": "What is the difference between reflection and refraction of light?", "label": "different", "of": [], "looks_like": "Q9", "note": "compares another pair of concepts"},
-    {"id": "C41", "text": "Give one example each of regular and diffuse reflection.", "label": "different", "of": [], "looks_like": "Q9", "note": "same concept, another task"},
-    {"id": "C42", "text": "What is total internal reflection?", "label": "different", "of": [], "looks_like": "Q8", "note": "a separate phenomenon"},
-    {"id": "C43", "text": "What is a normal in the context of reflection of light?", "label": "different", "of": [], "looks_like": "Q6", "note": "another term"},
-    {"id": "C44", "text": "What kind of image is formed by a plane mirror?", "label": "different", "of": [], "note": "related topic, another concept"},
-    {"id": "C45", "text": "What is the speed of light in vacuum?", "label": "different", "of": [], "note": "easy case: another concept"},
-    {"id": "C46", "text": "Name the SI unit of electric current.", "label": "different", "of": [], "note": "easy case: another topic altogether"},
-
-    {"id": "C47", "text": "What is the relation between the angle of incidence and the angle of reflection?", "label": "needs_review", "of": ["Q5"], "judgement_call": true, "note": "narrower than Q5: asks for one of the two laws"},
-    {"id": "C48", "text": "Define reflection of light and state its laws.", "label": "semantic_duplicate", "of": ["Q1", "Q5"], "judgement_call": true, "note": "Q1 and Q5 joined into one question; perfect answers to both, together, are a perfect answer to this, so nothing new is asked"},
-    {"id": "C49", "text": "What happens when a ray of light falls on a polished surface?", "label": "needs_review", "of": ["Q1"], "note": "the answer is reflection, but the question is looser than Q1"},
-    {"id": "C50", "text": "Explain the reflection of waves.", "label": "needs_review", "of": ["Q8"], "note": "one reading of the open question Q8, wider than Q1"}
-  ]
+    {
+      "id": "C01",
+      "text": "what is reflection of light",
+      "label": "exact_duplicate",
+      "of": [
+        "Q1"
+      ],
+      "note": "lower case, no question mark"
+    },
+    {
+      "id": "C02",
+      "text": "What is  reflection of light ??",
+      "label": "exact_duplicate",
+      "of": [
+        "Q1"
+      ],
+      "note": "extra space, repeated question mark"
+    },
+    {
+      "id": "C03",
+      "text": "DEFINE THE REFLECTION OF LIGHT.",
+      "label": "exact_duplicate",
+      "of": [
+        "Q2"
+      ],
+      "note": "capital letters"
+    },
+    {
+      "id": "C07",
+      "text": "1) State the laws of reflection of light.",
+      "label": "exact_duplicate",
+      "of": [
+        "Q5"
+      ],
+      "note": "question number in front"
+    },
+    {
+      "id": "C08",
+      "text": "**Define the reflection of light.**",
+      "label": "exact_duplicate",
+      "of": [
+        "Q2"
+      ],
+      "note": "bold markers, as LLMs often add"
+    },
+    {
+      "id": "C09",
+      "text": "The angle of incidence is 30 °. What is the angle of reflection ?",
+      "label": "exact_duplicate",
+      "of": [
+        "Q7"
+      ],
+      "note": "spaces before the degree sign and question mark"
+    },
+    {
+      "id": "C11",
+      "text": "What is meant by reflection of light?",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q1"
+      ],
+      "note": "asks for the definition"
+    },
+    {
+      "id": "C13",
+      "text": "Describe what the term 'reflection of light' means.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q1"
+      ],
+      "note": "asks for the definition"
+    },
+    {
+      "id": "C14",
+      "text": "What is meant by reflection in optics?",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q1"
+      ],
+      "note": "hard: optics is the study of light, but the word 'light' is missing"
+    },
+    {
+      "id": "C15",
+      "text": "What are the laws of reflection?",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q5"
+      ],
+      "note": "asks for the laws"
+    },
+    {
+      "id": "C16",
+      "text": "Write down the two laws of reflection of light.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q5"
+      ],
+      "note": "asks for the laws"
+    },
+    {
+      "id": "C17",
+      "text": "Define the angle of reflection.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q6"
+      ],
+      "note": "asks for the definition"
+    },
+    {
+      "id": "C18",
+      "text": "What is meant by the term 'angle of reflection'?",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q6"
+      ],
+      "note": "asks for the definition"
+    },
+    {
+      "id": "C19",
+      "text": "If the angle of incidence is 30°, what will be the angle of reflection?",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q7"
+      ],
+      "note": "same calculation, same number"
+    },
+    {
+      "id": "C20",
+      "text": "A ray of light strikes a plane mirror at an angle of incidence of 30 degrees. Find the angle of reflection.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q7"
+      ],
+      "note": "same calculation, same number, told as a small story"
+    },
+    {
+      "id": "C21",
+      "text": "A light ray hits a flat mirror making an angle of 30° with the normal. At what angle does it bounce off?",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q7"
+      ],
+      "note": "hard: same calculation, but neither 'incidence' nor 'reflection' appears"
+    },
+    {
+      "id": "C22",
+      "text": "How do regular and diffuse reflection differ?",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q9"
+      ],
+      "note": "asks for the difference"
+    },
+    {
+      "id": "C24",
+      "text": "Compare specular reflection with diffuse reflection.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q9"
+      ],
+      "judgement_call": true,
+      "note": "hard: 'specular' is another word for 'regular'; 'compare' could also invite similarities"
+    },
+    {
+      "id": "C25",
+      "text": "Which of the following best describes reflection of light? (A) Bending of light as it passes from one medium to another (B) Bouncing back of light from a surface (C) Splitting of white light into colours (D) Absorption of light by a surface",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q1"
+      ],
+      "judgement_call": true,
+      "note": "same knowledge in multiple-choice form; the student recognises the definition instead of writing it"
+    },
+    {
+      "id": "C26",
+      "text": "The bouncing back of light when it strikes a surface is called ________.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q1"
+      ],
+      "judgement_call": true,
+      "note": "same knowledge as a fill-in-the-blank; goes from definition to term"
+    },
+    {
+      "id": "C27",
+      "text": "Explain reflection.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q8"
+      ],
+      "note": "the same open question as Q8"
+    },
+    {
+      "id": "C28",
+      "text": "The angle of incidence is 45°. What is the angle of reflection?",
+      "label": "variant",
+      "of": [
+        "Q7"
+      ],
+      "note": "only the number changes"
+    },
+    {
+      "id": "C29",
+      "text": "The angle of incidence is 60°. What is the angle of reflection?",
+      "label": "variant",
+      "of": [
+        "Q7"
+      ],
+      "note": "only the number changes"
+    },
+    {
+      "id": "C30",
+      "text": "A ray of light falls on a plane mirror at an angle of incidence of 20°. Find the angle of reflection.",
+      "label": "variant",
+      "of": [
+        "Q7"
+      ],
+      "note": "different wording and a different number, same calculation"
+    },
+    {
+      "id": "C31",
+      "text": "What is refraction of light?",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q1",
+      "note": "one word differs, another concept"
+    },
+    {
+      "id": "C33",
+      "text": "State the laws of refraction of light.",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q5",
+      "note": "one word differs, another concept"
+    },
+    {
+      "id": "C34",
+      "text": "What is the angle of incidence?",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q6",
+      "note": "another angle"
+    },
+    {
+      "id": "C35",
+      "text": "The angle of reflection is 30°. What is the angle between the incident ray and the reflected ray?",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q7",
+      "note": "another calculation; the answer is 60°"
+    },
+    {
+      "id": "C36",
+      "text": "A ray of light makes an angle of 30° with the surface of a plane mirror. What is the angle of reflection?",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q7",
+      "judgement_call": true,
+      "note": "needs an extra step: the angle is with the surface, so the answer is 60°"
+    },
+    {
+      "id": "C38",
+      "text": "Give two examples of reflection of light in daily life.",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q1",
+      "note": "same concept, another task"
+    },
+    {
+      "id": "C39",
+      "text": "Draw a labelled ray diagram showing the reflection of light from a plane mirror.",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q1",
+      "note": "same concept, another task"
+    },
+    {
+      "id": "C40",
+      "text": "What is the difference between reflection and refraction of light?",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q9",
+      "note": "compares another pair of concepts"
+    },
+    {
+      "id": "C41",
+      "text": "Give one example each of regular and diffuse reflection.",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q9",
+      "note": "same concept, another task"
+    },
+    {
+      "id": "C42",
+      "text": "What is total internal reflection?",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q8",
+      "note": "a separate phenomenon"
+    },
+    {
+      "id": "C43",
+      "text": "What is a normal in the context of reflection of light?",
+      "label": "different",
+      "of": [],
+      "looks_like": "Q6",
+      "note": "another term"
+    },
+    {
+      "id": "C44",
+      "text": "What kind of image is formed by a plane mirror?",
+      "label": "different",
+      "of": [],
+      "note": "related topic, another concept"
+    },
+    {
+      "id": "C45",
+      "text": "What is the speed of light in vacuum?",
+      "label": "different",
+      "of": [],
+      "note": "easy case: another concept"
+    },
+    {
+      "id": "C47",
+      "text": "What is the relation between the angle of incidence and the angle of reflection?",
+      "label": "needs_review",
+      "of": [
+        "Q5"
+      ],
+      "judgement_call": true,
+      "note": "narrower than Q5: asks for one of the two laws"
+    },
+    {
+      "id": "C48",
+      "text": "Define reflection of light and state its laws.",
+      "label": "semantic_duplicate",
+      "of": [
+        "Q1",
+        "Q5"
+      ],
+      "judgement_call": true,
+      "note": "Q1 and Q5 joined into one question; perfect answers to both, together, are a perfect answer to this, so nothing new is asked"
+    },
+    {
+      "id": "C49",
+      "text": "What happens when a ray of light falls on a polished surface?",
+      "label": "needs_review",
+      "of": [
+        "Q1"
+      ],
+      "note": "the answer is reflection, but the question is looser than Q1"
+    },
+    {
+      "id": "C50",
+      "text": "Explain the reflection of waves.",
+      "label": "needs_review",
+      "of": [
+        "Q8"
+      ],
+      "note": "one reading of the open question Q8, wider than Q1"
+    },
+    {
+      "id": "C51",
+      "text": "A ray of light strikes a plane mirror with an angle of incidence of 35°. What is its angle of reflection?",
+      "label": "variant",
+      "of": [
+        "Q7"
+      ],
+      "note": "other wording and another number, same calculation",
+      "added": "2026-10-15"
+    },
+    {
+      "id": "C52",
+      "text": "If the angle of incidence is 0°, what is the angle of reflection?",
+      "label": "variant",
+      "of": [
+        "Q7"
+      ],
+      "note": "another number, an edge case (the ray falls along the normal)",
+      "added": "2026-10-15"
+    },
+    {
+      "id": "C53",
+      "text": "The angle of reflection is 40°. What is the angle of incidence?",
+      "label": "variant",
+      "of": [
+        "Q7"
+      ],
+      "judgement_call": true,
+      "note": "same law and method, but the given and asked angles are swapped",
+      "added": "2026-10-15"
+    },
+    {
+      "id": "C54",
+      "text": "State the first law of reflection.",
+      "label": "needs_review",
+      "of": [
+        "Q5"
+      ],
+      "note": "asks for one of the two laws Q5 asks for",
+      "added": "2026-10-15"
+    },
+    {
+      "id": "C55",
+      "text": "What happens to light when it falls on a surface?",
+      "label": "needs_review",
+      "of": [
+        "Q1"
+      ],
+      "judgement_call": true,
+      "note": "looser than Q1: the answer could also be absorption or refraction",
+      "added": "2026-10-15"
+    },
+    {
+      "id": "C56",
+      "text": "Define the angle of incidence and the angle of reflection.",
+      "label": "needs_review",
+      "of": [
+        "Q6"
+      ],
+      "note": "half repeats Q6 and half is new (angle of incidence), so it is only partly covered",
+      "added": "2026-10-15"
+    }
+  ],
+  "audit": {
+    "date": "2026-10-15",
+    "removed": {
+      "C04": "tests the same clean-up as C01 (missing end punctuation); the clean-up is also covered by unit tests",
+      "C05": "tests the same clean-up as C09 (space before a question mark)",
+      "C06": "tests the same clean-up as C01 (lower case, no question mark) on another question",
+      "C10": "tests the same clean-up as C01 (lower case, no question mark) on another question",
+      "C12": "almost the same wording as corpus question Q2, so it tests nothing Q2 does not",
+      "C23": "the same plain rewording of Q9 as C22, in another exam phrase",
+      "C32": "the same one-word trick (refraction for reflection) on the same question group as C31",
+      "C37": "its wording matches a worked example in the judge's instructions ('an experiment to verify'), which would favour the judge",
+      "C46": "off the subject; the assignment asks for different questions on the same subject"
+    },
+    "why_removed": "redundant with another test question, off the subject, or worded like the judge's own examples. None of the removed questions was answered wrongly by any judge, so removing them can only lower the scores, not raise them.",
+    "added_because": "only 3 variant and 3 needs-review questions existed, too few to measure those cases",
+    "labels_changed": "none"
+  }
 }

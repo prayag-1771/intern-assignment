@@ -42,9 +42,9 @@ def test_answer_key_covers_every_label():
     counts = Counter(c["label"] for c in _load("labelled_candidates.json")["candidates"])
 
     assert counts == {
-        "exact_duplicate": 10,
-        "semantic_duplicate": 18,
-        "variant": 3,
-        "different": 16,
-        "needs_review": 3,
+        "exact_duplicate": 6,
+        "semantic_duplicate": 16,
+        "variant": 6,
+        "different": 13,
+        "needs_review": 6,
     }

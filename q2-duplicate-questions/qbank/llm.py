@@ -45,6 +45,7 @@ class ChatModel:
         temperature: float = 0.0,
         cache_path: Path | None = None,
         extra: dict | None = None,
+        allow_requests: bool = True,
     ):
         if provider not in PROVIDERS:
             raise ValueError(f"Unknown provider {provider!r}; choose one of {sorted(PROVIDERS)}.")
@@ -54,6 +55,8 @@ class ChatModel:
         self._url, self._key_name = PROVIDERS[provider]
         self._temperature = temperature
         self._extra = extra or {}
+        # False: answer only from saved replies, e.g. to keep a small daily allowance for other work.
+        self._allow_requests = allow_requests
         # One file per model, so several models can be run at once without overwriting each other.
         self._cache_path = cache_path or CACHE_DIR / f"{provider}__{model.replace('/', '__')}.json"
         self._cache = self._read_cache()
@@ -86,6 +89,8 @@ class ChatModel:
             json.dump(self._cache, handle, ensure_ascii=False, indent=1, sort_keys=True)
 
     def _request(self, system: str, user: str) -> str:
+        if not self._allow_requests:
+            raise LLMUnavailable(f"{self.name}: this request is not cached and new requests are switched off.")
         key = api_key(self._key_name)
         if key is None:
             raise LLMUnavailable(f"{self.name}: this request is not cached and {self._key_name} is not set.")
